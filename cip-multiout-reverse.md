@@ -77,6 +77,8 @@ However, this comes with the drawback of not being able to see when you have bee
 
 4. Preserve, to the greatest possible extent, the storage consumption benefits, whilst fully implementing #2 and #3.
 
+5. Implement all of this in a way that does not require the network to fork.
+
 ### Proposed Solution:
 
 1. Implement a background task that will scan existing blocks and, when new blocks come in, scan them, and analyze all Multi-Out (Same) transactions. When this task finds a Multi-Out (Same) transaction it should add each recipient account ID and the transaction ID of the current transaction to a new database table, which is defined as follows:
