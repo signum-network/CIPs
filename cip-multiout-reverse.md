@@ -85,12 +85,12 @@ However, this comes with the drawback of not being able to see when you have bee
 
 | Column Name | Data Type | Description | Example Value |
 |-|-|-|-|
-| recipient | BIGINT (64-bit unsigned long) | The account ID of the recipient of a Multi-Out (Same) transaction | 7009665667967103287 |
-| transaction | BIGINT (64-bit unsigned long) | The transaction ID of the Multi-Out (Same) transaction in which this account was paid | 3631659512270044993 |
+| recipient_id | BIGINT (64-bit unsigned long) | The account ID of the recipient of a Multi-Out (Same) transaction | 7009665667967103287 |
+| transaction_id | BIGINT (64-bit unsigned long) | The transaction ID of the Multi-Out (Same) transaction in which this account was paid | 3631659512270044993 |
 
 For example, if the service process a Multi-Out with transaction ID `TransactionA` and accounts `AccountA`, `AccountB` and `AccountC` are paid an amount, and then processes a Multi-Out Same with transaction ID `TransactionB` where accounts `AccountA` and `AccountD` are paid, it would add the rows:
 
-| recipient | transaction |
+| recipient_id | transaction_id |
 |-|-|
 | AccountA | TransactionA |
 | AccountB | TransactionA |
@@ -100,7 +100,7 @@ For example, if the service process a Multi-Out with transaction ID `Transaction
 
 2. When a user requests their transaction list, search the table for all rows where `recipient` is equal to the user's account ID, which would in this example for `AccountA` return:
 
-| recipient | transaction |
+| recipient_id | transaction_id |
 |-|-|
 | AccountA | TransactionA |
 | AccountA | TransactionB |
