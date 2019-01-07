@@ -107,7 +107,7 @@ For example, if the service process a Multi-Out with transaction ID `Transaction
 
 3. Lookup the transactions found and add them to the list of regular transactions obtained from the transactions table in the database.
 
-4. When displaying the list of transactions, display the incoming amount as the amount that `AccountA` was paid in the Multi-Out (Same) transaction
+4. When displaying the list of transactions, display the incoming amount as the amount that `AccountA` was paid in the Multi-Out (Same) transaction. There will only be one entry in the multi-out recipients as accounts cannot be sent to twice in the same Multi-Out (Same) transaction.
 
 ### Impact on database storage
 
