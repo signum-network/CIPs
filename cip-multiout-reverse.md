@@ -125,7 +125,7 @@ Therefore, I am satisfied that objective #4 is fulfilled, as we are taking a rel
 
 ## Compatibility
 
-This will affect users of the `getAccountTransactions` and `getAccountTransactionIDs` API calls, so we should add a boolean flag to the request parameters to "Include Incoming Multi-Outs" which will default to false, as otherwise clients using the API that have not update will be confused by the fact that the account is not the recipient of the transaction and by the fact that the transaction amount is not the amount sent to the account.
+This will affect users of the `getAccountTransactions` and `getAccountTransactionIDs` API calls, so we should add a boolean flag to the request parameters to "Include Incoming Multi-Outs" which will default to false, as otherwise clients using the API that have not updated will be confused by the fact that the account is not the recipient of the transaction and by the fact that the transaction amount is not the amount sent to the account.
 
 This should otherwise be implemented within the node and P2P should not be touched, and as long as the Web UI is upgraded there should be no further compatibility issues.
 
