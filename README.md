@@ -25,5 +25,7 @@ Having a CIP listed here doesn't guarantee it is an accepted standard until its 
 | [15](cip-0015.md "wikilink")        | Consensus (hard fork) | RWFDS-enabled FEE\_QUANT Introspection and Adjustment | @Frank72      | Standard      | Draft    |
 | [16](cip-0016.md "wikilink")        | Enhancement           | PoC2.X16 - A New Optimized Plot File Format           | @JohnnyFFM    | Standard      | Draft    |
 | [17](cip-0017.md "wikilink")        | Enhancement           | Differential UT Propagation in push & pull            | @Brabantian   | Standard      | Active |
+| [18](cip-0017.md "wikilink")        | Applications           | Cross-Platform Wallet UI            | @blankey1337, @ohager   | Standard      | Active |
+| [17](cip-0017.md "wikilink")        | Enhancement           | Multi-Out: View Incoming Transactions            | @harry1453   | Standard      | Active |
 
 <!-- IMPORTANT!  See the instructions at the top of this page, do NOT JUST add CIPs here! -->
