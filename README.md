@@ -27,6 +27,6 @@ Having a CIP listed here doesn't guarantee it is an accepted standard until its 
 | [17](cip-0017.md "wikilink")        | Enhancement           | Differential UT Propagation in push & pull            | @Brabantian   | Standard      | Active |
 | [18](cip-0018.md "wikilink")        | Applications           | Cross-Platform Wallet UI            | @blankey1337, @ohager   | Standard      | Active |
 | [19](cip-0019.md "wikilink")        | Enhancement           | Multi-Out: View Incoming Transactions            | @harry1453   | Standard      | Active |
-| [20](cip-0020.md "wikilink")        | Enhancement (Hard Fork)          | Updated AT fees            | @frank_the_tank, @jjos, @burstjack   | Standard      | Draft |
+| [20](cip-0020.md "wikilink")        | Enhancement (Hard Fork)          | Updated AT fees            | @frank_the_tank, @jjos, @burstjack   | Standard      | Active |
 
 <!-- IMPORTANT!  See the instructions at the top of this page, do NOT JUST add CIPs here! -->
