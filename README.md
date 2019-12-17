@@ -8,7 +8,7 @@ Having a CIP listed here doesn't guarantee it is an accepted standard until its 
 
 | Number                              | Layer                 | Title                                                 | Owner         | Type          | Status   |
 | ----------------------------------- | --------------------- | ----------------------------------------------------- | ------------- | ------------- | -------- |
-| [1](cip-0001.md "wikilink")  | Applications          | Dynamic BRS Node Capabilities                         | @rico666      | Informational | Pending   |
+| [1](cip-0001.md "wikilink")  | Applications          | Dynamic BRS Node Capabilities                         | @rico666      | Informational | Active   |
 | [2](cip-0002.md "wikilink")  | Consensus (hard fork) | Quadruple Block Size                                  | @rico666      | Standard      | Active   |
 | [3](cip-0003.md "wikilink")  | Consensus (hard fork) | Variable Slot-based Fees                              | @rico666      | Standard      | Active   |
 | [4](cip-0004.md "wikilink")  | Consensus (hard fork) | Multi-Out Transactions                                | @rico666      | Standard      | Active   |
