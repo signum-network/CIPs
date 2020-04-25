@@ -15,6 +15,7 @@ This document defines the small network changes that will be activated as part o
 ### AT VM - MD5ATOB
 
 Expected behaviour: The MD5 sum of registers A1 and A2 is copied into B1 and B2.
+
 Actual behaviour: Bytes 9-16 of the MD5 sum of registers A1 and A2 are copied into the register B1, and B2 is left untouched.
 
 This change rectifies this behaviour to match the expected behaviour.
@@ -22,6 +23,7 @@ This change rectifies this behaviour to match the expected behaviour.
 ### AT VM - getRandomIdForTxInA
 
 Expected behaviour: The first 8 bytes of the sha256 hash of the previous block's generation signature followed by the transaction ID in register A1 is returned.
+
 Actual behaviour: The first 8 bytes of the sha256 hash of the previous block's generation signature, followed by the transaction ID in register A1, followed by 56 zeroed bytes is returned.
 
 This change rectifies this behaviour to match the expected behaviour.
@@ -29,6 +31,7 @@ This change rectifies this behaviour to match the expected behaviour.
 ### AT VM - putLastBlockGenerationSignatureInA
 
 Expected behaviour: The generation signature of the previous block is copied into registers A1-A4.
+
 Actual behaviour: BufferUnderflowException is thrown.
 
 This change rectifies this behaviour to match the expected behaviour.
