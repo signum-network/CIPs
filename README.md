@@ -33,10 +33,10 @@ Having a CIP listed here doesn't guarantee it is an accepted standard until its 
 | [23](cip-0023.md "wikilink")        | Enhancement (Hard Fork) | Enforce slot fees  | @CurbShifter   | Standard      | Active |
 | [24](cip-0024.md "wikilink")        | Enhancement (Hard Fork) | New deadline algorithm based on a logarithm transformation  | @jjos   | Standard      | Active |
 | [25](cip-0025.md "wikilink")        | Enhancement (Hard Fork) | Minor Network Changes | @harry1453  | Standard      | Active |
-| [26](cip-0026.md "wikilink")        | Enhancement | Extended Reed Solomon Address Format | @ohager, jjos  | Standard      | Draft |
-| [27](cip-0027.md "wikilink")        | Enhancement (Hard Fork) | Proof of Commitment (PoC+) consensus | @jjos   | Standard      | Draft |
-| [28](cip-0028.md "wikilink")        | Enhancement (Hard Fork) | Updated AT max steps and AT API | @frank_the_tank, @jjos, @ohager   | Standard      | Draft |
-| [29](cip-0029.md "wikilink")        | Enhancement (Hard Fork) | Mininum mining incentives | @frank_the_tank, @jjos, @shefas   | Standard      | Draft |
+| [26](cip-0026.md "wikilink")        | Enhancement | Extended Reed Solomon Address Format | @ohager, jjos  | Standard      | Active |
+| [27](cip-0027.md "wikilink")        | Enhancement (Hard Fork) | Proof of Commitment (PoC+) consensus | @jjos   | Standard      | Active |
+| [28](cip-0028.md "wikilink")        | Enhancement (Hard Fork) | Updated AT max steps and AT API | @frank_the_tank, @jjos, @ohager   | Standard      | Active |
+| [29](cip-0029.md "wikilink")        | Enhancement (Hard Fork) | Mininum mining incentives | @frank_the_tank, @jjos, @shefas   | Standard      | Active |
 
 
 <!-- IMPORTANT!  See the instructions at the top of this page, do NOT JUST add CIPs here! -->
