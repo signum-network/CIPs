@@ -4,7 +4,7 @@ People willing to submit CIPs should do it in the for of Pull Requests (PRs). Pl
 
 Having a CIP listed here doesn't guarantee it is an accepted standard until its status becomes Final or Active.
 
-## Burstcoin Capability Improvement Proposals
+## Signum Capability Improvement Proposals
 
 | Number                              | Layer                 | Title                                                 | Owner         | Type          | Status   |
 | ----------------------------------- | --------------------- | ----------------------------------------------------- | ------------- | ------------- | -------- |
