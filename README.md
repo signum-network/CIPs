@@ -1,6 +1,6 @@
 # CIPs
 
-People willing to submit CIPs should do it in the for of Pull Requests (PRs). Please open your PR, after discussion on the Signum Discord Server. After copy-editing and acceptance, it will be published here.
+People willing to submit CIPs should do it in the form of Pull Requests (PRs). Please open your PR, after discussion on the Signum Discord Server. After copy-editing and acceptance, it will be published here.
 
 Having a CIP listed here doesn't guarantee it is an accepted standard until its status becomes Final or Active.
 
