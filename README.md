@@ -28,7 +28,7 @@ Having a CIP listed here doesn't guarantee it is an accepted standard until its 
 | [18](cip-0018.md "wikilink")        | Applications           | Cross-Platform Wallet UI            | @blankey1337, @ohager   | Standard      | Active |
 | [19](cip-0019.md "wikilink")        | Enhancement           | Multi-Out: View Incoming Transactions            | @harry1453   | Standard      | Active |
 | [20](cip-0020.md "wikilink")        | Enhancement (Hard Fork)          | Updated AT fees            | @frank_the_tank, @jjos, @burstjack   | Standard      | Active |
-| [21](cip-0021.md "wikilink")        | Enhancement (Hard Fork) | Adjustment for Asset-Issuance fee | @frank_the_tank, @burstjack   | Standard      | Draft |
+| [21](cip-0021.md "wikilink")        | Enhancement (Hard Fork) | Adjustment for Asset-Issuance fee | @frank_the_tank, @burstjack   | Standard      | Active |
 | [22](cip-0022.md "wikilink")        | Enhancement          | Burst Deep Link Specification  | @ohager   | Standard      | Active |
 | [23](cip-0023.md "wikilink")        | Enhancement (Hard Fork) | Enforce slot fees  | @CurbShifter   | Standard      | Active |
 | [24](cip-0024.md "wikilink")        | Enhancement (Hard Fork) | New deadline algorithm based on a logarithm transformation  | @jjos   | Standard      | Active |
@@ -37,9 +37,9 @@ Having a CIP listed here doesn't guarantee it is an accepted standard until its 
 | [27](cip-0027.md "wikilink")        | Enhancement (Hard Fork) | Proof of Commitment (PoC+) consensus | @jjos   | Standard      | Active |
 | [28](cip-0028.md "wikilink")        | Enhancement (Hard Fork) | Updated AT max steps and AT API | @frank_the_tank, @jjos, @ohager   | Standard      | Active |
 | [29](cip-0029.md "wikilink")        | Enhancement (Hard Fork) | Mininum mining incentives | @frank_the_tank, @jjos, @shefas   | Standard      | Active |
-| [30](cip-0030.md "wikilink")        | Enhancement (Hard Fork) | Carbon Contracts | @frank_the_tank, @jjos   | Standard      | Draft |
-| [31](cip-0031.md "wikilink")        | Enhancement (Hard Fork) | New fee regime |  @jjos, @frank_the_tank   | Standard      | Draft |
-| [32](cip-0032.md "wikilink")        | Enhancement (Hard Fork) | PoC+ Polishing |  @jjos, @ohager, @frank_the_tank   | Standard      | Draft |
+| [30](cip-0030.md "wikilink")        | Enhancement (Hard Fork) | Carbon Contracts | @frank_the_tank, @jjos   | Standard      | Active |
+| [31](cip-0031.md "wikilink")        | Enhancement (Hard Fork) | New fee regime |  @jjos, @frank_the_tank   | Standard      | Active |
+| [32](cip-0032.md "wikilink")        | Enhancement (Hard Fork) | PoC+ Polishing |  @jjos, @ohager, @frank_the_tank   | Standard      | Active |
 
 
 <!-- IMPORTANT!  See the instructions at the top of this page, do NOT JUST add CIPs here! -->
