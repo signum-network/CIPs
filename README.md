@@ -40,6 +40,7 @@ Having a CIP listed here doesn't guarantee it is an accepted standard until its 
 | [30](cip-0030.md "wikilink")        | Enhancement (Hard Fork) | Carbon Contracts | @frank_the_tank, @jjos   | Standard      | Active |
 | [31](cip-0031.md "wikilink")        | Enhancement (Hard Fork) | New fee regime |  @jjos, @frank_the_tank   | Standard      | Active |
 | [32](cip-0032.md "wikilink")        | Enhancement (Hard Fork) | PoC+ Polishing |  @jjos, @ohager, @frank_the_tank   | Standard      | Active |
+| [33](cip-0033.md "wikilink")        | Enhancement (Hard Fork) | Smart Tokens|  @jjos, @frank_the_tank   | Standard      | Draft |
 
 
 <!-- IMPORTANT!  See the instructions at the top of this page, do NOT JUST add CIPs here! -->
