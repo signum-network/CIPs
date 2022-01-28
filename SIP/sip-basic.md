@@ -97,7 +97,7 @@ SIPs should be written in [markdown](https://github.com/adam-p/markdown-here/wik
 
 Each SIP must begin with an [RFC 822](https://www.ietf.org/rfc/rfc822.txt) style header preamble, preceded and followed by three hyphens (`---`). This header is also termed ["front matter" by Jekyll](https://jekyllrb.com/docs/front-matter/). The headers must appear in the following order.
 
-`eip`: *SIP number* (this is determined by the SIP editor)
+`sip`: *SIP number* (this is determined by the SIP editor)
 
 `title`: *The SIP title is a few words, not a complete sentence*
 
@@ -113,7 +113,7 @@ Each SIP must begin with an [RFC 822](https://www.ietf.org/rfc/rfc822.txt) style
 
 `type`: *One of `Standards Track`, `Meta`, or `Informational`*
 
-`category`: *One of `Core`, `Networking`, `Interface`, or `ERC`* (Optional field, only needed for `Standards Track` EIPs)
+`category`: *One of `Core`, `Networking`, `Interface`, or `ERC`* (Optional field, only needed for `Standards Track` SIPs)
 
 `created`: *Date the SIP was created on*
 
@@ -164,7 +164,7 @@ The `created` header records the date that the SIP was assigned a number. Both h
 
 #### `requires` header
 
-SIPs may have a `requires` header, indicating the EIP numbers that this EIP depends on.
+SIPs may have a `requires` header, indicating the SIP numbers that this SIP depends on.
 
 ## Linking to other SIPs
 
@@ -172,7 +172,7 @@ References to other SIPs should follow the format `SIP-N` where `N` is the SIP n
 
 ## Auxiliary Files
 
-Images, diagrams and auxiliary files should be included in a subdirectory of the `assets` folder for that SIP as follows: `assets/sip-N` (where **N** is to be replaced with the EIP number). When linking to an image in the SIP, use relative links such as `../assets/sip-1/image.png`.
+Images, diagrams and auxiliary files should be included in a subdirectory of the `assets` folder for that SIP as follows: `assets/sip-N` (where **N** is to be replaced with the SIP number). When linking to an image in the SIP, use relative links such as `../assets/sip-1/image.png`.
 
 
 
@@ -189,7 +189,7 @@ For each new SIP that comes in, an author does the following:
 
 ### SIP numbers
 
-When referring to an SIP by number, it should be written in the hyphenated form `SIP-X` where `X` is the EIP's assigned number.
+When referring to an SIP by number, it should be written in the hyphenated form `SIP-X` where `X` is the SIP's assigned number.
 
 ### RFC 2119
 
