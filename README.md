@@ -26,21 +26,21 @@ The Signum Improvement Proposals repository exists as a place to share concrete 
 
 SIPs are separated into a number of types:
 
-### Standard Track (45)
+### Standard Track
 
-#### Core (1)
+#### Core
 
 Improvements requiring a consensus fork 
 
-#### Interface (39)
+#### Interface
 
 Includes improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs. T
 
-#### SRC (1)
+#### SRC
 
 Application-level standards and conventions, including contract standards such as smart contracts  
 
-### Informational (6)
+### Informational 
 
 Describes a Signum design issue, or provides general guidelines or information to the Signum community, but does not propose a new feature. Informational SIPs do not necessarily represent Ethereum community consensus or a recommendation, so users and implementers are free to ignore Informational SIPs or follow their advice.
 
