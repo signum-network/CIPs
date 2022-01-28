@@ -19,7 +19,7 @@ For Signum implementers, SIPs are a convenient way to track the progress of thei
 
 ## SIP Types
 
-There are three types of EIP:
+There are three types of SIP:
 
 - A **Standards Track SIP** describes any change that affects most or all Signum implementations, such as—a change to the network protocol, a change in block or transaction validity rules, proposed application standards/conventions, or any change or addition that affects the interoperability of applications using Signum. Standards Track SIPs consist of three parts—a design document, an implementatio. Furthermore, Standards Track SIPs can be broken down into the following categories:
 - 
@@ -40,9 +40,9 @@ If a **Core** SIP mentions or proposes changes to the SVM (Signum Virtual Machin
 REVERT (0xfe)
 ```
 
-## EIP Work Flow
+## SIP Work Flow
 
-### Shepherding an EIP
+### Shepherding an SIP
 
 Before you begin writing a formal SIP, you should vet your idea. Ask the Signum community first if an idea is original to avoid wasting time on something that will be rejected based on prior research. It is thus recommended to open a discussion thread on Signum disccord too.
 
@@ -60,9 +60,9 @@ The following is the standardization process for all SIPs in all tracks:
 
 **Draft** - The first formally tracked stage of an SIP in development. An SIP is merged by an SIP Editor into the SIP repository when properly formatted.
 
-**Review** - An SIP Author marks an EIP as ready for and requesting Peer Review.
+**Review** - An SIP Author marks an SIP as ready for and requesting Peer Review.
 
-**Last Call** - This is the final review window for an EIP before moving to `Final`. An SIP editor will assign `Last Call` status and set a review end date (`last-call-deadline`), typically 14 days later.
+**Last Call** - This is the final review window for an SIP before moving to `Final`. An SIP editor will assign `Last Call` status and set a review end date (`last-call-deadline`), typically 14 days later.
 
 If this period results in necessary normative changes it will revert the SIP to `Review`.
 
