@@ -19,15 +19,15 @@ While leaving an unlimited parameter space is a bad idea, hard-capping this para
 
 ## Specification
 
-# Memory-Related Parameters
+### Memory-Related Parameters
 
    - maximum number of unconfirmed transactions
 
-# Network-Related Parameters
+### Network-Related Parameters
 
    - maximum API answer threshold
 
-# Computation-Related Parameters
+### Computation-Related Parameters
 
     - maximum CPU cores used
     - GPU support enabled
