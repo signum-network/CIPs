@@ -26,6 +26,8 @@ The Signum Improvement Proposals repository exists as a place to share concrete 
 
 SIPs are separated into a number of types:
 
+### Standard Track (45)
+
 #### Core (1)
 
 Improvements requiring a consensus fork 
