@@ -9,7 +9,7 @@ created: 2022-01-28
 
 ## What is an SIP?
 
-SIP stands for Signum Improvement Proposal. An SIP is a design document providing information to the SIgnum community, or describing a new feature for SIgnum or its processes or environment. The SIP should provide a concise technical specification of the feature and a rationale for the feature. The SIP author is responsible for building consensus within the community and documenting dissenting opinions.
+SIP stands for Signum Improvement Proposal. A SIP is a design document providing information to the Signum community, or describing a new feature for Signum or its processes or environment. The SIP should provide a concise technical specification of the feature and a rationale for the feature. The SIP author is responsible for building consensus within the community and documenting dissenting opinions.
 
 ## SIP Rationale
 
@@ -78,7 +78,7 @@ If this period results in necessary normative changes it will revert the SIP to 
 
 Each SIP should have the following parts:
 
-- Preamble - RFC 822 style headers containing metadata about the SIP, including the SIP number, a short descriptive title (limited to a maximum of 44 characters), a description (limited to a maximum of 140 characters), and the author details. Irrespective of the category, the title and description should not include SIP number. See [below](./sip-basic.md#sip-header-preamble) for details.
+- Preamble - A RFC822 like header containing metadata about the SIP, including the SIP number, a short descriptive title (limited to a maximum of 44 characters), a description (limited to a maximum of 140 characters), and the author details. Irrespective of the category, the title and description should not include SIP number. See [below](./sip-basic.md#sip-header-preamble) for details.
 - Abstract - Abstract is a multi-sentence (short paragraph) technical summary. This should be a very terse and human-readable version of the specification section. Someone should be able to read only the abstract to get the gist of what this specification does.
 - Motivation (*optional) - A motivation section is critical for SIPs that want to change the Ethereum protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the SIP solves. SIP submissions without sufficient motivation may be rejected outright.
 - Specification - The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Signum platforms .
@@ -89,7 +89,7 @@ Each SIP should have the following parts:
 - Security Considerations - All SIPs must contain a section that discusses the security implications/considerations relevant to the proposed change. Include information that might be important for security discussions, surfaces risks and can be used throughout the life-cycle of the proposal. E.g. include security-relevant design decisions, concerns, important discussions, implementation-specific guidance and pitfalls, an outline of threats and risks and how they are being addressed. SIP submissions missing the "Security Considerations" section will be rejected. An SIP cannot proceed to status "Final" without a Security Considerations discussion deemed sufficient by the reviewers.
 - Copyright Waiver - All SIPs must be in the public domain. See the bottom of this SIP for an example copyright waiver.
 
-## EIP Formats and Templates
+## SIP Formats and Templates
 
 SIPs should be written in [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) format. There is a [template](https://github.com/ethereum/EIPs/blob/master/eip-template.md) to follow.
 
