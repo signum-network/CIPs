@@ -34,7 +34,7 @@ Improvements requiring a consensus fork
 
 #### Interface
 
-Includes improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs. T
+Includes improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs.
 
 #### SRC
 
