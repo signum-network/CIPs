@@ -48,6 +48,6 @@ Describes a Signum design issue, or provides general guidelines or information t
 
 | SIP  | Type  | Category | Title|  Status   |
 | -----| ----------- | ---------------- | ---------------------- | ----- | 
-| [1](./sip/sip-1.md "wikilink")  | Standard  | Interface      | Dynamic BRS Node Capabilities                        | Final   |
-| [2](./sip/sip-1.md "wikilink")  | Standard  | Interface      | Dynamic BRS Node Capabilities                        | Final   |
+| [1](./SIP/sip-1.md )  | Standard  | Interface      | Dynamic BRS Node Capabilities                        | Final   |
+| [2](./SIP/sip-1.md)  | Standard  | Interface      | Dynamic BRS Node Capabilities                        | Final   |
 
