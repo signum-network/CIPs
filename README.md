@@ -42,7 +42,7 @@ Application-level standards and conventions, including contract standards such a
 
 ### Informational 
 
-Describes a Signum design issue, or provides general guidelines or information to the Signum community, but does not propose a new feature. Informational SIPs do not necessarily represent Ethereum community consensus or a recommendation, so users and implementers are free to ignore Informational SIPs or follow their advice.
+Describes a Signum design issue, or provides general guidelines or information to the Signum community, but does not propose a new feature. Informational SIPs do not necessarily represent Signum community consensus or a recommendation, so users and implementers are free to ignore Informational SIPs or follow their advice.
 
 ## Signum Improvement Proposals
 
