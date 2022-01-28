@@ -1,8 +1,25 @@
-# CIPs
+# # Signum Improvement Proposals (SIPs)
 
-People willing to submit CIPs should do it in the form of Pull Requests (PRs). Please open your PR, after discussion on the Signum Discord Server. After copy-editing and acceptance, it will be published here.
+Signum Improvement Proposals (SIPs) describe standards for the Signum platform, including core protocol specifications, client APIs, and contract standards.
 
-Having a CIP listed here doesn't guarantee it is an accepted standard until its status becomes Final or Active.
+**Before you initiate a pull request**, please read the [SIP-Basics](https://eips.ethereum.org/EIPS/eip-1) process document.
+
+Once your first PR is merged, we have a bot that helps out by automatically merging PRs to draft EIPs. For this to work, it has to be able to tell that you own the draft being edited. Make sure that the 'author' line of your EIP contains either your GitHub username or your email address inside <triangular brackets>. If you use your email address, that address must be the one publicly shown on [your GitHub profile](https://github.com/settings/profile).
+
+## Project Goal
+
+The Signum Improvement Proposals repository exists as a place to share concrete proposals with potential users of the proposal and the Signum community at large.
+
+## SIP status terms
+
+-   **Idea** - An idea that is pre-draft. This is not tracked within the SIP Repository.
+-   **Draft** - The first formally tracked stage of an SIP in development. 
+-   **Review** - An SIP Author marks an SIP as ready for and requesting Peer Review.
+-   **Last Call** - This is the final review window for an SIP before moving to FINAL. An SIP editor will assign Last Call status and set a review end date (`last-call-deadline`), typically 14 days later. If this period results in necessary normative changes it will revert the SIP to Review.
+-   **Final** - This SIP represents the final standard. A Final SIP exists in a state of finality and should only be updated to correct errata and add non-normative clarifications.
+-   **Stagnant** - Any SIP in Draft or Review if inactive for a period of 6 months or greater is moved to Stagnant. An EIP may be resurrected from this state by Authors or EIP Editors through moving it back to Draft.
+-   **Withdrawn** - The SIP Author(s) have withdrawn the proposed EIP. This state has finality and can no longer be resurrected using this SIP number. If the idea is pursued at later date it is considered a new proposal.
+-   **Living** - A special status for SIPs that are designed to be continually updated and not reach a state of finality. This includes most notably SIP-Basics.
 
 ## Signum Capability Improvement Proposals
 
