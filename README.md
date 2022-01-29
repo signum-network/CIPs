@@ -48,7 +48,7 @@ Describes a Signum design issue, or provides general guidelines or information t
 
 | SIP  | Type  | Category | Title|  Status |
 | -----| ----------- | ---------------- | ---------------------- | ------- |
-| [Basic](./SIP/sip-bbasic.md )  | Informational| -|SIP Purpose and Guidelines     | Living| 
+| [Basic](./SIP/sip-basic.md )  | Informational| -|SIP Purpose and Guidelines     | Living| 
 | [1](./SIP/sip-1.md )  | Standard  | Interface   | Dynamic BRS Node Capabilities    | Final   | 
 | [2](./SIP/sip-2.md )  | Standard  | Core  |Quadruple Block Size                        | Final   | 
 | [3](./SIP/sip-3.md )  | Standard  | Core  |Variable Slot-based Fees                        | Final   | 
