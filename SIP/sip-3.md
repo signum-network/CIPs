@@ -1,5 +1,5 @@
 ---
-sip: 3
+sip:3
 title: Variable Slot-based Fees
 description: Variable Slot-based Fees
 author: PoCC/rico666 <bots@cryptoguru.org>
