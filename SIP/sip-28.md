@@ -1,5 +1,5 @@
 ---
-sip:  27
+sip:  28
 title: Updated AT max steps and AT API
 description: Updated AT max steps and AT API
 author:  frank_the_tank, jjos, ohager
