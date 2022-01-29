@@ -76,5 +76,11 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [25](./SIP/sip-25.md )  | Standard| Core| Minor Network Changes | Final|
 | [26](./SIP/sip-26.md )  | Standard| Interface| Extended Reed Solomon Address Format | Final|
 | [27](./SIP/sip-27.md )  | Standard| Core | Proof of Commitment (PoC+) consensus | Final|
+| [28](./SIP/sip-28.md )  | Standard| Core| Updated AT max steps and AT API | Final|
+| [29](./SIP/sip-29.md )  | Standard| Core| Mininum mining incentives | Final|
+| [30](./SIP/sip-30.md )  | Standard| Core| Green Contracts | Final|
+| [31](./SIP/sip-31.md )  | Standard| Core| New fee framwork | Final|
+| [32](./SIP/sip-32.md )  | Standard| Core| PoC+ polishing | Final|
+| [33](./SIP/sip-33.md )  | Standard| Core| Smart Tokens | Final|
 
 
