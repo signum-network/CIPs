@@ -83,7 +83,7 @@ Additionally, another method to mount the only the link would be useful:
 
 This specification of _deep linking_ within the Signum eco-system simplifies the interoperability between Signum applications. It permits that the feature-rich platform can be splitted in different specialized applications, i.e. asset exchange, simple wallet, messaging application, while maintaining an integrated user-experience. It is even possible to create "meta-applications", which serves as a container for those applications. 
 
-[Demo](./assets/sip-22/deep_link_demo.gif)
+![Demo](./assets/sip-22/deep_link_demo.gif)
 
 
 ## Compatibility
