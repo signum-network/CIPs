@@ -57,6 +57,7 @@ For Core SIPs, given that they require client implementations to be considered *
 
 The following is the standardization process for all SIPs in all tracks:
 
+**Idea** - An idea that is pre-draft. This is not tracked within the SIP Repository.
 
 **Draft** - The first formally tracked stage of an SIP in development. An SIP is merged by an SIP Editor into the SIP repository when properly formatted.
 
