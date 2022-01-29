@@ -28,7 +28,7 @@ A multi-platform application architecture is made possible through a few key fro
 
 ### Reference Diagram
 
-![Application Architecture Diagram](./assets/sip-8/architecture.png "Application Architecture Diagram")
+![Application Architecture Diagram](./assets/sip-18/architecture.png "Application Architecture Diagram")
 
 See it live at https://github.com/signum-network/phoenix
 
