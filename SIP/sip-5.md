@@ -2,10 +2,10 @@
 sip: 5
 title: PoC2
 description: POC2 format plots is consisting of interleaved SHABAL256 hashes and it will prevent time-memory tradeoff for high-range scoops.
-author:PoCC/Quibus
+author: PoCC/Quibus
 status: Final
 type: Standard
-category : Core
+category: Core
 created: 2018-04-26
 ---
 
