@@ -62,5 +62,5 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [11](./SIP/sip-11.md )  | Standard| Core | Tethered Assets        | Stagnant   |
 | [12](./SIP/sip-12.md )  | Informational| -| SFS        | Stagnant   |
 | [13](./SIP/sip-13.md )  | Standard| Interface| Suggested Transaction Fees     | Final|
-| [14](./SIP/sip-14.md )  | Standard| Interface| Signum Actions through Deeplink QR-codes        | Finla|
-
+| [14](./SIP/sip-14.md )  | Standard| Interface| Signum Actions through Deeplink QR-codes        | Final|
+| [15](./SIP/sip-15.md )  | Standard| Core | RWFDS-enabled FEE_QUANT introspection and adjustment  | Draft|
