@@ -48,11 +48,11 @@ Describes a Signum design issue, or provides general guidelines or information t
 
 | SIP  | Type  | Category | Title|  Status |
 | -----| ----------- | ---------------- | ---------------------- | ------- |
-| [1](./sip/sip-1.md )  | Standard  | Interface   | Dynamic BRS Node Capabilities    | Final   | 
-| [2](./sip/sip-2.md )  | Standard  | Core  |Quadruple Block Size                        | Final   | 
-| [3](./sip/sip-3.md )  | Standard  | Core  |Variable Slot-based Fees                        | Final   | 
-| [4](./sip/sip-4.md )  | Standard  | Core  | Multi-Out Transactions                     | Final   | 
-| [5](./sip/sip-5.md )  | Standard  | Core      | PoC2          | Final   | 
-| [6](./sip/sip-6.md )  | Standard  | Interface| Unconfirmed Tx Queue Optimizations          | Final   | 
-| [7](./sip/sip-7.md )  | Standard  | Interface| Differential Unconfirmed Tx Propagation          | Final   |
+| [1](/sip/sip-1.md )  | Standard  | Interface   | Dynamic BRS Node Capabilities    | Final   | 
+| [2](/sip/sip-2.md )  | Standard  | Core  |Quadruple Block Size                        | Final   | 
+| [3](/sip/sip-3.md )  | Standard  | Core  |Variable Slot-based Fees                        | Final   | 
+| [4](/sip/sip-4.md )  | Standard  | Core  | Multi-Out Transactions                     | Final   | 
+| [5](/sip/sip-5.md )  | Standard  | Core      | PoC2          | Final   | 
+| [6](/sip/sip-6.md )  | Standard  | Interface| Unconfirmed Tx Queue Optimizations          | Final   | 
+| [7](/sip/sip-7.md )  | Standard  | Interface| Differential Unconfirmed Tx Propagation          | Final   |
 
