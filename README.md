@@ -57,5 +57,7 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [6](./SIP/sip-6.md )  | Standard  | Interface| Unconfirmed Tx Queue Optimizations          | Final   | 
 | [7](./SIP/sip-7.md )  | Standard  | Interface| Differential Unconfirmed Tx Propagation          | Final   |
 | [8](./SIP/sip-8.md )  | Informational| -| Define Tx and Balance "Dust"          | Stagnant   |
-| [9](./SIP/sip-9.md )  | Informational| -| To-All Transactions       | Stagnant   |
-
+| [9](./SIP/sip-9.md )  | Informational| -| To-All Transactions          | Stagnant   |
+| [10](./SIP/sip-10.md )  | Standard| Core | Anchor Real-World Data in Blockchain        | Stagnant   |
+| [11](./SIP/sip-11.md )  | Standard| Core | Tethered Assets        | Stagnant   |
+| [12](./SIP/sip-12.md )  | Informational| -| SFS        | Stagnant   |
