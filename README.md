@@ -75,6 +75,6 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [24](./SIP/sip-24.md )  | Standard| Core| New deadline algorithm based on a logarithm transformation | Final|
 | [25](./SIP/sip-25.md )  | Standard| Core| Minor Network Changes | Final|
 | [26](./SIP/sip-26.md )  | Standard| Interface| Extended Reed Solomon Address Format | Final|
-| [27](./SIP/sip-27.md )  | Standard| Interface| Proof of Commitment (PoC+) consensus | Final|
+| [27](./SIP/sip-27.md )  | Standard| Core | Proof of Commitment (PoC+) consensus | Final|
 
 
