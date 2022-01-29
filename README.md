@@ -64,3 +64,9 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [13](./SIP/sip-13.md )  | Standard| Interface| Suggested Transaction Fees     | Final|
 | [14](./SIP/sip-14.md )  | Standard| Interface| Signum Actions through Deeplink QR-codes        | Final|
 | [15](./SIP/sip-15.md )  | Standard| Core | RWFDS-enabled FEE_QUANT introspection and adjustment  | Draft|
+| [16](./SIP/sip-16.md )  | Informational| -| PoC2.X16 - A New Optimized Plot File Format  | Final|
+| [17](./SIP/sip-17.md )  | Standard| Interface| Differential UT Propagation in push & pull  | Final|
+| [18](./SIP/sip-18.md )  | Informational| -| Cross-Platform Wallet UI  | Final|
+| [19](./SIP/sip-19.md )  | Standard| Interface| Incoming Multi-Out Tracking  | Final|
+| [20](./SIP/sip-20.md )  | Standard| Core| Updated AT fees  | Final|
+
