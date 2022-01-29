@@ -69,4 +69,12 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [18](./SIP/sip-18.md )  | Informational| -| Cross-Platform Wallet UI  | Final|
 | [19](./SIP/sip-19.md )  | Standard| Interface| Incoming Multi-Out Tracking  | Final|
 | [20](./SIP/sip-20.md )  | Standard| Core| Updated AT fees  | Final|
+| [21](./SIP/sip-21.md )  | Standard| Core| Adjustment for Asset-Issuance fee  | Final|
+| [22](./SIP/sip-22.md )  | Standard| SRC| Signum Deep Link Specification  | Final|
+| [23](./SIP/sip-23.md )  | Standard| Core| Enforce slot fees  | Final|
+| [24](./SIP/sip-24.md )  | Standard| Core| New deadline algorithm based on a logarithm transformation | Final|
+| [25](./SIP/sip-25.md )  | Standard| Core| Minor Network Changes | Final|
+| [26](./SIP/sip-26.md )  | Standard| Interface| Extended Reed Solomon Address Format | Final|
+| [27](./SIP/sip-27.md )  | Standard| Interface| Proof of Commitment (PoC+) consensus | Final|
+
 
