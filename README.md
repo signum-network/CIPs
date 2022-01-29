@@ -61,3 +61,6 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [10](./SIP/sip-10.md )  | Standard| Core | Anchor Real-World Data in Blockchain        | Stagnant   |
 | [11](./SIP/sip-11.md )  | Standard| Core | Tethered Assets        | Stagnant   |
 | [12](./SIP/sip-12.md )  | Informational| -| SFS        | Stagnant   |
+| [13](./SIP/sip-12.md )  | Standard| Interface| Suggested Transaction Fees     | Final|
+| [14](./SIP/sip-12.md )  | Standard| Interface| Signum Actions through Deeplink QR-codes        | Finla|
+
