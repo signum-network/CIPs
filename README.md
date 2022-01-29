@@ -48,6 +48,7 @@ Describes a Signum design issue, or provides general guidelines or information t
 
 | SIP  | Type  | Category | Title|  Status |
 | -----| ----------- | ---------------- | ---------------------- | ------- |
+| [Basic](./SIP/sip-bbasic.md )  | Informational| -|SIP Purpose and Guidelines     | Living| 
 | [1](./SIP/sip-1.md )  | Standard  | Interface   | Dynamic BRS Node Capabilities    | Final   | 
 | [2](./SIP/sip-2.md )  | Standard  | Core  |Quadruple Block Size                        | Final   | 
 | [3](./SIP/sip-3.md )  | Standard  | Core  |Variable Slot-based Fees                        | Final   | 
@@ -56,4 +57,4 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [6](./SIP/sip-6.md )  | Standard  | Interface| Unconfirmed Tx Queue Optimizations          | Final   | 
 | [7](./SIP/sip-7.md )  | Standard  | Interface| Differential Unconfirmed Tx Propagation          | Final   |
 | [8](./SIP/sip-8.md )  | Informational| -| Define Tx and Balance "Dust"          | Stagnant   |
-| [9](./SIP/sip-9.md )  | Informational| -| To-All Transactions          | Stagnant   |
+| [9](./SIP/sip-9.md )  | Informational| -| To-All Transactions      
