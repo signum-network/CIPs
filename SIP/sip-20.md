@@ -43,7 +43,7 @@ The parameters for the AT fee structure are handled in the `AT_Constants.java` f
 
 In the following table typical registering costs as well as runtime ones are listed (all values are in Signa and numbers in parenthesis are the cost with the current AT fees):
 
-![AT cases](.assets/sip-20/AT-cases.png)
+![AT cases](./assets/sip-20/AT-cases.png)
 
 
 Making the assumption of `1 Signa = 1 USD` as a possible future scenario, it is clear that the current AT fees can make most applications infeasible. In this scenario, a low complexity AT (see table above) would cost around 7 USD per run (i.e. per transaction received). A more complex case can cost around 2000 USD per run.
