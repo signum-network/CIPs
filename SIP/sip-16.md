@@ -3,15 +3,13 @@ sip:  16
 title: PoC2.X16 - A New Optimized Plot File Format
 description: PoC2.X16 - A New Optimized Plot File Format
 author: PoCC/JohnnyFFM
-status: Draft
-type: Standard
-categroy: Interface
+status: Final
+type: Informational
 created: 2018-11-30
 ---
 ## Abstract
 
-This SIP is about a new plot file format further optimising thecurrent plot file format (PoC2) for data parallelism. It is important to understand that this format is optional. There is no need to
-convert existing files. PoC2.X16 can co-exist with PoC2. It’s a format for enthusiasts and will perform better than PoC2, i.e. plotting and mining will be faster. It doesn’t require a fork and is only affecting plotting and mining software. PoC2 can be converted to PoC2.X16 and vice versa.
+This SIP is about a new plot file format further optimising thecurrent plot file format (PoC2) for data parallelism. It is important to understand that this format is optional. There is no need to convert existing files. PoC2.X16 can co-exist with PoC2. It’s a format for enthusiasts and will perform better than PoC2, i.e. plotting and mining will be faster. It doesn’t require a fork and is only affecting plotting and mining software. PoC2 can be converted to PoC2.X16 and vice versa.
 
 ## Motivation
 
