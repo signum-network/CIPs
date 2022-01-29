@@ -87,7 +87,7 @@ As can be seen, PoC+ not only increases the commitment in the mining process but
 * [Proof of Commitment (PoC+): a Proof of Capacity Upgrade](https://jjos2372.medium.com/proof-of-commitment-poc-a-proof-of-capacity-upgrade-3131775e7a83)
 * [Signum Pool](https://github.com/jjos2372/babel-pool)
 * [Nothing at stake problem](https://golden.com/wiki/Nothing-at-stake_problem)
-* 
+
 ## Backwards Compatibility
 This is a hard forking change, thus breaks compatibility with old fully-validating node. It should not be deployed without widespread consensus.
 
