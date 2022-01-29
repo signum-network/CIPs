@@ -55,4 +55,5 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [5](./SIP/sip-5.md )  | Standard  | Core      | PoC2          | Final   | 
 | [6](./SIP/sip-6.md )  | Standard  | Interface| Unconfirmed Tx Queue Optimizations          | Final   | 
 | [7](./SIP/sip-7.md )  | Standard  | Interface| Differential Unconfirmed Tx Propagation          | Final   |
-
+| [8](./SIP/sip-8.md )  | Informational| -| Define Tx and Balance "Dust"          | Stagnant   |
+| [9](./SIP/sip-9.md )  | Informational| -| To-All Transactions          | Stagnant   |
