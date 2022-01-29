@@ -1,7 +1,7 @@
 ---
 sip:  22
-title: Burst Deep Link Specification
-description: Burst Deep Link Specification
+title: Signum Deep Link Specification
+description: Signum Deep Link Specification
 author: ohager
 status: Final
 type: Standard
