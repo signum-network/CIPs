@@ -100,4 +100,4 @@ A new "SuggestFee" operation is added to the HTTP layer, to be used by the Signu
 This operation will take no parameters, and return the three suggestion values in the "cheap", "standard", and "priority", fields.
 
 ## Copyright
-Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/
+Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
