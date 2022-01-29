@@ -5,7 +5,7 @@ description: Incoming Multi-Out Tracking
 author: harry1453
 status: Final
 type: Standard
-category: Core
+category: Interface
 requires : SIP-4
 created: 2019-01-07
 ---
