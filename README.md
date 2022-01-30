@@ -1,46 +1,86 @@
-# CIPs
+# Signum Improvement Proposals (SIPs)
 
-People willing to submit CIPs should do it in the form of Pull Requests (PRs). Please open your PR, after discussion on the Signum Discord Server. After copy-editing and acceptance, it will be published here.
+Signum Improvement Proposals (SIPs) describe standards for the Signum platform, including core protocol specifications, client APIs, and contract standards.
 
-Having a CIP listed here doesn't guarantee it is an accepted standard until its status becomes Final or Active.
+**Before you initiate a pull request**, please read the [SIP-Basics](./SIP/sip-basic.md) process document.
+There is a [template SIP here](./SIP/sip-template.md). 
 
-## Signum Capability Improvement Proposals
+If you use your email address, that address must be the one publicly shown on [your GitHub profile](https://github.com/settings/profile).
 
-| Number                              | Layer                 | Title                                                 | Owner         | Type          | Status   |
-| ----------------------------------- | --------------------- | ----------------------------------------------------- | ------------- | ------------- | -------- |
-| [1](cip-0001.md "wikilink")  | Applications          | Dynamic BRS Node Capabilities                         | @rico666      | Informational | Active   |
-| [2](cip-0002.md "wikilink")  | Consensus (hard fork) | Quadruple Block Size                                  | @rico666      | Standard      | Active   |
-| [3](cip-0003.md "wikilink")  | Consensus (hard fork) | Variable Slot-based Fees                              | @rico666      | Standard      | Active   |
-| [4](cip-0004.md "wikilink")  | Consensus (hard fork) | Multi-Out Transactions                                | @rico666      | Standard      | Active   |
-| [5](cip-0005.md "wikilink")  | Consensus (hard fork) | POC 2                                                 | @Quibus       | Standard      | Active   |
-| [6](cip-0006.md "wikilink")  | Enhancement           | Unconfirmed Tx Queue Optimizations                    | @Brabantian   | Standard      | Active   |
-| [7](cip-0007.md "wikilink")  | Enhancement           | Differential Unconfirmed Tx Propagation               | @Brabantian   | Standard      | Active   |
-| [8](cip-0008.md "wikilink")  | Informal              | Define Tx and Balance "Dust"                          | @rico666      | Standard      | Draft    |
-| [9](cip-0009.md "wikilink")         | Consensus (hard fork) | To-All Transactions                                   | @rico666      | Standard      | Draft    |
-| [10](cip-0010.md "wikilink") | Consensus (hard fork) | Anchor Real-World Data in Blockchain                  | @rico666      | Standard      | Draft    |
-| [11](cip-0011.md "wikilink")        | Consensus (hard fork) | Tethered Assets                                       | @rico666      | Standard      | Draft    |
-| [12](cip-0012.md "wikilink") | Enhancement           | BFS - Burst File System                               | @JohnnyDeluxe | Standard      | Draft    |
-| [13](cip-0013.md "wikilink") | Enhancement           | Suggested Transaction Fees                            | @Brabantian   | Standard      | Active   |
-| [14](cip-0014.md "wikilink")        | Enhancement           | Burst Actions through Deeplink QR-codes               | @Brabantian   | Standard      | Active   |
-| [15](cip-0015.md "wikilink")        | Consensus (hard fork) | RWFDS-enabled FEE\_QUANT Introspection and Adjustment | @Frank72      | Standard      | Draft    |
-| [16](cip-0016.md "wikilink")        | Enhancement           | PoC2.X16 - A New Optimized Plot File Format           | @JohnnyFFM    | Standard      | Draft    |
-| [17](cip-0017.md "wikilink")        | Enhancement           | Differential UT Propagation in push & pull            | @Brabantian   | Standard      | Active |
-| [18](cip-0018.md "wikilink")        | Applications           | Cross-Platform Wallet UI            | @blankey1337, @ohager   | Standard      | Active |
-| [19](cip-0019.md "wikilink")        | Enhancement           | Multi-Out: View Incoming Transactions            | @harry1453   | Standard      | Active |
-| [20](cip-0020.md "wikilink")        | Enhancement (Hard Fork)          | Updated AT fees            | @frank_the_tank, @jjos, @burstjack   | Standard      | Active |
-| [21](cip-0021.md "wikilink")        | Enhancement (Hard Fork) | Adjustment for Asset-Issuance fee | @frank_the_tank, @burstjack   | Standard      | Active |
-| [22](cip-0022.md "wikilink")        | Enhancement          | Burst Deep Link Specification  | @ohager   | Standard      | Active |
-| [23](cip-0023.md "wikilink")        | Enhancement (Hard Fork) | Enforce slot fees  | @CurbShifter   | Standard      | Active |
-| [24](cip-0024.md "wikilink")        | Enhancement (Hard Fork) | New deadline algorithm based on a logarithm transformation  | @jjos   | Standard      | Active |
-| [25](cip-0025.md "wikilink")        | Enhancement (Hard Fork) | Minor Network Changes | @harry1453  | Standard      | Active |
-| [26](cip-0026.md "wikilink")        | Enhancement | Extended Reed Solomon Address Format | @ohager, jjos  | Standard      | Active |
-| [27](cip-0027.md "wikilink")        | Enhancement (Hard Fork) | Proof of Commitment (PoC+) consensus | @jjos   | Standard      | Active |
-| [28](cip-0028.md "wikilink")        | Enhancement (Hard Fork) | Updated AT max steps and AT API | @frank_the_tank, @jjos, @ohager   | Standard      | Active |
-| [29](cip-0029.md "wikilink")        | Enhancement (Hard Fork) | Mininum mining incentives | @frank_the_tank, @jjos, @shefas   | Standard      | Active |
-| [30](cip-0030.md "wikilink")        | Enhancement (Hard Fork) | Carbon Contracts | @frank_the_tank, @jjos   | Standard      | Active |
-| [31](cip-0031.md "wikilink")        | Enhancement (Hard Fork) | New fee regime |  @jjos, @frank_the_tank   | Standard      | Active |
-| [32](cip-0032.md "wikilink")        | Enhancement (Hard Fork) | PoC+ Polishing |  @jjos, @ohager, @frank_the_tank   | Standard      | Active |
-| [33](cip-0033.md "wikilink")        | Enhancement (Hard Fork) | Smart Tokens|  @jjos, @frank_the_tank   | Standard      | Draft |
+## Project Goal
+
+The Signum Improvement Proposals repository exists as a place to share concrete proposals with potential users of the proposal and the Signum community at large.
+
+## SIP status terms
+
+-   **Idea** - An idea that is pre-draft. This is not tracked within the SIP Repository.
+-   **Draft** - The first formally tracked stage of an SIP in development. 
+-   **Review** - An SIP Author marks an SIP as ready for and requesting Peer Review.
+-   **Last Call** - This is the final review window for an SIP before moving to FINAL. An SIP editor will assign Last Call status and set a review end date (`last-call-deadline`), typically 14 days later. If this period results in necessary normative changes it will revert the SIP to Review.
+-   **Final** - This SIP represents the final standard. A Final SIP exists in a state of finality and should only be updated to correct errata and add non-normative clarifications.
+-   **Stagnant** - Any SIP in Draft or Review if inactive for a period of 6 months or greater is moved to Stagnant. A SIP may be resurrected from this state by Authors or SIP Editors through moving it back to Draft.
+-   **Withdrawn** - The SIP Author(s) have withdrawn the proposed SIP. This state has finality and can no longer be resurrected using this SIP number. If the idea is pursued at later date it is considered a new proposal.
+-   **Living** - A special status for SIPs that are designed to be continually updated and not reach a state of finality. This includes most notably SIP-Basics.
+
+## SIP Types
+
+SIPs are separated into a number of types:
+
+### Standard Track
+
+#### Core
+
+Improvements requiring a consensus fork 
+
+#### Interface
+
+Includes improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs.
+
+#### SRC
+
+Application-level standards and conventions, including contract standards such as smart contracts  
+
+### Informational 
+
+Describes a Signum design issue, or provides general guidelines or information to the Signum community, but does not propose a new feature. Informational SIPs do not necessarily represent Signum community consensus or a recommendation, so users and implementers are free to ignore Informational SIPs or follow their advice.
+
+## Signum Improvement Proposals
+
+| SIP  | Type  | Category | Title|  Status |
+| -----| ----------- | ---------------- | ---------------------- | ------- |
+| [Basic](./SIP/sip-basic.md )  | Informational| -|SIP Purpose and Guidelines     | Living| 
+| [1](./SIP/sip-1.md )  | Standard  | Interface   | Dynamic BRS Node Capabilities    | Final   | 
+| [2](./SIP/sip-2.md )  | Standard  | Core  |Quadruple Block Size                        | Final   | 
+| [3](./SIP/sip-3.md )  | Standard  | Core  |Variable Slot-based Fees                        | Final   | 
+| [4](./SIP/sip-4.md )  | Standard  | Core  | Multi-Out Transactions                     | Final   | 
+| [5](./SIP/sip-5.md )  | Standard  | Core      | PoC2          | Final   | 
+| [6](./SIP/sip-6.md )  | Standard  | Interface| Unconfirmed Tx Queue Optimizations          | Final   | 
+| [7](./SIP/sip-7.md )  | Standard  | Interface| Differential Unconfirmed Tx Propagation          | Final   |
+| [8](./SIP/sip-8.md )  | Informational| -| Define Tx and Balance "Dust"          | Stagnant   |
+| [9](./SIP/sip-9.md )  | Informational| -| To-All Transactions          | Stagnant   |
+| [10](./SIP/sip-10.md )  | Standard| Core | Anchor Real-World Data in Blockchain        | Stagnant   |
+| [11](./SIP/sip-11.md )  | Standard| Core | Tethered Assets        | Stagnant   |
+| [12](./SIP/sip-12.md )  | Informational| -| SFS        | Stagnant   |
+| [13](./SIP/sip-13.md )  | Standard| Interface| Suggested Transaction Fees     | Final|
+| [14](./SIP/sip-14.md )  | Standard| Interface| Signum Actions through Deeplink QR-codes        | Final|
+| [15](./SIP/sip-15.md )  | Standard| Core | RWFDS-enabled FEE_QUANT introspection and adjustment  | Draft|
+| [16](./SIP/sip-16.md )  | Informational| -| PoC2.X16 - A New Optimized Plot File Format  | Final|
+| [17](./SIP/sip-17.md )  | Standard| Interface| Differential UT Propagation in push & pull  | Final|
+| [18](./SIP/sip-18.md )  | Informational| -| Cross-Platform Wallet UI  | Final|
+| [19](./SIP/sip-19.md )  | Standard| Interface| Incoming Multi-Out Tracking  | Final|
+| [20](./SIP/sip-20.md )  | Standard| Core| Updated AT fees  | Final|
+| [21](./SIP/sip-21.md )  | Standard| Core| Adjustment for Asset-Issuance fee  | Final|
+| [22](./SIP/sip-22.md )  | Standard| SRC| Signum Deep Link Specification  | Final|
+| [23](./SIP/sip-23.md )  | Standard| Core| Enforce slot fees  | Final|
+| [24](./SIP/sip-24.md )  | Standard| Core| New deadline algorithm based on a logarithm transformation | Final|
+| [25](./SIP/sip-25.md )  | Standard| Core| Minor Network Changes | Final|
+| [26](./SIP/sip-26.md )  | Standard| Interface| Extended Reed Solomon Address Format | Final|
+| [27](./SIP/sip-27.md )  | Standard| Core | Proof of Commitment (PoC+) consensus | Final|
+| [28](./SIP/sip-28.md )  | Standard| Core| Updated AT max steps and AT API | Final|
+| [29](./SIP/sip-29.md )  | Standard| Core| Mininum mining incentives | Final|
+| [30](./SIP/sip-30.md )  | Standard| Core| Green Contracts | Final|
+| [31](./SIP/sip-31.md )  | Standard| Core| New fee framwork | Final|
+| [32](./SIP/sip-32.md )  | Standard| Core| PoC+ polishing | Final|
+| [33](./SIP/sip-33.md )  | Standard| Core| Smart Tokens | Final|
 
 
-<!-- IMPORTANT!  See the instructions at the top of this page, do NOT JUST add CIPs here! -->
