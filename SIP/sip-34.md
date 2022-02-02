@@ -15,7 +15,7 @@ created: 2022-02-01
 This SIP will adjust the minimum fee to 0.01 Signa from 0.00735 Signa.
 
 ## Motivation
-Signum currently has a minimum fee of 0.00735 Signa which is the basis for calculating the cost per 176bytes per transaction ( see [SIP-31](sip-31.md) New fee framework) and  is used as a multiplicator for some transaction types.
+Signum currently has a minimum fee of 0.00735 Signa which is the basis for calculating the cost per 176bytes per transaction see [SIP-31](sip-31.md) **New fee framework** and  is used as a multiplicator for some transaction types.
 
 With this SIP we like to simplify the minimum fee to 0.01 Signa to make it simpler to use/remember and also make it much easier to calculate (for humans) the costs of a transaction.
 
