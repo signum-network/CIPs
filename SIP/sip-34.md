@@ -14,7 +14,7 @@ created: 2022-02-01
 This SIP will adjust the minimum fee to 0.01 Signa from 0.00735 Signa.
 
 # Motivation
-Signum introduced with PoC+ a consensus which keeps the mining power in a most decentralized way. We also want to achieve that for our nodes as that everyone is able/ used to to run its own node to connect to the network.  
+Signum introduced with PoC+ a consensus which keeps the mining power in a most decentralized way. We want to do the same for our nodes, so that everyone is used to running their own node and connecting to the networ.
   
 This makes the Signum blockchain finally stronger and more distributed over the world. To create an incentive for running its own node (even only short term), we introduce a 25% cashback on the paid fee when a transaction is signed by the corresponding node.  
   
