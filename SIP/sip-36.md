@@ -3,7 +3,7 @@ sip: 36
 title: Distribution of node-related fees (smart contract and similar)
 description: Indirect distribution of smart contract and subscription fees to all Signa owners by burning
 author:  frank_the_tank, jjos
-status: Review
+status: Final
 Last Call: 2022-02-21
 type: Standard
 category: Core
