@@ -82,6 +82,6 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [31](./SIP/sip-31.md )  | Standard| Core| New fee framwork | Final|
 | [32](./SIP/sip-32.md )  | Standard| Core| PoC+ polishing | Final|
 | [33](./SIP/sip-33.md )  | Standard| Core| Smart Tokens | Final|
-| [34](./SIP/sip-34.md )  | Standard| Core| Round minimum fee to 2 digits | Review|
-| [35](./SIP/sip-35.md )  | Standard| Core| Cashback | Review|
-| [36](./SIP/sip-36.md )  | Standard| Core| Distribution of node-related fees (smart contract and similar)| Review|
+| [34](./SIP/sip-34.md )  | Standard| Core| Round minimum fee to 2 digits | Final|
+| [35](./SIP/sip-35.md )  | Standard| Core| Cashback | Final|
+| [36](./SIP/sip-36.md )  | Standard| Core| Distribution of node-related fees (smart contract and similar)| Final|
