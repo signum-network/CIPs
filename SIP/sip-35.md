@@ -3,7 +3,7 @@ sip:  35
 title:  Cashback 
 description: Incentive to use own nodes for transactions
 author: frank_the_tank, jjos
-status: Review
+status: Final
 Last Call: 2022-02-18
 type: Standard
 category: Core
@@ -22,10 +22,13 @@ This makes the Signum blockchain finally stronger and more distributed over the 
 This would also bring up a chance for upcoming use-cases with an own node framework to benefit from their own infrastructure for the Signum network.
 
 ## Specification
-The parameter *P2P.myPlatform* will be used to introduce the 25% cashback.
-If a transaction is created on a node which has set a valid  *P2P.myPlatform* with a Signum address, this address (public key) will be stored on the transaction.
+A new parameter will be created for the handling of the cashback within node and the config file.
+The parameter *node.cashBackId* will be used to introduce the 25% cashback.
+If a transaction is created on a node which has set a valid  *node.cashBackId* with a Signum address, this address (public key) will be stored on the transaction.
 
 When the transaction gets processed on the chain, 25% of the fee will be sent to the stored cashback receiver (account ID). This fraction of the transaction fee is sent to the cashback receiver instead of the miners.
+
+We will add a new version for transaction and block on the protocol and as we need to have extra 8 bytes to add the cashback_receiver into the transacton we will use the opportunity double the block size.
 
 ## Backwards Compatibility
 This is a hard forking change, thus breaking compatibility with old fully-validating nodes. It should not be deployed without widespread consensus.

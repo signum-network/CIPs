@@ -3,7 +3,7 @@ sip: 34
 title: Round minimum fee to 2 digits
 description: Makes the fee calculation more human friendly
 author:  frank_the_tank, jjos
-status: Review
+status: Final
 Last Call: 2022-02-18
 type: Standard
 category: Core
