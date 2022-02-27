@@ -23,8 +23,8 @@ This would also bring up a chance for upcoming use-cases with an own node framew
 
 ## Specification
 A new parameter will be created for the handling of the cashback within node and the config file.
-The parameter *NODE.cashback* will be used to introduce the 25% cashback.
-If a transaction is created on a node which has set a valid  *NODE.cashback* with a Signum address, this address (public key) will be stored on the transaction.
+The parameter *node.cashBackId* will be used to introduce the 25% cashback.
+If a transaction is created on a node which has set a valid  *node.cashBackId* with a Signum address, this address (public key) will be stored on the transaction.
 
 When the transaction gets processed on the chain, 25% of the fee will be sent to the stored cashback receiver (account ID). This fraction of the transaction fee is sent to the cashback receiver instead of the miners.
 
