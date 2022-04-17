@@ -1,6 +1,6 @@
 ---
 sip: 37
-title: Smart contract upgrade
+title: General smart contract upgrade
 description: Extend the smart contract max pages, adjust fees, and adds new operations
 author:  jjos, frank_the_tank
 status: Review
@@ -15,7 +15,7 @@ General smart contract upgrade allowing to more complex applications.
 ## Specification
 
 This proposal includes the following basic changes:
- - New contracts published as Version 3
+ - New contracts published as `Version 3`
  - Maximum number of pages is enlarged to 40 (as opposed to 20)
  - Basic step fee is adjusted to `0.001` SIGNA to be complatible with SIP34
 
