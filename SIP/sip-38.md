@@ -20,8 +20,8 @@ or other type of communication between contracts without actually having to send
 ## Specification
 
 The following new operations are included in the virtual machine:
- - `GET_MAP_VALUE_KEYS_IN_A`: get the value stored with keys in A1, A2, and A3 (if A3==0 use the AT ID as key3)
- - `SET_MAP_VALUE_KEYS_IN_A`: save the value in A4 with the keys in A1 and A2
+ - `GET_MAP_VALUE_KEYS_IN_A = 0x0407`: get the value stored with keys in A1, A2, and A3 (if A3==0 use the AT ID as key3)
+ - `SET_MAP_VALUE_KEYS_IN_A = 0x0408`: save the value in A4 with the keys in A1 and A2
 
 ## Backwards Compatibility  
 This is a hard forking change, thus breaking compatibility with old fully-validating nodes.  
