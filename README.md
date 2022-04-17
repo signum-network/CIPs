@@ -85,3 +85,4 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [34](./SIP/sip-34.md )  | Standard| Core| Round minimum fee to 2 digits | Final|
 | [35](./SIP/sip-35.md )  | Standard| Core| Cashback | Final|
 | [36](./SIP/sip-36.md )  | Standard| Core| Distribution of node-related fees (smart contract and similar)| Final|
+| [37](./SIP/sip-37.md )  | Standard| Core| General smart contract upgrade| Review|
