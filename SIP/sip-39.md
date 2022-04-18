@@ -10,7 +10,7 @@ category: Core
 created: 2022-04-17
 ---
 # Abstract
-Allow smart contracts to fully interact with Signum Assets (native tokens).
+Allow smart contracts to fully interact with Signum smart token [SIP-33](https://github.com/signum-network/SIPs/blob/master/SIP/sip-33.md).
 
 ## Specification
 
