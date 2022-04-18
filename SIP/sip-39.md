@@ -1,6 +1,6 @@
 ---
 sip: 39
-title: Asset (token) support for smart contracts
+title: Smart token support for smart contracts
 description: Allow to issue, mint, receive, and send assets (tokens)
 author:  jjos, frank_the_tank
 status: Review

@@ -87,4 +87,4 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [36](./SIP/sip-36.md )  | Standard| Core| Distribution of node-related fees (smart contract and similar)| Final|
 | [37](./SIP/sip-37.md )  | Standard| Core| General smart contract upgrade| Review|
 | [38](./SIP/sip-38.md )  | Standard| Core| Map support for smart contracts| Review|
-| [39](./SIP/sip-39.md )  | Standard| Core| Asset (token) support for smart contracts| Review|
+| [39](./SIP/sip-39.md )  | Standard| Core| Smart token support for smart contracts| Review|

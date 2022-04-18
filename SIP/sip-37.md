@@ -17,7 +17,7 @@ General smart contract upgrade allowing to create more complex applications.
 This proposal includes the following basic changes:
  - New contracts published as `Version 3`
  - Maximum number of pages is enlarged to 40 (as opposed to 20)
- - Basic step fee is adjusted to `0.001` SIGNA to be complatible with SIP34
+ - Basic step fee is adjusted to `0.001` SIGNA to be complatible with [SIP34](https://github.com/signum-network/SIPs/blob/master/SIP/sip-34.md)
 
 The following operations are extended:
  - `MESSAGE_FROM_TX_IN_A_TO_B = 0x0309`: accept messages longer than 64 bits, A2 contains the *page* to read
@@ -32,7 +32,7 @@ The following new operations are included:
  - `GET_ACTIVATION_FEE = 0x040d`: get the AT's minimum activation fee (or of the AT id on B2 if B2!=0)
  - `PUT_LAST_BLOCK_GSIG_IN_A = 0x040e`: put the last block *generation signature* in A
 
-Fixes the following issues: #495 #548
+Fixes the following issues: [#495](https://github.com/signum-network/signum-node/issues/495), [#548](https://github.com/signum-network/signum-node/issues/548)
 
 ## Backwards Compatibility  
 This is a hard forking change, thus breaking compatibility with old fully-validating nodes.  
