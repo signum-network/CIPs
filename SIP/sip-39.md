@@ -30,5 +30,13 @@ The following new operations are included:
 This is a hard forking change, thus breaking compatibility with old fully-validating nodes.  
 It should not be deployed without widespread consensus.
 
+## Additional Adjustments 
+
+### Transfer Multiple Tokens in a Single Transaction
+In many applications it is interesting to send multiple tokens in a single transaction.
+Thus, we are introducing a new transaction type that can send multiple tokens (up to 4 diferent tokens) along with Signa in a single transaction.
+This new transaction type is also supported by smart contracts, see `B_TO_ASSET_IDS_OF_TX_IN_A` above.
+
+
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
