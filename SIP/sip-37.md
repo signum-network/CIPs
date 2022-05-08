@@ -15,16 +15,18 @@ General smart contract upgrade allowing to create more complex applications.
 ## Specification
 
 This proposal includes the following basic changes:
- - New contracts published as `Version 3`
+ - New contracts published as `Version 3` or simply `v3`
  - Maximum number of pages is enlarged to 40 (as opposed to 20)
  - Basic step fee is adjusted to `0.001` SIGNA to be compatible with [SIP34](https://github.com/signum-network/SIPs/blob/master/SIP/sip-34.md)
  - Fee per page is adjusted to `0.1` SIGNA to be compatible with [SIP34](https://github.com/signum-network/SIPs/blob/master/SIP/sip-34.md)
 
 The following operations are extended:
+ - `GET_TYPE_FOR_TX_IN_A = 0x0305`: for v3 contracts will return the actual transaction type, otherwise 1 for a message and 0 for payment
  - `MESSAGE_FROM_TX_IN_A_TO_B = 0x0309`: accept messages longer than 64 bits, A2 contains the *page* to read
+ - `GET_CURRENT_BALANCE = 0x0400`: returns the current balance of the contract for the asset id in B2 (or SIGNA if B2==0)
  - `SEND_A_TO_ADDRESS_IN_B = 0x0405`: if multiple messages are sent in the same block, they are concatenated one after the other
  - `B_TO_ADDRESS_OF_CREATOR = 0x030b`: returns the creator of the AT ID given in B2 (creator of this contract if B2==0)
-
+ 
 The following new operations are included:
  - `E_OP_CODE_POW_DAT = 0x19`: calculates `x^(y/1_0000_0000)` using double precision logic
  - `E_OP_CODE_MDV_DAT = 0x2c`: calculates `(x*y)/den` using big integer logic to avoid overflow
