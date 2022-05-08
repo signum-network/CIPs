@@ -19,10 +19,12 @@ The following operations are extended:
  - `SEND_TO_ADDRESS_IN_B = 0x0402`: sends the asset quantity for the asset id in B2 (or SIGNA if B2==0)
 
 The following new operations are included:
+ - `B_TO_ASSET_IDS_OF_TX_IN_A = 0x030d`: if A is a valid tx then B set to the asset ids received (terminated by 0)
  - `ISSUE_ASSET = 0x0409`: issue asset with name in A1..2 and dec. places in B1, returns the asset id
  - `MINT_ASSET = 0x040a`: mint B1 quantity of asset ID in B2
  - `DIST_TO_ASSET_HOLDERS = 0x040b`: distribute to asset holders; B1 is the minimum holding of asset ID in B2, A1 the signa amount to distribute, A3 the asset ID to distribute, A4 the asset quantity to distribute
  - `GET_ASSET_HOLDERS_COUNT = 0x040c`: returns the number of tokens holders with more than B1 holdings of asset ID in B2
+ - `GET_ASSET_CIRCULATING = 0x040f`: returns the circulating supply for the asset ID in B2
 
 ## Backwards Compatibility  
 This is a hard forking change, thus breaking compatibility with old fully-validating nodes.  
