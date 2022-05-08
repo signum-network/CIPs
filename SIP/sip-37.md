@@ -17,8 +17,8 @@ General smart contract upgrade allowing to create more complex applications.
 This proposal includes the following basic changes:
  - New contracts published as `Version 3`
  - Maximum number of pages is enlarged to 40 (as opposed to 20)
- - Basic step fee is adjusted to `0.001` SIGNA to be complatible with [SIP34](https://github.com/signum-network/SIPs/blob/master/SIP/sip-34.md)
- - Fee per page is adjusted to `0.1` SIGNA to be complatible with [SIP34](https://github.com/signum-network/SIPs/blob/master/SIP/sip-34.md)
+ - Basic step fee is adjusted to `0.001` SIGNA to be compatible with [SIP34](https://github.com/signum-network/SIPs/blob/master/SIP/sip-34.md)
+ - Fee per page is adjusted to `0.1` SIGNA to be compatible with [SIP34](https://github.com/signum-network/SIPs/blob/master/SIP/sip-34.md)
 
 The following operations are extended:
  - `MESSAGE_FROM_TX_IN_A_TO_B = 0x0309`: accept messages longer than 64 bits, A2 contains the *page* to read
