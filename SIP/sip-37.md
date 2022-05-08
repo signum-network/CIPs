@@ -35,7 +35,12 @@ The following new operations are included:
  - `GET_ACTIVATION_FEE = 0x040d`: get the AT's minimum activation fee (or of the AT id on B2 if B2!=0)
  - `PUT_LAST_BLOCK_GSIG_IN_A = 0x040e`: put the last block *generation signature* in A
 
-Fixes the following issues: [#495](https://github.com/signum-network/signum-node/issues/495), [#548](https://github.com/signum-network/signum-node/issues/548)
+The following operations are fixed:
+ -  `E_OP_CODE_SLP_IMD = 0x20`: Fixes [#495](https://github.com/signum-network/signum-node/issues/495)
+ -  `E_OP_CODE_SET_IDX = 0x0f`: Fixes [#548](https://github.com/signum-network/signum-node/issues/548)
+ -  `E_OP_CODE_IDX_DAT = 0x15`: Fixes [#548](https://github.com/signum-network/signum-node/issues/548)
+ -  `CHECK_A_IS_ZERO = 0x0125`: Fixes inverted logic
+ -  `CHECK_B_IS_ZERO = 0x0126`: Fixes inverted logic
 
 ## Backwards Compatibility  
 This is a hard forking change, thus breaking compatibility with old fully-validating nodes.  
