@@ -631,6 +631,11 @@ Any account can like the NFT and add +1 to the Like counter on the NFT by sendin
 Method hash to c all : -9009069050835256
 No arguments within the call. 
 
+### Buying an NFT
+With the normal send Signa transaction to the NFT (smart contract address) -  without a message  - any account can try to buy it or place a bid.  
+
+### Activation costs
+The contract has an activation cost of 0.3 Signa. Every transaction needs to have this minimum amount to interact with it, otherwise the transaction will not be handled within the smart contract. The activation cost(fee) will be substrtacted from any bid/opffer send to the NFT. Example If you like to send a bid of 100 Signa you need to send an amount of 100.30 plus the network fee for the transdaction.
 
 
 ## Compatibility
