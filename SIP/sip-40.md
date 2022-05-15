@@ -3,7 +3,7 @@ sip:  40
 title: NFT
 description: A standard NFT for Signum
 author:   frank_the_tank
-status: Final
+status: Review
 type: standard
 category: SRC
 created: 2022-04-26
