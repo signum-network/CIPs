@@ -641,7 +641,7 @@ Example: If you like to send a bid of 100 Signa you need to send an amount of 10
 
 
 ## Compatibility
-This new NFT standard is compatible with the curent smart contract framework. 
+This new NFT standard is compatible with the current smart contract framework. 
 **No** hard fork needed.
 
 ## Copyright
