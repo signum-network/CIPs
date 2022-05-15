@@ -9,7 +9,7 @@ category: SRC
 created: 2022-04-26
 ---
 # Introduction
-NFTs (non fungible token) are smart contracts representing an ownership of a digital asset. This SIP proposes a standard implementation of a smart contract to cover and track all needed activities around the ownership management. With  [SIP-30](sip-30.md)  the new standard can be simply used by linking the smart contract code from the first contract deployment of this SIP-40 standard. An audit check can be done by comparing the hash of the created NFT with the hash from this original contract deployment- if both are the same the oirginal code is used.
+NFTs (non fungible token) are smart contracts representing an ownership of a digital asset. This SIP proposes a standard implementation of a smart contract to cover and track all needed activities around the ownership management. With  [SIP-30](sip-30.md)  the new standard can be simply used by linking the smart contract code from the first contract deployment of this SIP-40 standard. An audit check can be done by comparing the hash of the created NFT with the hash from this original contract deployment- if both are the same the original code is used.
 
 SRC-40 Contract deployment : https://chain.signum.network/at/7074088231427605580
 
@@ -384,13 +384,13 @@ The Java code for the NFT standard looks as follows:
 
 
 ### Creator of the NFT
-The creator is always the account which uploads the transaction for the creation of th NFT to the chain.
+The creator is always the account which uploads the transaction for the creation of the NFT to the chain.
 
 ### Variable setting (data stack)
 While the creator is uploading the NFT to the chain, the individual data stack for the NFT should be defined within the transaction. Within the data stack the values should be set in the following order:
 
  * **owner** 
-Should be equal creator by inital upload; can be set to any account id.
+Should be equal creator by initial upload; can be set to any account id.
  * **status**
 Defines if the NFT is for sale. 
 Valid values 
@@ -399,20 +399,20 @@ Valid values
 	 *  2= For sale in an auction
 	 
 * **currentPrice**
-The current price of the NFT; should be zero  for status is 0 otherwise buy now price or floor price of the auction. CurrentPrice will change while an auction by valid bids.
+The current price of the NFT; should be zero  for status is 0 otherwise buy now price or floor price of the auction. Current price will change while an auction by valid bids.
 
 * **platformAddress**
 * The Signum account which will get the platformFee set under **platformFee**. This can also be used to filter for an NFT portal.
 
 * **platformFee**
-PlatformFee in promile. This value is send to the platformAddress by every sale.
-2% is set as 20 in this field. (promile)
-The  platform fee is calculated from the sales price and reduce the payout to the current owner of the NFTon the active sale.
+PlatformFee in per mille. This value is send to the platformAddress by every sale.
+2% is set as 20 in this field. (per mille)
+The  platform fee is calculated from the sales price and reduce the payout to the current owner of the NFT on the active sale.
 
 * **royaltiesFee**
-RoyaltiesFee in promile. The royalties which are paid to the Royalties Owner by every sale of this NFT. 
-10% is se as 100 in this field (promile)
-The  royalties is calculated from the sales price and reduce the payout to the current owner of the NFT on the active sale.
+RoyaltiesFee in per mille. The royalties which are paid to the Royalties Owner by every sale of this NFT. 
+10% is se as 100 in this field (per mille)
+The royalties is calculated from the sales price and reduce the pay out to the current owner of the NFT on the active sale.
 
 * **royaltiesOwner**
 The Signum account which will get the royaltiesFee by every sale of the NFT.
@@ -467,7 +467,7 @@ Argument 1 : AccountID (new owner)
 
 ### Set not for sale
 Setting the NFT not for sale anymore.
-A cancel of an aucton is only possible when no current bid exists.
+A cancel of an auction is only possible when no current bid exists.
 A message to trackSetNotForSale account will be send.
 
     public void setNotForSale(){
@@ -480,7 +480,7 @@ A message to trackSetNotForSale account will be send.
 Method hash to call : -1462395320800038545
 No arguments within the call.
 
-### Put Forr sale
+### Put for sale
 Setting the NFT for sale with a buy now price.
 If no bids exists and the owner is equal the sender of the transaction, the new sale with the given price will be set on the NFT. A message to trackSetForSale account will be send.
 
@@ -500,7 +500,7 @@ Argument 1 : New Price (in Planck)
 
 ### Put for Dutch Auction
 Setting the NFT for sale in a dutch auction style.
-If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. By defintion the Dutch Auction starts with a high price and drops over time to a floor price. If someone send a bid to the NFT which is above or equal the price over time thee auction will end and the bidder will get the NFT.  A message to trackDutchAuctionOpened account will be send.
+If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. By definition the Dutch Auction starts with a high price and drops over time to a floor price. If someone send a bid to the NFT which is above or equal the price over time thee auction will end and the bidder will get the NFT. A message to trackDutchAuctionOpened account will be send.
 
     public void putForDuchAuction(long startPrice,long reservePrice,long 
     priceDropPerBlock) 
@@ -526,11 +526,11 @@ The drop will be calculated for each block aka 4 minutes.
 
 ### Put for Auction
 Setting the NFT for sale in an auction style.
-If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. An auction has by defintion always a start price, an auction end time and a Buy Now price (optional).
+If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. An auction has by definition always a start price, an auction end time and a Buy Now price (optional).
 
-While the auction is running the bidder with the highest bid will win the auction, when the auction will end. If a new bid arrives which is higher than the current one the bidder from this current bid will be refunden immeditalty. 
+While the auction is running the bidder with the highest bid will win the auction, when the auction will end. If a new bid arrives which is higher than the current one the bidder from this current bid will be refunded immediately. 
 
-IF a BuyNow price exists and a new bid is send which is equal or higher as this price, the sender will get the NFT and the auction ends immeditalty.
+If a Buy-Now price exists and a new bid is sent which is equal or higher as this price, the sender will get the NFT and the auction ends immediately.
 
 A message to trackAuctionOpened account will be send.
 
@@ -576,8 +576,8 @@ A message to trackOfferReceived account will be send.
 Method hash to c all : 1966889121029848432
 No arguments within the call. The Signa amount send with the tranaction is equal the offer price. 
 
-### Cacnel an offer
-This allows the current maker of the offer to cancel its offer and get refunded. Only when the sender of the trandaction is equal to the current offer owner it will be executed.
+### Cancel an offer
+This allows the current maker of the offer to cancel its offer and get refunded. Only when the sender of the transaction is equal to the current offer owner it will be executed.
 A message to trackOfferRemoved account will be send.
 
     public void cancelOffer() {
@@ -635,7 +635,9 @@ No arguments within the call.
 With the normal send Signa transaction to the NFT (smart contract address) -  without a message  - any account can try to buy it or place a bid.  
 
 ### Activation costs
-The contract has an activation cost of 0.3 Signa. Every transaction needs to have this minimum amount to interact with it, otherwise the transaction will not be handled within the smart contract. The activation cost(fee) will be substrtacted from any bid/opffer send to the NFT. Example If you like to send a bid of 100 Signa you need to send an amount of 100.30 plus the network fee for the transdaction.
+The contract has an activation cost of 0.3 Signa. Every transaction needs to have this minimum amount to interact with it, otherwise the transaction will not be handled within the smart contract. The activation cost(fee) will be subtracted from any bid/offer send to the NFT. 
+
+Example: If you like to send a bid of 100 Signa you need to send an amount of 100.30 plus the network fee for the transaction.
 
 
 ## Compatibility
