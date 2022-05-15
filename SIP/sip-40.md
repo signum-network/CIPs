@@ -419,17 +419,17 @@ The Signum account which will get the royaltiesFee by every sale of the NFT.
 
 * **Tracker adresses**
 For each event the NFT will send a notification message to the defined Signum accounts:
-	trackSetNotForSale
-	trackSetForSale
-	trackAuctionOpened
-    trackNewAuctionBid
-	trackNewOwner
-	trackOwnershipTransferred
-	trackDutchAuctionOpened
-	trackOfferReceived
-	trackOfferRemoved
-	trackLikeReceived
-	trackRoyaltiesTransfer
+	* trackSetNotForSale
+	* trackSetForSale
+	* trackAuctionOpened
+	* trackNewAuctionBid
+	* trackNewOwner
+	* trackOwnershipTransferred
+	* trackDutchAuctionOpened
+	* trackOfferReceived
+	* trackOfferRemoved
+	* trackLikeReceived
+	* trackRoyaltiesTransfer
 
 
 
