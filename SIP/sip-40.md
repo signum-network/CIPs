@@ -12,7 +12,9 @@ created: 2022-04-26
 NFTs (non fungible token) are smart contracts representing an ownership of a digital asset. This SIP proposes a standard implementation of a smart contract to cover and track all needed activities around the ownership management. With  [SIP-30](sip-30.md)  the new standard can be simply used by linking the smart contract code from the first contract deployment of this SIP-40 standard. An audit check can be done by comparing the hash of the created NFT with the hash from this original contract deployment- if both are the same the oirginal code is used.
 
 SRC-40 Contract deployment : https://chain.signum.network/at/7074088231427605580
+
 Transaction: 7074088231427605580
+
 Code-Hash-ID:  15155055045342098571
 
 
