@@ -17,7 +17,7 @@ Code-Hash-ID:  15155055045342098571
 
 
 # Motivation
-The following standard allows for the implementation of a standard API for NFTs within smart contracts. This standard provides basic functionality to track, trade  and transfer NFTs.
+The following standard allows the implementation of a standard API for NFTs within smart contracts. This standard provides basic functionality to track, trade  and transfer NFTs.
 
 **What is a Non-Fungible Token?**
 
@@ -381,23 +381,26 @@ The Java code for the NFT standard looks as follows:
 
 
 
-
 ### Creator of the NFT
 The creator is always the account which uploads the transaction for the creation of th NFT to the chain.
 
-### Variable setting
+### Variable setting (data stack)
 While the creator is uploading the NFT to the chain, the individual data stack for the NFT should be defined within the transaction. Within the data stack the values should be set in the following order:
 
-* **owner** 
+ * **owner** 
 Should be equal creator by inital upload; can be set to any account id.
-* **status**
+ * **status**
 Defines if the NFT is for sale. 
-Valid values are  0=not for sale ; 1=For sale at a fixed price; 2= For sale in an auction
+Valid values 
+ 	 *  0= Not for sale  
+	 *  1= For sale at a fixed price 
+	 *  2= For sale in an auction
+	 
 * **currentPrice**
-The current price of the NFT; should be zero of status is 0 otherwise buy now price or floor price of the auction
+The current price of the NFT; should be zero  for status is 0 otherwise buy now price or floor price of the auction. CurrentPrice will change while an auction by valid bids.
 
 * **platformAddress**
-* The Signum account which will get te set platformFee. This can also be used to filter for an NFT portal.
+* The Signum account which will get the platformFee set under **platformFee**. This can also be used to filter for an NFT portal.
 
 * **platformFee**
 PlatformFee in promile. This value is send to the platformAddress by every sale.
@@ -405,9 +408,10 @@ PlatformFee in promile. This value is send to the platformAddress by every sale.
 The  platform fee is calculated from the sales price and reduce the payout to the current owner of the NFTon the active sale.
 
 * **royaltiesFee**
-RoyaltiesFee in promile. The royalties which are paid to the Royalties Owner by every sale of this NFT. 10% is se as 100 in this field (promile)
+RoyaltiesFee in promile. The royalties which are paid to the Royalties Owner by every sale of this NFT. 
+10% is se as 100 in this field (promile)
 The  royalties is calculated from the sales price and reduce the payout to the current owner of the NFT on the active sale.
-* 
+
 * **royaltiesOwner**
 The Signum account which will get the royaltiesFee by every sale of the NFT.
 
@@ -415,7 +419,7 @@ The Signum account which will get the royaltiesFee by every sale of the NFT.
 For each event the NFT will send a notification message to the defined Signum accounts:
 	trackSetNotForSale
 	trackSetForSale
-	trackAuctionOpened;
+	trackAuctionOpened
     trackNewAuctionBid
 	trackNewOwner
 	trackOwnershipTransferred
@@ -425,12 +429,14 @@ For each event the NFT will send a notification message to the defined Signum ac
 	trackLikeReceived
 	trackRoyaltiesTransfer
 
-The message structure is defined in the function calls.
+
 
 ## Basic functions 
+The message structure is defined in each function calls.
 
 ### Transfer
 With this function a current owner can transfer the NFT to a new owner.
+A message to trackOwnershipTransferred account will be send.
 
      public void transfer(Address newOwner) {
 		if (owner.equals(this.getCurrentTxSender())) {
@@ -444,6 +450,7 @@ Argument 1 : AccountID (new owner)
 
 ### Transfer Royalties 
 With this function a current owner of the royalties can transfer them to a new owner.
+A message to trackRoyaltiesTransfer account will be send.
 
     public void transferRoyalties(Address newRoyaltiesOwner) {
 		if (royaltiesOwner.equals(this.getCurrentTxSender())) {
@@ -456,8 +463,10 @@ With this function a current owner of the royalties can transfer them to a new o
 Method hash to c all : 7174296962751784077
 Argument 1 : AccountID (new owner)
 
-### SetNotForSale
-Setting a current NFT not for sale anymore.
+### Set not for sale
+Setting the NFT not for sale anymore.
+A cancel of an aucton is only possible when no current bid exists.
+A message to trackSetNotForSale account will be send.
 
     public void setNotForSale(){
 		if (highestBidder==null && owner.equals(this.getCurrentTxSender())) {
@@ -466,49 +475,159 @@ Setting a current NFT not for sale anymore.
 			sendMessage(owner.getId(), trackSetNotForSale);
 		   }
 	    }
-A cancel of an aucton is only possible when no current bid exists.
+Method hash to call : -1462395320800038545
+No arguments within the call.
 
-### PutForSale
+### Put Forr sale
+Setting the NFT for sale with a buy now price.
+If no bids exists and the owner is equal the sender of the transaction, the new sale with the given price will be set on the NFT. A message to trackSetForSale account will be send.
+
+    public void putForSale(long priceNQT) {
+	    if (highestBidder==null && owner.equals(this.getCurrentTxSender())) {
+		    // only if there is no bidder and it is the current owner
+		    status = STATUS_FOR_SALE;
+		    currentPrice = priceNQT;
+		    duchStartHeight = ZERO;
+		    sendMessage(owner.getId(), currentPrice, trackSetForSale);    
+		    }
+	   }
 
 
+Method hash to call : 483064598096680683
+Argument 1 : New Price (in Planck)
 
-### Creating smart tokens
-When creating a smart token, the user will be able to define the token as mintable or non-mintable. If the token is defined as mintable, the creator will be able to mint additional tokens. If non-mintable, the token is limited to the initial supply specified at the time of creation. All existing tokens created prior to the upcoming hard-fork are non-mintable.
+### Put for Dutch Auction
+Setting the NFT for sale in a dutch auction style.
+If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. By defintion the Dutch Auction starts with a high price and drops over time to a floor price. If someone send a bid to the NFT which is above or equal the price over time thee auction will end and the bidder will get the NFT.  A message to trackDutchAuctionOpened account will be send.
 
-The new transaction for minting tokens will incur a minimum network transaction fee.
-(MIN-FEE)
+    public void putForDuchAuction(long startPrice,long reservePrice,long 
+    priceDropPerBlock) 
+      {
+	    if (highestBidder==null && owner.equals(this.getCurrentTxSender())) {
+	    // only if there is no bidder and it is the current owner
+	    status = STATUS_FOR_SALE;
+	    duchStartHeight = getBlockHeight();
+	    currentPrice = startPrice;
+	    this.startPrice = startPrice;
+	    this.priceDropPerBlock = priceDropPerBlock;
+	    this.reservePrice = reservePrice;
+	    sendMessage(owner.getId(), startPrice, reservePrice, priceDropPerBlock, trackDutchAuctionOpened);
+	    }
+	  }
 
-### Burning smart tokens
-Any Signum token (including those that existed prior to the hard fork) can be burned by transferring it to address 0 (zero) using the transfer transaction. After the hard fork, it will be possible to burn Signa as well by sending to the address 0 (zero).
 
-## Special extensions for Smart Tokens
+Method hash to c all : 8003219160642102093
+Argument 1 : Start Price (in Planck)
+Argument 2 : Floor Price (in Planck)
+Argument 3 : Drop in Price (in Planck)
+The drop will be calculated for each block aka 4 minutes.
 
-### Define Treasury Accounts
-A new transaction type (**addAssetTreasuryAccount**) will be created that allows a token creator to define Treasury Accounts for a given smart token. Once set, this transaction will not be able to be reverted. Token balances in these accounts will not be used when calculating circulating supply, nor will the balance in burn address 0.
+### Put for Auction
+Setting the NFT for sale in an auction style.
+If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. An auction has by defintion always a start price, an auction end time and a Buy Now price (optional).
 
-With this new transaction, the smart token creator can publicly specify on-chain which accounts belong to a use-case. It will be possible to do this for existing tokens as well.
+While the auction is running the bidder with the highest bid will win the auction, when the auction will end. If a new bid arrives which is higher than the current one the bidder from this current bid will be refunden immeditalty. 
 
-### Payment to token holders
-A use case that is not covered by other blockchain solutions is paying dividends and other income to existing token holders efficiently and without burdening blockchain resources. We will provide a solution addressing this with the upcoming hard fork. We will introduce a new transaction type (distributionToAssetHolder) which allows any account to transfer given amounts of Signa or other smart tokens (or both) to defined smart token holders.
+IF a BuyNow price exists and a new bid is send which is equal or higher as this price, the sender will get the NFT and the auction ends immeditalty.
 
-Input parameters for the new transaction:
+A message to trackAuctionOpened account will be send.
 
-- Target token 
-- Minimum amount needed for a valid distribution (target token)
-- Distribution amount (Signa)
-- Distribution amount (other smart tokens) 
-- Token-ID of the smart token to be distributed
+    public void putForAuction(long priceNQT, long maxPrice, int timeout) {
+	    if (highestBidder==null && owner.equals(this.getCurrentTxSender())) {
+		    // only if there is no bidder and it is the current owner
+		    status = STATUS_FOR_AUCTION;
+		    auctionTimeout = getBlockTimestamp().addMinutes(timeout);
+		    currentPrice = priceNQT;
+		    auctionMaxPrice = maxPrice;
+		    sendMessage(owner.getId(), currentPrice, auctionMaxPrice,auctionTimeout.getValue(), trackAuctionOpened);
+		    }
+	    }
 
-As an example, a user could execute this statement: ”*If you have a minimum of 1.000 token from Smart Token A, you will be qualified for distribution of 20.000 Signa and 10.000 tokens from Smart Token B*”.
+Method hash to c all : -1457630170795045271
+Argument 1 : Start/Floor Price (in Planck)
+Argument 2 : Buy now  Price (in Planck) -> should be 0 if not set
+Argument 3 : Auction run time  (in minutes)  
 
-For each holder with a given minimum balance, the transaction will calculate their distribution share and transfer the Signa or smart tokens (or both) to their account.
 
-The transaction creator must pay MIN-FEE/10 (currently 0.000735 Signa) per valid distribution recipient or minimum MIN-FEE plus the regular network fee for the transaction (MIN-FEE).
-The total amount needed for the distribution must be paid upfront along with the network fee. 
+### Make an offer
+This allows for potential buyers to make an offer even for NFTs that are not for sale. The offer amount is locked in the contract until cancelled/accepted or a higher offer is received. This offer has to be higher than a previous offer and can be cancelled later. The owner can accept the offer and the offer is cancelled/refunded if the item is actually sold or a running auction ends.
 
-The **distributionToAssetHolder** transaction will be added to a block as a single transaction. The indirect income will be added to accounts using  the Subscription payment methods as processed by the network nodes’ logic.
+A message to trackOfferReceived account will be send.
 
-This will allow payment of nearly 1.000 smart tokens per block (approximately every 4 minutes) to a theoretically infinite group of token holders.
+    public void makeOffer() 
+	    {
+		    if(getCurrentTxAmount() > offerPrice) {
+				    if(offerAddress != null) {
+							  // send back the latest offer
+						    sendAmount(offerPrice, offerAddress);
+						    sendMessage(offerAddress.getId(), offerPrice, trackOfferRemoved);
+					  }
+					  offerAddress = getCurrentTxSender();
+					  offerPrice = getCurrentTxAmount();
+					  sendMessage(offerAddress.getId(), offerPrice, trackOfferReceived);
+					  return;
+				  }
+			  // send back funds of an invalid order
+			  sendAmount(getCurrentTxAmount(), getCurrentTxSender());
+			}
+
+Method hash to c all : 1966889121029848432
+No arguments within the call. The Signa amount send with the tranaction is equal the offer price. 
+
+### Cacnel an offer
+This allows the current maker of the offer to cancel its offer and get refunded. Only when the sender of the trandaction is equal to the current offer owner it will be executed.
+A message to trackOfferRemoved account will be send.
+
+    public void cancelOffer() {
+		    if(getCurrentTxSender().equals(offerAddress)) {
+		    cancelOfferIfPresent();
+		    }
+		 }
+
+    private void cancelOfferIfPresent() {
+		    if(offerAddress == null)
+			    return;
+			  sendMessage(offerAddress.getId(), offerPrice, trackOfferRemoved);
+			  sendAmount(offerPrice, offerAddress);
+			  offerAddress = null;
+			  offerPrice = ZERO;
+		 }
+
+Method hash to c all : -8537031161958386749
+No arguments within the call. 
+
+### Accept an offer
+This allows the current owner of the NFT to accept the offer. If an auction with an existing bid is still active the call will not succeed.  A message to trackNewOwner account will be send.
+
+
+    public void acceptOffer() {
+		    if(highestBidder==null && getCurrentTxSender().equals(owner) && offerPrice > ZERO) {
+			    currentPrice = offerPrice;
+			    pay();
+			    owner = offerAddress;
+			    offerAddress = null;
+			    offerPrice = ZERO;
+			    status = STATUS_NOT_FOR_SALE;
+			    sendMessage(owner.getId(), currentPrice, trackNewOwner);
+			    }
+		}
+    
+
+Method hash to c all : 8330062149210158071
+No arguments within the call. 
+
+### Set a Like
+Any account can like the NFT and add +1 to the Like counter on the NFT by sending this  transaction to it.  A message to trackLikeReceived account will be send.
+
+
+    public void likeIt() {
+	    totalLikes++;
+	    sendMessage(getCurrentTxSender().getId(), trackLikeReceived);
+	   }
+    
+
+Method hash to c all : -9009069050835256
+No arguments within the call. 
 
 
 
