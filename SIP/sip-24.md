@@ -36,7 +36,7 @@ Besides theorectical soundness for the modified formula an experiment was execut
 
 As can be seen, the modified version shown a much improved consistency on block times. Further, the daily average block times were 241 s and 267 s for the new and old fork, respectively. When using the modified version, the typical occasional very long block times are avoided (even with such a small capacity used on the tests) as well as the usual very short blocks.
 
-### Effects on Mining and Mining Sofware
+### Effects on Mining and Mining Software
 The implementation proposed on[PR393](https://github.com/signum-network/signum-node/pull/393) requires no change on mining software. The deadline confirmation returns the *legacy* value to miners so they can be unaware of the upgrade.
 
 Further, it is clear to see that the *best* deadline is the *best* deadline regardless of the modification (logarithm is a monotonical function). No changes are need on mining software as long as they send their best deadline to the mining node.
