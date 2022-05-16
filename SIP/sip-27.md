@@ -68,11 +68,11 @@ The `capacityEstimationBlocks` is 360 if the miner has forged 3 or more blocks i
 
 If the `estimatedCapacity` is smaller than 1 TiB, it is assumed to be 1 TiB.
 
-### Effects on Mining and Mining Sofware
+### Effects on Mining and Mining Software
 The proposed upgrade can be implemented with no effect on mining software or plot files.
 In the proposed implementation, the deadline confirmation returns the *legacy* value to miners so they can be unaware of the upgrade and still function.
 
-### Effects on Pool Sofware
+### Effects on Pool Software
 Pool software needs to be upgraded to actually compute the fair share for miners, in case they commit Signa in the mining process. The [Signum Pool](https://github.com/signum-network/signum-pool) already has an open-source implementation with the necessary changes.
 
 ## Improved Robustness against 51% Attacks
