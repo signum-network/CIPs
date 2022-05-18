@@ -35,7 +35,8 @@ We considered use cases of NFTs being owned and transacted by individuals as wel
 ##  Java code for the SRC-40 contract
 The Java code for the NFT standard looks as follows:
 
-    
+```java
+
     package bt.dapps;
     import bt.*;
     import bt.compiler.CompilerVersion;
@@ -381,7 +382,7 @@ The Java code for the NFT standard looks as follows:
 		}
 	}
 
-
+```
 
 ### Creator of the NFT
 The creator is always the account which uploads the transaction for the creation of the NFT to the chain.
@@ -440,6 +441,7 @@ The message structure is defined in each function calls.
 With this function a current owner can transfer the NFT to a new owner.
 A message to trackOwnershipTransferred account will be send.
 
+```java
      public void transfer(Address newOwner) {
 		if (owner.equals(this.getCurrentTxSender())) {
 			// only the current owner can transfer
@@ -447,13 +449,17 @@ A message to trackOwnershipTransferred account will be send.
 			owner = newOwner;
 		    }
 	    }
-Method hash to call : -8011735560658290665
+```
+
+Method hash to call : `-8011735560658290665`
+
 Argument 1 : AccountID (new owner)
 
 ### Transfer Royalties 
 With this function a current owner of the royalties can transfer them to a new owner.
 A message to trackRoyaltiesTransfer account will be send.
 
+```java
     public void transferRoyalties(Address newRoyaltiesOwner) {
 		if (royaltiesOwner.equals(this.getCurrentTxSender())) {
 			// only the current owner can transfer
@@ -461,8 +467,10 @@ A message to trackRoyaltiesTransfer account will be send.
 			royaltiesOwner = newRoyaltiesOwner;
 		  }
 	  }
+	  
+```
 
-Method hash to c all : 7174296962751784077
+Method hash to c all : `7174296962751784077`
 Argument 1 : AccountID (new owner)
 
 ### Set not for sale
@@ -470,6 +478,7 @@ Setting the NFT not for sale anymore.
 A cancel of an auction is only possible when no current bid exists.
 A message to trackSetNotForSale account will be send.
 
+```java
     public void setNotForSale(){
 		if (highestBidder==null && owner.equals(this.getCurrentTxSender())) {
 			// only if there is no bidder and it is the current owner
@@ -477,13 +486,16 @@ A message to trackSetNotForSale account will be send.
 			sendMessage(owner.getId(), trackSetNotForSale);
 		   }
 	    }
-Method hash to call : -1462395320800038545
+```
+
+Method hash to call : `-1462395320800038545`
 No arguments within the call.
 
 ### Put for sale
 Setting the NFT for sale with a buy now price.
 If no bids exists and the owner is equal the sender of the transaction, the new sale with the given price will be set on the NFT. A message to trackSetForSale account will be send.
 
+```java
     public void putForSale(long priceNQT) {
 	    if (highestBidder==null && owner.equals(this.getCurrentTxSender())) {
 		    // only if there is no bidder and it is the current owner
@@ -493,15 +505,17 @@ If no bids exists and the owner is equal the sender of the transaction, the new 
 		    sendMessage(owner.getId(), currentPrice, trackSetForSale);    
 		    }
 	   }
+```
 
-
-Method hash to call : 483064598096680683
+Method hash to call : `483064598096680683`
 Argument 1 : New Price (in Planck)
 
 ### Put for Dutch Auction
 Setting the NFT for sale in a dutch auction style.
 If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. By definition the Dutch Auction starts with a high price and drops over time to a floor price. If someone send a bid to the NFT which is above or equal the price over time thee auction will end and the bidder will get the NFT. A message to trackDutchAuctionOpened account will be send.
 
+
+```java
     public void putForDuchAuction(long startPrice,long reservePrice,long 
     priceDropPerBlock) 
       {
@@ -516,12 +530,16 @@ If no bids exists and the owner is equal the sender of the transaction, the new 
 	    sendMessage(owner.getId(), startPrice, reservePrice, priceDropPerBlock, trackDutchAuctionOpened);
 	    }
 	  }
+```
 
+Method hash to c all : `8003219160642102093`
 
-Method hash to c all : 8003219160642102093
 Argument 1 : Start Price (in Planck)
+
 Argument 2 : Floor Price (in Planck)
+
 Argument 3 : Drop in Price (in Planck)
+
 The drop will be calculated for each block aka 4 minutes.
 
 ### Put for Auction
@@ -534,6 +552,7 @@ If a Buy-Now price exists and a new bid is sent which is equal or higher as this
 
 A message to trackAuctionOpened account will be send.
 
+```java
     public void putForAuction(long priceNQT, long maxPrice, int timeout) {
 	    if (highestBidder==null && owner.equals(this.getCurrentTxSender())) {
 		    // only if there is no bidder and it is the current owner
@@ -544,8 +563,10 @@ A message to trackAuctionOpened account will be send.
 		    sendMessage(owner.getId(), currentPrice, auctionMaxPrice,auctionTimeout.getValue(), trackAuctionOpened);
 		    }
 	    }
+```
 
-Method hash to c all : -1457630170795045271
+Method hash to c all : `-1457630170795045271`
+
 Argument 1 : Start/Floor Price (in Planck)
 Argument 2 : Buy now  Price (in Planck) -> should be 0 if not set
 Argument 3 : Auction run time  (in minutes)  
@@ -556,6 +577,7 @@ This allows for potential buyers to make an offer even for NFTs that are not for
 
 A message to trackOfferReceived account will be send.
 
+```java
     public void makeOffer() 
 	    {
 		    if(getCurrentTxAmount() > offerPrice) {
@@ -572,14 +594,17 @@ A message to trackOfferReceived account will be send.
 			  // send back funds of an invalid order
 			  sendAmount(getCurrentTxAmount(), getCurrentTxSender());
 			}
+```
 
-Method hash to c all : 1966889121029848432
+Method hash to c all : `1966889121029848432`
+
 No arguments within the call. The Signa amount send with the tranaction is equal the offer price. 
 
 ### Cancel an offer
 This allows the current maker of the offer to cancel its offer and get refunded. Only when the sender of the transaction is equal to the current offer owner it will be executed.
 A message to trackOfferRemoved account will be send.
 
+```java
     public void cancelOffer() {
 		    if(getCurrentTxSender().equals(offerAddress)) {
 		    cancelOfferIfPresent();
@@ -594,14 +619,16 @@ A message to trackOfferRemoved account will be send.
 			  offerAddress = null;
 			  offerPrice = ZERO;
 		 }
+```
 
-Method hash to c all : -8537031161958386749
+Method hash to c all : `-8537031161958386749`
+
 No arguments within the call. 
 
 ### Accept an offer
 This allows the current owner of the NFT to accept the offer. If an auction with an existing bid is still active the call will not succeed.  A message to trackNewOwner account will be send.
 
-
+```java
     public void acceptOffer() {
 		    if(highestBidder==null && getCurrentTxSender().equals(owner) && offerPrice > ZERO) {
 			    currentPrice = offerPrice;
@@ -613,22 +640,25 @@ This allows the current owner of the NFT to accept the offer. If an auction with
 			    sendMessage(owner.getId(), currentPrice, trackNewOwner);
 			    }
 		}
+```
     
 
-Method hash to c all : 8330062149210158071
+Method hash to c all : `8330062149210158071`
+
 No arguments within the call. 
 
 ### Set a Like
 Any account can like the NFT and add +1 to the Like counter on the NFT by sending this  transaction to it.  A message to trackLikeReceived account will be send.
 
-
+```java
     public void likeIt() {
 	    totalLikes++;
 	    sendMessage(getCurrentTxSender().getId(), trackLikeReceived);
 	   }
-    
+ ```
 
-Method hash to c all : -9009069050835256
+Method hash to c all : `-9009069050835256`
+
 No arguments within the call. 
 
 ### Buying an NFT
