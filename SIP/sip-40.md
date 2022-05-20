@@ -578,7 +578,9 @@ A message is sent to the trackAuctionOpened account.
 Method hash to c all : `-1457630170795045271`
 
 Argument 1 : Start/Floor Price (in Planck)
+
 Argument 2 : Buy now  Price (in Planck) -> should be 0 if not set
+
 Argument 3 : Auction run time  (in minutes)  
 
 
