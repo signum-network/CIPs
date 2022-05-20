@@ -390,36 +390,45 @@ The creator is always the account which uploads the transaction for the creation
 ### Variable setting (data stack)
 While the creator is uploading the NFT to the chain, the individual data stack for the NFT should be defined within the transaction. Within the data stack the values should be set in the following order:
 
- * **owner** 
-Should be equal creator by initial upload; can be set to any account id.
+ * **owner**
+
+	Should be equal creator by initial upload; can be set to any account id.
+
  * **status**
-Defines if the NFT is for sale. 
+
+	Defines if the NFT is for sale. 
 Valid values 
  	 *  0= Not for sale  
 	 *  1= For sale at a fixed price 
 	 *  2= For sale in an auction
 	 
 * **currentPrice**
-The current price of the NFT; should be zero  for status is 0 otherwise buy now price or floor price of the auction. Current price will change while an auction by valid bids.
+
+	The current price of the NFT; should be zero  for status is 0 otherwise buy now price or floor price of the auction. Current price will change while an auction by valid bids.
 
 * **platformAddress**
-* The Signum account which will get the platformFee set under **platformFee**. This can also be used to filter for an NFT portal.
+
+	The Signum account which will get the platformFee set under **platformFee**. This can also be used to filter for an NFT portal.
 
 * **platformFee**
-PlatformFee in per mille. This value is send to the platformAddress by every sale.
+
+	PlatformFee in per mille. This value is send to the platformAddress by every sale.
 2% is set as 20 in this field. (per mille)
 The  platform fee is calculated from the sales price and reduce the payout to the current owner of the NFT on the active sale.
 
 * **royaltiesFee**
-RoyaltiesFee in per mille. The royalties which are paid to the Royalties Owner by every sale of this NFT. 
+
+	RoyaltiesFee in per mille. The royalties which are paid to the Royalties Owner by every sale of this NFT. 
 10% is se as 100 in this field (per mille)
 The royalties is calculated from the sales price and reduce the pay out to the current owner of the NFT on the active sale.
 
 * **royaltiesOwner**
-The Signum account which will get the royaltiesFee by every sale of the NFT.
+
+	The Signum account which will get the royaltiesFee by every sale of the NFT.
 
 * **Tracker adresses**
-For each event the NFT will send a notification message to the defined Signum accounts:
+
+	For each event the NFT will send a notification message to the defined Signum accounts:
 	* trackSetNotForSale
 	* trackSetForSale
 	* trackAuctionOpened
@@ -439,7 +448,7 @@ The message structure is defined in each function calls.
 
 ### Transfer
 With this function a current owner can transfer the NFT to a new owner.
-A message to trackOwnershipTransferred account will be send.
+A message is sent to the trackOwnershipTransferred account.
 
 ```java
      public void transfer(Address newOwner) {
@@ -457,7 +466,7 @@ Argument 1 : AccountID (new owner)
 
 ### Transfer Royalties 
 With this function a current owner of the royalties can transfer them to a new owner.
-A message to trackRoyaltiesTransfer account will be send.
+A message is sent to the trackRoyaltiesTransfer account.
 
 ```java
     public void transferRoyalties(Address newRoyaltiesOwner) {
@@ -475,8 +484,8 @@ Argument 1 : AccountID (new owner)
 
 ### Set not for sale
 Setting the NFT not for sale anymore.
-A cancel of an auction is only possible when no current bid exists.
-A message to trackSetNotForSale account will be send.
+Aborting an auction is only possible if there is no current bid.
+A message is sent to the trackSetNotForSale account.
 
 ```java
     public void setNotForSale(){
@@ -493,7 +502,8 @@ No arguments within the call.
 
 ### Put for sale
 Setting the NFT for sale with a buy now price.
-If no bids exists and the owner is equal the sender of the transaction, the new sale with the given price will be set on the NFT. A message to trackSetForSale account will be send.
+If there are no bids and the owner is the same as the sender of the transaction, the new sale is set with the specified price on the NFT. 
+A message is sent to the trackSetForSale account.
 
 ```java
     public void putForSale(long priceNQT) {
@@ -512,7 +522,7 @@ Argument 1 : New Price (in Planck)
 
 ### Put for Dutch Auction
 Setting the NFT for sale in a dutch auction style.
-If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. By definition the Dutch Auction starts with a high price and drops over time to a floor price. If someone send a bid to the NFT which is above or equal the price over time thee auction will end and the bidder will get the NFT. A message to trackDutchAuctionOpened account will be send.
+If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. By definition the Dutch Auction starts with a high price and drops over time to a floor price. If someone send a bid to the NFT which is above or equal the price over time thee auction will end and the bidder will get the NFT. A message is sent to the trackDutchAuctionOpened account.
 
 
 ```java
@@ -544,13 +554,13 @@ The drop will be calculated for each block aka 4 minutes.
 
 ### Put for Auction
 Setting the NFT for sale in an auction style.
-If no bids exists and the owner is equal the sender of the transaction, the new auction will be created for the NFT. An auction has by definition always a start price, an auction end time and a Buy Now price (optional).
+If there are no bids and the owner is the same as the sender of the transaction, a new auction is created for the NFT. By definition, an auction always has a starting price, an auction end time and a buy-now price (optional).
 
 While the auction is running the bidder with the highest bid will win the auction, when the auction will end. If a new bid arrives which is higher than the current one the bidder from this current bid will be refunded immediately. 
 
-If a Buy-Now price exists and a new bid is sent which is equal or higher as this price, the sender will get the NFT and the auction ends immediately.
+If a buy-now price exists and a new bid is received that is equal to or higher than this price, the sender will receive the NFT and the auction will end immediately.
 
-A message to trackAuctionOpened account will be send.
+A message is sent to the trackAuctionOpened account.
 
 ```java
     public void putForAuction(long priceNQT, long maxPrice, int timeout) {
@@ -575,7 +585,7 @@ Argument 3 : Auction run time  (in minutes)
 ### Make an offer
 This allows for potential buyers to make an offer even for NFTs that are not for sale. The offer amount is locked in the contract until cancelled/accepted or a higher offer is received. This offer has to be higher than a previous offer and can be cancelled later. The owner can accept the offer and the offer is cancelled/refunded if the item is actually sold or a running auction ends.
 
-A message to trackOfferReceived account will be send.
+A message is sent to the trackOfferReceived account.
 
 ```java
     public void makeOffer() 
@@ -602,7 +612,7 @@ No arguments within the call. The Signa amount send with the tranaction is equal
 
 ### Cancel an offer
 This allows the current maker of the offer to cancel its offer and get refunded. Only when the sender of the transaction is equal to the current offer owner it will be executed.
-A message to trackOfferRemoved account will be send.
+A message is sent to the trackOfferRemoved account.
 
 ```java
     public void cancelOffer() {
@@ -626,7 +636,7 @@ Method hash to c all : `-8537031161958386749`
 No arguments within the call. 
 
 ### Accept an offer
-This allows the current owner of the NFT to accept the offer. If an auction with an existing bid is still active the call will not succeed.  A message to trackNewOwner account will be send.
+This allows the current owner of the NFT to accept the offer. If an auction with an existing bid is still active the call will not succeed.  A message is sent to the trackNewOwner account.
 
 ```java
     public void acceptOffer() {
@@ -648,7 +658,7 @@ Method hash to c all : `8330062149210158071`
 No arguments within the call. 
 
 ### Set a Like
-Any account can like the NFT and add +1 to the Like counter on the NFT by sending this  transaction to it.  A message to trackLikeReceived account will be send.
+Any account can like the NFT and add +1 to the Like counter on the NFT by sending this  transaction to it.  A message is sent to the trackLikeReceived account.
 
 ```java
     public void likeIt() {
