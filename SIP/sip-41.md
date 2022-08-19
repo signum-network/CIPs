@@ -22,11 +22,6 @@ Essentially we suggest the following changes:
  - The account making the distribution is excluded from the distribution
  - All other holdings, including those locked in sell offers are accounted for in the distribution
 
-The same applies to distributions by smart contracts. The difference being, a distribution by regular transaction will account for the
-holdings as they were in the previous block.
-The distribution by a smart contract will use the current state (present block) for the token positions, since smart contract transactions
-are applied last in a block.
-
 ## Compatibility
 The change will require a hard fork.
 
