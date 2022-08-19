@@ -89,3 +89,4 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [38](./SIP/sip-38.md )  | Standard| Core| Map support for smart contracts| Final|
 | [39](./SIP/sip-39.md )  | Standard| Core| Smart token support for smart contracts| Final|
 | [40](./SIP/sip-40.md )  | Standard| SRC | Signum NFT specifications| Final|
+| [40](./SIP/sip-41.md )  | Standard| SRC | Smart Tokens Distribution Changes| Review|
