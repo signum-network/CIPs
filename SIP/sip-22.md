@@ -30,10 +30,9 @@ URI = SCHEME://PATH?QUERY
 ```
 
 ```
-SCHEME = burst.DOMAIN
+SCHEME = signum
 PATH = VERSION
 QUERY = action=IDENT&payload=BASE64
-DOMAIN = IDENT
 IDENT = ALPHA[ALPHA|DIGIT]*
 VERSION = v[DIGIT]+
 BASE64 = ALPHA[DIGIT|ALPHA|SIGN]*[=|==]?
@@ -45,16 +44,13 @@ SIGN = [+|/]
 #### Example
 
 ```
-burst.message://v1?action=send&payload=eyJyZWNpcGllbnQiOjEyMzQsIm1lc3NhZ2UiOiJIZWxsbyx0aGlzaXNhcHJvcG9zYWxmb3JhY29uc2lzdGVudGRlZXBsaW5rc3BlY2ZvcmJ1cnN0IiwiZmVlTlFUIjoxMDAwMDAwfQ==
+signum://v1?action=send&payload=eyJyZWNpcGllbnQiOjEyMzQsIm1lc3NhZ2UiOiJIZWxsbyx0aGlzaXNhcHJvcG9zYWxmb3JhY29uc2lzdGVudGRlZXBsaW5rc3BlY2ZvcmJ1cnN0IiwiZmVlTlFUIjoxMDAwMDAwfQ==
 ```
 
 
 ### Scheme 
 A _scheme_ determines the domain within the burst ecosystem. Technically, the _scheme_, also known as _protocol_, links the operation systems default startup for a certain application.
 It consists of the static prefix `signum.` followed by an alphanumeric string that defines the targeted domain.
-
-### Domain
-A _domain_ describes the "area" where a linked application belongs to. This implies that per platform only one application can be linked to a domain, as disambigation might lead to undefined behavior. It is possible to map one application to many domains, if that application is _omnipotent_. Domain names are required and must be a non-empty alphanumeric URI compatible value. 
 
 ### Path
 
@@ -73,11 +69,11 @@ The caller should use actions which are supported by the linked application. If 
 
 Signum-Node API supports a method called `generateSendTransactionQRCode`, which creates a QR-Code for a deep link with scheme `burst://`. It returns very specific data, and lacks versatility. In addition to this endpoint a more generic endpoint for QR Code generation should be provided:
 
-`generateDeepLinkQRCode(string domain, string action, string payload)` 
+`generateDeepLinkQRCode(string action, string payload)` 
 
 Additionally, another method to mount the only the link would be useful:
  
-`generateDeepLink(string domain, string action, string payload)` 
+`generateDeepLink(string action, string payload)` 
 
 ## Summary
 
