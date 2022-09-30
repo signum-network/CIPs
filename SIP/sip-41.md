@@ -3,7 +3,7 @@ sip:  41
 title: Smart Tokens Distribution Changes
 description: Changes how the pro-rata distribution to smart token holders work
 author:   jjos, frank_the_tank
-status: Review
+status: Final
 type: Standard
 category: Core
 created: 2021-08-18
