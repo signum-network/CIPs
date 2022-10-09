@@ -91,3 +91,4 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [40](./SIP/sip-40.md )  | Standard| SRC | Signum NFT specifications| Final|
 | [41](./SIP/sip-41.md )  | Standard| Core | Smart Tokens Distribution Changes| Final|
 | [42](./SIP/sip-42.md )  | Standard| Core | Subscription behaviour enhancement| Review|
+| [43](./SIP/sip-43.md )  | Standard| Core | Introduce Smart Token Owner| Review|
