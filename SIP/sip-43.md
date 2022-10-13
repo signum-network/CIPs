@@ -32,7 +32,7 @@ The minted tokens will always be add to the current owner account on the smart t
 ## Specification
 On the DB table `asset` we we will introdcue a new field `owner_id` beside the `account_id`.
 By creation of a smart token the `owner_id` is equal the `account_id`.
-Only the current owner set in the owner_id field can execute the new **TransferAssetOwnership** . 
+Only the current owner set in the `owner_id` field can execute the new **TransferAssetOwnership** . 
 
 All checks in the node code which are using the table `asset` and the field `account_id` need to be redirected to the new field `owner_id`.
 A migration script is needed to set `owner_id` = `account_id` for all exisitng smart tokens.
