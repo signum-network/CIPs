@@ -36,7 +36,7 @@ Only the current owner set in the owner_id field can execute the new **TransferA
 
 All checks in the node code which are using the table `asset` and the field `account_id` need to be redirected to the new field `owner_id`.
 A migration script is needed to set `owner_id` = `account_id` for all exisitng smart tokens.
-By creation of a new smart token the `account_id` and `ownwer_id` need to be set with the `sender-id` of the transaction.
+By creation of a new smart token the `account_id` and `owner_id` need to be set with the sender id of the transaction.
 
 The transaction should cost the same as a new creation of a smart token; 150 Signa.
 
