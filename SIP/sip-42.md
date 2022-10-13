@@ -16,7 +16,7 @@ Allow a subscription to persist even if the account balance is insufficient to p
 Subscriptions are not new to the Signum blockchain. They could be used since the start in 2014. The current implementation is similar to a standing order, which gets executed at each interval as long as the account balance allows it. If the account has irregular inflows of Signa it could happen that the subscription get cancelled by the blockchain as the balance was not sufficient. The user should get the possiblity to define if a subscription should be cancelled or just set on hold until the next interval will occure or the subscription gets really cancelled by the user. 
 
 ## Specification
-The subscription should get a new attribute `KeepAlive`. This value is by default `false`. 
+The subscription should get a new attribute `keepAlive`. This value is by default `false`. 
 If set to `true` the subscription will continue even when the account-balance is not enough to pay by the given interval.
 
 The node would skip the payment in this case, but add a new record on the DB with the next payment-interval, amount and latest = 1.
