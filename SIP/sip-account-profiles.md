@@ -33,20 +33,18 @@ Mind, that this format is entirely optional. It is just a recommendation and use
 _Example_:
 
 ```json
-  {
-  	  "vs": 1,
-      "nm": "Bittrex",
-      "av": {"QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif"},
-      "bg": {
-        "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg"
-      },
-      "ds": "World class exchange at your service",
-      "hp": "https://bittrex.com",
-      "tp": "cex",
-      "sr": "^[0-9a-fA-F]{24}$",
-      "xt": "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc",
-      "sc": ["https://twitter.com/sk8terclown_42","https://discord.gg/ZGHgCXy45"]
-    }
+{
+  "vs": 1,
+  "tp": "cex",
+  "nm": "Bittrex",
+  "ds": "World class exchange at your service",
+  "av": { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" },
+  "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
+  "hp": "https://bittrex.com",
+  "sr": "^[0-9a-fA-F]{24}$",
+  "xt": "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc",
+  "sc": ["https://twitter.com/bittrex"]
+}
 ```
 
 | Field Name | Required | Full Name        | Value Format | Example                                                               | Rules                                                                                                                     | Description                                                                                                                                                                                                                  |
@@ -136,7 +134,7 @@ This proposal is backwards compatible. If a profile does not provide such inform
 
 ## Reference Implementation
 
-A reference implementation for Data Creation/Validation at least for Javascript will be provided.
+A [JSON Schema](https://json-schema.org/) will be provides and also reference implementation for Data Creation/Validation at least for Javascript will be provided. 
 
 ## Security Considerations
 
