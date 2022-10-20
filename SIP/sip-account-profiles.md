@@ -42,6 +42,7 @@ _Example_:
   "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
   "hp": "https://bittrex.com",
   "sr": "^[0-9a-fA-F]{24}$",
+  "al": "@somealias"
   "xt": "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc",
   "sc": ["https://twitter.com/bittrex"]
 }
@@ -50,15 +51,18 @@ _Example_:
 | Field Name | Required | Full Name        | Value Format | Example                                                               | Rules                                                                                                                     | Description                                                                                                                                                                                                                  |
 |------------|----------|------------------|--------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | vs         | yes      | Version          | number       | 1                                                                     |                                                                                                                           | An integer number to determine the formats version number                                                                                                                                                                    |
-| tp         | yes      | Type             | string       | biz                                                                   | /^biz|bot|cex|dex|dev|hum|000$/                                                                                       | A three character code classifying this accounts type                                                                                                                                                                        |
 | nm         | yes      | Name             | string       | Clownsk8ter_42 🥳                                                     | /^.{,24}$/                                                                                                                | The accounts name, which can be arbitrary UTF-8 string with at max 24 chars                                                                                                                                                  |
+| tp         | no       | Type             | string       | biz                                                                   | /^biz|bot|cex|dex|dev|hum$/                                                                                       | A three character code classifying this accounts type                                                                                                                                                                        |
 | ds         | no       | Description      | string       | Funny skater girl with 🤡 mask and ...                                | /^.{,384}$/                                                                                                               | A more extensive description , which can be arbitrary UTF-8 string with at max 384 chars                                                                                                                                     |
 | av         | no       | Avatar           | object       | { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" }     | A dynamic JSON object, which one and only fields key is an IPFS hash (CID0 or CID1), and a valid image Mime Type as value | The profile image aka avatar, stored on IPFS. There is no technical limit applied, but it's a good practice to have small quadratic sized images, e.g. up to 128 KiB                                                         |
 | bg         | no       | Background Image | object       | { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" }     | A dynamic JSON object, which one and only fields key is an IPFS hash (CID0 or CID1), and a valid image Mime Type as value | A background image stored on IPFS.   There is no technical limit applied, but it's a good practice to have optimized banner like images, e.g. up to 512 KiB                                                                  |
 | hp         | no       | Homepage         | string       | https://bittrex.com                                                   | URL/CID                                                                                                                   | An (sanitized) URL of at maximum 128 characters pointing to a web presence of that account.                                                                                                                                  |
 | sr         | no       | Send Rule        | string       | /^[0-9a-fA-F]{64}$/                                                   | A valid Regex                                                                                                             | A regex that needs to be matched when sending to this account, i.e. a memo for bots or exchanges                                                                                                                             |
 | sc         | no       | Social Network   | array        | ["https://twitter.com/sk8terclown_42","https://discord.gg/ZGHgCXy45"] | An array of URLs/CIDs                                                                                                     | A list of at max. three (sanitized) URLs or IPFS CIDs of at maximum 92 characters each                                                                                                                                       |
+| al         | no       | Signum Alias     | string       | @myalias                                                              | /^@\w{1,100}$/                                                                                                        | An related alias of the Signum chain                                                                                                                                                                                         |
 | xt         | no       | Extension        | string       | QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc                        | A valid IPFS CID                                                                                                          | The CID for extended information. The resulting document does not follow any format restrictions, as it completely use case dependent. Good formats are JSON, but also private information in encrypted formats is possible. |
+
+
 
 ### Payload Size Limit
 
@@ -78,14 +82,13 @@ The drawback of this method is that the description is not human readable anymor
 
 > Please review this part and comment here - I (ohager) thought it might be interesting to add these types
 
-An account MUST be categorized using a three letter code. Following pre-defined codes are suggested:
+An account CAN be categorized using a three letter code. Following pre-defined codes are suggested:
 
 - Business Account: `biz`
 - Automated Account*: `bot` 
 - Human Account: `hum`
 - Centralized Exchange Account: `cex`
 - Decentralized Exchange Account: `dex` 
-- Untyped/Undefined: `000`
 
 
 > * Smart Contracts cannot have additional Account Info, due to lack of signing keys - but it might be possible to use this SRC for an SCs description field also.
@@ -93,6 +96,11 @@ An account MUST be categorized using a three letter code. Following pre-defined 
 ### Field - `sr`  - Send Rule
 
 The optional `sr` field is a regular expression that MUST be considered by applications, once it is present. The regular expression defines how the senders attached message MUST be formatted. If the rule is violated the sending application MUST NOT send the transaction to this account.
+
+### Field - `al`  - Alias
+
+This optional field relates the account with an alias. The Signum Alias system allows to be mutable, while still on-chain. This way it is possible to even make mutable descriptions for smart contracts, if using this SRC for Smart Contract description fields.
+
 
 ### Field - `xt`  - Extension
 
