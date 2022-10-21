@@ -1,5 +1,5 @@
 ---
-sip: <to-be-assigned>
+sip: 44
 title: Account Profiles
 description: Proposal for standardized Account Profile Information
 author: ohager
@@ -17,7 +17,7 @@ This proposal suggests a JSON standard for account profiles. The standard is app
 
 ## Motivation
 
-Signum Accounts can receive [additional account information](https://europe.signum.network/api-doc/index.html#post-/api-requestType-setAccountInfo). At this stage, this is just unstructured text of up to 1000 bytes. For applications (centralized or decentralized) it would be advantageous if there were a unified structured format so that an account profile can be written and read consistently. Thus it is possible to display avatars in the wallets or the exlorer instead of the generic (but cool) hashicons. In this profile it is possible to store both generic and application-specific public information, which can then be used as desired. Furthermore, such a profile also allows to provide validation information for sending tokens to this account, such as sending memos to exchange accounts or similar.
+Signum Accounts can have mutable [additional account information](https://europe.signum.network/api-doc/index.html#post-/api-requestType-setAccountInfo). At this stage, this is just unstructured text of up to 1000 bytes. For applications (centralized or decentralized) it would be advantageous if there were a unified structured format so that an account profile can be written and read consistently. Thus it is possible to display avatars in the wallets or the exlorer instead of the generic (but cool) hashicons. In this profile it is possible to store both generic and application-specific public information, which can then be used as desired. Furthermore, such a profile also allows to provide validation information for sending tokens to this account, such as sending memos to exchange accounts or similar.
 
 
 ## Specification
@@ -42,7 +42,7 @@ _Example_:
   "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
   "hp": "https://bittrex.com",
   "sr": "^[0-9a-fA-F]{24}$",
-  "al": "@somealias"
+  "al": "@somealias",
   "xt": "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc",
   "sc": ["https://twitter.com/bittrex"]
 }
@@ -62,6 +62,60 @@ _Example_:
 | al         | no       | Signum Alias     | string       | @myalias                                                              | /^@\w{1,100}$/                                                                                                        | An related alias of the Signum chain                                                                                                                                                                                         |
 | xt         | no       | Extension        | string       | QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc                        | A valid IPFS CID                                                                                                          | The CID for extended information. The resulting document does not follow any format restrictions, as it completely use case dependent. Good formats are JSON, but also private information in encrypted formats is possible. |
 
+### Custom In-Object Extensions
+
+The mentioned fields are almost all optional. To not overcomplicate minor custom extensions it is possible to add custom fields to this object, as long as the limit of 1000 bytes is not exceeded. As a recommendation a custom field SHOULD have as first character an `x` and SHOULD be only two characters, e.g. `x1`, or `xa` 
+
+> Keep in mind, that custom fields can only be processed by applications, which support it.
+
+_Examples_
+
+
+```json
+{
+  "vs": 1,
+  "tp": "smc",
+  "nm": "Contract A",
+  "ds": "Bla bla",
+  "av": { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" },
+  "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
+  "hp": "https://foobar.com",
+  "sr": "^[0-9a-fA-F]{24}$",
+  "al": "@somealias",
+  "x1": "https://github.com/foobar/contracts/blob/main/sources/contract.c",
+}
+```
+
+
+Not recommended but still conformant objects:
+
+
+_No x as first char used_
+```json
+{
+  "vs": 1,
+  "tp": "hum",
+  "nm": "SignumArt Creator",
+  "ds": "Some nice artworks from wy side",
+  "av": { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" },
+  "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
+  "tw": "mytwitter"
+}
+```
+
+_More than two characters_
+
+```json
+{
+  "vs": 1,
+  "tp": "hum",
+  "nm": "SignumArt Creator",
+  "ds": "Some nice artworks from wy side",
+  "av": { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" },
+  "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
+  "x-tw": "mytwitter"
+}
+```
 
 
 ### Payload Size Limit
@@ -84,14 +138,14 @@ The drawback of this method is that the description is not human readable anymor
 
 An account CAN be categorized using a three letter code. Following pre-defined codes are suggested:
 
-- Business Account: `biz`
-- Automated Account*: `bot` 
 - Human Account: `hum`
+- Smart Contract Account: `smc`  (as description field. The use of `al` is highly recommended)
+- Non Smart contract, but automated Account: `bot` 
+- Business Account: `biz`
 - Centralized Exchange Account: `cex`
 - Decentralized Exchange Account: `dex` 
+- Other: `oth` 
 
-
-> * Smart Contracts cannot have additional Account Info, due to lack of signing keys - but it might be possible to use this SRC for an SCs description field also.
 
 ### Field - `sr`  - Send Rule
 
@@ -136,6 +190,11 @@ Images, and extended Metadata are storable on IPFS and can be [addressed using C
 
 Although, Smart Contracts do not have separated Account Information like common accounts have, this SRC can be applied as description for Smart Contracts also. This way, interaction with smart contracts could have upfront sending validation also. 
 
+### Alias Forwarding
+
+The combination of the `al` field, even allows Smart Contracts to have _mutable_ information attached to it. It's entirely feasible, that the contract has its _immutable_ description according to this specification and links further _mutable_ information via an alias to it.
+
+
 ## Backwards Compatibility
 This proposal is backwards compatible. If a profile does not provide such information further processing of those is skipped and has no impact on either protocol or similar. This SRC is intended for Application Layer (Layer 2) only.
 
@@ -146,7 +205,9 @@ A [JSON Schema](https://json-schema.org/) will be provides and also reference im
 
 ## Security Considerations
 
-It is implicit that all relevant profile metadata is unencrypted and publicly available. The use of profile information is optional (opt-in). Users have to be aware of this and MUST NOT store sensitive data in the metadata. Nevertheless, it is possible to store sensible information in the data referenced by `xt` 
+It is implicit that all relevant profile metadata is unencrypted and publicly available. The use of profile information is optional (opt-in). Users have to be aware of this and MUST NOT store sensitive data in the metadata. Nevertheless, it is possible to store sensible information in the data referenced by `xt`.
+
+As pointed out, this specification can be used in _immutable_ descriptions of smart contracts, _mutable_ account info and _mutable_ alias data. When resolving the `al` field, it MUST NOT be resolved recursively, i.e. chaining `al` resolving is not allowed.
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
