@@ -4,7 +4,7 @@ title: Account Profiles
 description: Proposal for standardized Account Profile Information
 author: ohager
 discussions-to: <URL>
-status: Draft
+status: Review
 type: Standards Track (Layer 2)
 category: SRC
 created: 2022-10-20
