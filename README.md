@@ -92,3 +92,4 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [41](./SIP/sip-41.md )  | Standard| Core | Smart Tokens Distribution Changes| Final|
 | [42](./SIP/sip-42.md )  | Standard| Core | Subscription behaviour enhancement| Review|
 | [43](./SIP/sip-43.md )  | Standard| Core | Introduce Smart Token Owner| Review|
+| [43](./SIP/sip-44.md )  | Standard| SRC | Account Profile| Review|
