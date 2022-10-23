@@ -3,9 +3,9 @@ sip: 44
 title: Account Profiles
 description: Proposal for standardized Account Profile Information
 author: ohager
-discussions-to: <URL>
-status: Draft
-type: Standards Track (Layer 2)
+status: Review
+Last Call: 2022-11-22
+type: Standard
 category: SRC
 created: 2022-10-20
 ---
