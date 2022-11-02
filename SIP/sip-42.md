@@ -18,8 +18,11 @@ Subscriptions are not new to the Signum blockchain. They could be used since the
 ## Specification
 The subscription should get a new attribute `keepAlive`. This value is by default `false`. 
 If set to `true` the subscription will continue even when the account-balance is not enough to pay by the given interval.
-
+For each interval not paid the owner of the subscription needs to pay the network fee of 0.01 Signa.
 The node would skip the payment in this case, but add a new record on the DB with the next payment-interval, amount and latest = 1.
+
+Only if the account is able to pay the interval-fee the subscription keeps alive otherwise it will be cancelled even the attribute `keepAlive` is stet to `true`.
+
 
 ## Backwards Compatibility  
 This is a hard forking change, thus breaking compatibility with old fully-validating nodes.  
