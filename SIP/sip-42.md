@@ -21,7 +21,7 @@ If set to `true` the subscription will continue even when the account-balance is
 For each interval not paid the owner of the subscription needs to pay the network fee of 0.01 Signa.
 The node would skip the payment in this case, but add a new record on the DB with the next payment-interval, amount and latest = 1.
 
-Only if the account is able to pay the interval-fee the subscription keeps alive otherwise it will be cancelled even the attribute `keepAlive` is stet to `true`.
+Only if the account is able to pay the interval-fee the subscription keeps alive otherwise it will be cancelled even the attribute `keepAlive` is set to `true`.
 
 
 ## Backwards Compatibility  
