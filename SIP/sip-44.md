@@ -42,7 +42,7 @@ _Example_:
   "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
   "hp": "https://bittrex.com",
   "sr": "^[0-9a-fA-F]{24}$",
-  "al": "@somealias",
+  "al": "somealias",
   "xt": "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc",
   "sc": ["https://twitter.com/bittrex"]
 }
@@ -59,7 +59,7 @@ _Example_:
 | hp         | no       | Homepage         | string       | https://bittrex.com                                                   | URL/CID                                                                                                                   | An (sanitized) URL of at maximum 128 characters pointing to a web presence of that account.                                                                                                                                  |
 | sr         | no       | Send Rule        | string       | /^[0-9a-fA-F]{64}$/                                                   | A valid Regex                                                                                                             | A regex that needs to be matched when sending to this account, i.e. a memo for bots or exchanges                                                                                                                             |
 | sc         | no       | Social Network   | array        | ["https://twitter.com/sk8terclown_42","https://discord.gg/ZGHgCXy45"] | An array of URLs/CIDs                                                                                                     | A list of at max. three (sanitized) URLs or IPFS CIDs of at maximum 92 characters each                                                                                                                                       |
-| al         | no       | Signum Alias     | string       | @myalias                                                              | /^@\w{1,100}$/                                                                                                        | An related alias of the Signum chain                                                                                                                                                                                         |
+| al         | no       | Signum Alias     | string       | myalias                                                              | /^\w{1,100}$/                                                                                                        | An related alias of the Signum chain                                                                                                                                                                                         |
 | xt         | no       | Extension        | string       | QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc                        | A valid IPFS CID                                                                                                          | The CID for extended information. The resulting document does not follow any format restrictions, as it completely use case dependent. Good formats are JSON, but also private information in encrypted formats is possible. |
 
 ### Custom In-Object Extensions
@@ -81,7 +81,7 @@ _Examples_
   "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
   "hp": "https://foobar.com",
   "sr": "^[0-9a-fA-F]{24}$",
-  "al": "@somealias",
+  "al": "somealias",
   "x1": "https://github.com/foobar/contracts/blob/main/sources/contract.c",
 }
 ```
@@ -123,14 +123,6 @@ _More than two characters_
 The JSON object SHOULD be [minimized](https://codebeautify.org/jsonminifier) to reduce the payload.
 It should be noted that the total size of 1000 (one thousand) bytes MUST NOT be exceeded. It is the responsibility of the user to pay attention to the total size. By the fact that many fields are optional, a margin is created.
 Mind that Unicode characters can occupy more than a single byte. 
-
-#### Compression
-
-> Please review this part and comment here - Personally, I (ohager) do not favor compression.
-
-By using compression, i.e. Zip Deflate (as also used in encrypted P2P messages), and base64 encoding it is possible to reduce the payload even more. 
-
-The drawback of this method is that the description is not human readable anymore (less transparency), and requires additional processing from readers/writers.
 
 ### Field `tp`  - Type  
 
