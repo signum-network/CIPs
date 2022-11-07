@@ -190,16 +190,16 @@ The combination of the `al` field, even allows Smart Contracts to have _mutable_
 ## Backwards Compatibility
 This proposal is backwards compatible. If a profile does not provide such information further processing of those is skipped and has no impact on either protocol or similar. This SRC is intended for Application Layer (Layer 2) only.
 
-
-## Reference Implementation
-
-A [JSON Schema](https://json-schema.org/) will be provides and also reference implementation for Data Creation/Validation at least for Javascript will be provided. 
-
 ## Security Considerations
 
 It is implicit that all relevant profile metadata is unencrypted and publicly available. The use of profile information is optional (opt-in). Users have to be aware of this and MUST NOT store sensitive data in the metadata. Nevertheless, it is possible to store sensible information in the data referenced by `xt`.
 
 As pointed out, this specification can be used in _immutable_ descriptions of smart contracts, _mutable_ account info and _mutable_ alias data. When resolving the `al` field, it MUST NOT be resolved recursively, i.e. chaining `al` resolving is not allowed.
+
+## Reference Implementation
+
+A [JSON Schema](https://json-schema.org/) is [available](../SRC/src-44/src44-json-schema.json) and also a reference implementation for Data Creation/Validation at least for Javascript will be provided. 
+
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
