@@ -50,10 +50,10 @@
       ]
     },
     "ac": {
-      "$id": "#/properties/id",
+      "$id": "#/properties/ac",
       "type": "string",
       "title": "Account Id",
-      "description": "Account identifier to be used for account resolving",
+      "description": "Account identifier to be used for account resolving (ANS)",
       "pattern": "^\\d{18,22}$",
       "default": "",
       "examples": [
