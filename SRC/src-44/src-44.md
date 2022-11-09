@@ -22,7 +22,7 @@ This proposal suggests a JSON standard for account profiles. The standard is app
 According to the established specifiction a [JSON Schema](./src44-json-schema.json) can be used to check profile data against the standard. Using a [JSON Schema Validator](https://www.jsonschemavalidator.net/) helps to check data against the standard
 
 
-Additionally, a SRC44 conformant implementation is available in the [SignumJS SDK]()
+Additionally, a SRC44 conformant implementation is available in the [SignumJS SDK](https://github.com/signum-network/signumjs/tree/main/packages/standards/src/src44)
 
 
 
