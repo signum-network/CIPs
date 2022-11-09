@@ -48,19 +48,21 @@ _Example_:
 }
 ```
 
-| Field Name | Required | Full Name        | Value Format | Example                                                               | Rules                                                                                                                     | Description                                                                                                                                                                                                                  |
-|------------|----------|------------------|--------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| vs         | yes      | Version          | number       | 1                                                                     |                                                                                                                           | An integer number to determine the formats version number                                                                                                                                                                    |
-| nm         | yes      | Name             | string       | Clownsk8ter_42 🥳                                                     | /^.{,24}$/                                                                                                                | The accounts name, which can be arbitrary UTF-8 string with at max 24 chars                                                                                                                                                  |
-| tp         | no       | Type             | string       | biz                                                                   | /^biz|bot|cex|dex|dev|hum$/                                                                                       | A three character code classifying this accounts type                                                                                                                                                                        |
-| ds         | no       | Description      | string       | Funny skater girl with 🤡 mask and ...                                | /^.{,384}$/                                                                                                               | A more extensive description , which can be arbitrary UTF-8 string with at max 384 chars                                                                                                                                     |
-| av         | no       | Avatar           | object       | { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" }     | A dynamic JSON object, which one and only fields key is an IPFS hash (CID0 or CID1), and a valid image Mime Type as value | The profile image aka avatar, stored on IPFS. There is no technical limit applied, but it's a good practice to have small quadratic sized images, e.g. up to 128 KiB                                                         |
-| bg         | no       | Background Image | object       | { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" }     | A dynamic JSON object, which one and only fields key is an IPFS hash (CID0 or CID1), and a valid image Mime Type as value | A background image stored on IPFS.   There is no technical limit applied, but it's a good practice to have optimized banner like images, e.g. up to 512 KiB                                                                  |
-| hp         | no       | Homepage         | string       | https://bittrex.com                                                   | URL/CID                                                                                                                   | An (sanitized) URL of at maximum 128 characters pointing to a web presence of that account.                                                                                                                                  |
-| sr         | no       | Send Rule        | string       | /^[0-9a-fA-F]{64}$/                                                   | A valid Regex                                                                                                             | A regex that needs to be matched when sending to this account, i.e. a memo for bots or exchanges                                                                                                                             |
-| sc         | no       | Social Network   | array        | ["https://twitter.com/sk8terclown_42","https://discord.gg/ZGHgCXy45"] | An array of URLs/CIDs                                                                                                     | A list of at max. three (sanitized) URLs or IPFS CIDs of at maximum 92 characters each                                                                                                                                       |
-| al         | no       | Signum Alias     | string       | myalias                                                              | /^\w{1,100}$/                                                                                                        | An related alias of the Signum chain                                                                                                                                                                                         |
-| xt         | no       | Extension        | string       | QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc                        | A valid IPFS CID                                                                                                          | The CID for extended information. The resulting document does not follow any format restrictions, as it completely use case dependent. Good formats are JSON, but also private information in encrypted formats is possible. |
+| Field Name | Required | Full Name         | Value Format | Example                                                               | Rules                                                                                                                     | Description                                                                                                                                                                                                                  |
+|------------|----------|-------------------|--------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| vs         | yes      | Version           | number       | 1                                                                     |                                                                                                                           | An integer number to determine the formats version number                                                                                                                                                                    |
+| nm         | yes      | Name              | string       | Clownsk8ter_42 🥳                                                     | /^.{,24}$/                                                                                                                | The accounts name, which can be arbitrary UTF-8 string with at max 24 chars                                                                                                                                                  |
+| tp         | no       | Type              | string       | biz                                                                   | /^biz| bot                                                                                                                                                                                                                          |cex|dex|dev|hum$/                                                                                       | A three character code classifying this accounts type                                                                                                                                                                        |
+| ds         | no       | Description       | string       | Funny skater girl with 🤡 mask and ...                                | /^.{,384}$/                                                                                                               | A more extensive description , which can be arbitrary UTF-8 string with at max 384 chars                                                                                                                                     |
+| av         | no       | Avatar            | object       | { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" }     | A dynamic JSON object, which one and only fields key is an IPFS hash (CID0 or CID1), and a valid image Mime Type as value | The profile image aka avatar, stored on IPFS. There is no technical limit applied, but it's a good practice to have small quadratic sized images, e.g. up to 128 KiB                                                         |
+| bg         | no       | Background Image  | object       | { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" }     | A dynamic JSON object, which one and only fields key is an IPFS hash (CID0 or CID1), and a valid image Mime Type as value | A background image stored on IPFS.   There is no technical limit applied, but it's a good practice to have optimized banner like images, e.g. up to 512 KiB                                                                  |
+| hp         | no       | Homepage          | string       | https://bittrex.com                                                   | URL/CID                                                                                                                   | An (sanitized) URL of at maximum 128 characters pointing to a web presence of that account.                                                                                                                                  |
+| sr         | no       | Send Rule         | string       | /^[0-9a-fA-F]{64}$/                                                   | A valid Regex                                                                                                             | A regex that needs to be matched when sending to this account, i.e. a memo for bots or exchanges                                                                                                                             |
+| sc         | no       | Social Network    | array        | ["https://twitter.com/sk8terclown_42","https://discord.gg/ZGHgCXy45"] | An array of URLs/CIDs                                                                                                     | A list of at max. three (sanitized) URLs or IPFS CIDs of at maximum 92 characters each                                                                                                                                       |
+| al         | no       | Signum Alias      | string       | myalias                                                               | /^\w{1,100}$/                                                                                                        | An related alias of the Signum chain                                                                                                                                                                                         |
+| ac         | no       | Signum Account Id | string       | /^\d{18,23}$/                                                         | 895212263565386113                                                                                                                     | Mostly useful in conjunction with Aliases: Used to resolve accounts by Aliases (Account Name System - ANS)                                                                                                                   |
+| id         | no       | Identifier        | string       | 97f17ecb-71c6-47e9-a87d-7a78a52f3197                                                                      |                                                                                                                                        | Any arbitrary identifier or reference with maximum length of 48 bytes. It can be a Signum Id, i.e. Transaction, Account, Token, or any other                                                                                 |
+| xt         | no       | Extension         | string       | QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc                        | A valid IPFS CID                                                                                                          | The CID for extended information. The resulting document does not follow any format restrictions, as it completely use case dependent. Good formats are JSON, but also private information in encrypted formats is possible. |
 
 ### Custom In-Object Extensions
 
@@ -147,6 +149,26 @@ The optional `sr` field is a regular expression that MUST be considered by appli
 
 This optional field relates the account with an alias. The Signum Alias system allows to be mutable, while still on-chain. This way it is possible to even make mutable descriptions for smart contracts, if using this SRC for Smart Contract description fields.
 
+### Field - `ac`  - Account (ANS)
+
+This optional field relates the content with an account. This is especially used for Signum Aliases, where the Alias can be used like an Account Name System (ANS in analogy to DNS) to resolve Aliases to accounts.
+
+> This standard substitutes the old pattern where `acct:burst-...@burst` was used as URI to resolve aliases to accounts.
+
+Using the `setAlias` method it is possible to use this minimum possible JSON for account relation:
+
+
+```json
+{
+  "vs": 1,
+  "nm": "SNA Signum Account",
+  "ac": "8952122635653861124",
+}
+```
+
+
+Applications supporting the Account Name System MUST be able to resolve this way, and allowing to set it accordingly.  
+
 
 ### Field - `xt`  - Extension
 
@@ -155,7 +177,7 @@ The profile information can be extended by any data by means of the `xt` field. 
 
 ### Image MIME-Types
 
-For the `av` and `bg` field an additional information of the [images MIME-Type](https://mimetype.io/all-types/#image) is required. At least supported image types SHOULD be:
+For the `av` and `bg` field additional information of the [images MIME-Type](https://mimetype.io/all-types/#image) is required. At least supported image types SHOULD be:
 
 - `image/jpeg`
 - `image/png`
@@ -186,20 +208,20 @@ Although, Smart Contracts do not have separated Account Information like common 
 
 The combination of the `al` field, even allows Smart Contracts to have _mutable_ information attached to it. It's entirely feasible, that the contract has its _immutable_ description according to this specification and links further _mutable_ information via an alias to it.
 
-
 ## Backwards Compatibility
+
 This proposal is backwards compatible. If a profile does not provide such information further processing of those is skipped and has no impact on either protocol or similar. This SRC is intended for Application Layer (Layer 2) only.
-
-
-## Reference Implementation
-
-A [JSON Schema](https://json-schema.org/) will be provides and also reference implementation for Data Creation/Validation at least for Javascript will be provided. 
 
 ## Security Considerations
 
 It is implicit that all relevant profile metadata is unencrypted and publicly available. The use of profile information is optional (opt-in). Users have to be aware of this and MUST NOT store sensitive data in the metadata. Nevertheless, it is possible to store sensible information in the data referenced by `xt`.
 
 As pointed out, this specification can be used in _immutable_ descriptions of smart contracts, _mutable_ account info and _mutable_ alias data. When resolving the `al` field, it MUST NOT be resolved recursively, i.e. chaining `al` resolving is not allowed.
+
+## Reference Implementation
+
+A [JSON Schema](https://json-schema.org/) is [available](../SRC/src-44/src44-json-schema.json) and also a [reference implementation](https://github.com/signum-network/signumjs/tree/main/packages/standards/src/src44) for Data Creation/Validation at least for Javascript/Typescript is provided.   
+
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
