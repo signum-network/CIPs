@@ -1,7 +1,7 @@
 ---
 sip: 44
-title: Account Profiles
-description: Proposal for standardized Account Profile Information
+title: Description Field Structure
+description: Proposal for standardized structure for Signums description fields in Account, Token/Assets, Smart Contract, Alias 
 author: ohager
 status: Review
 Last Call: 2022-11-22
@@ -12,12 +12,16 @@ created: 2022-10-20
 
 ## Abstract
 
-This proposal suggests a JSON standard for account profiles. The standard is applicable to the application layer (layer 2) and does not require a protocol change. The account profiles can be used for primarily visual representative purposes, but also allow to define validation rules for senders, e.g. necessary memos for exchanges. Due to the extension possibility, additional application specific data can be attached to the profile.  
+This proposal suggests a JSON standard for description fields supported by various entities in Signum, namely accounts, assets, smart contracts.
+The standard is applicable to the application layer (layer 2) and does not require a protocol change. The structure can be used for primarily 
+visual representative purposes, e.g. for Account Profiles. It also allows to define validation rules for senders, e.g. necessary memos for exchanges. 
+Due to the extension possibility, additional application specific data can be attached to the profile.  
 
+With the referencing feature to aliases, it is even possible to link mutable data to usually immutable data like Smart Contracts or Asset/Token descriptions.
 
 ## Motivation
 
-Signum Accounts can have mutable [additional account information](https://europe.signum.network/api-doc/index.html#post-/api-requestType-setAccountInfo). At this stage, this is just unstructured text of up to 1000 bytes. For applications (centralized or decentralized) it would be advantageous if there were a unified structured format so that an account profile can be written and read consistently. Thus it is possible to display avatars in the wallets or the exlorer instead of the generic (but cool) hashicons. In this profile it is possible to store both generic and application-specific public information, which can then be used as desired. Furthermore, such a profile also allows to provide validation information for sending tokens to this account, such as sending memos to exchange accounts or similar.
+Signum Accounts can have mutable [additional account information](https://europe.signum.network/api-doc/index.html#post-/api-requestType-setAccountInfo). At this stage, this is just unstructured text of up to 1000 bytes. For applications (centralized or decentralized) it would be advantageous if there were a unified structured format so that an account profile can be written and read consistently. Thus it is possible to display avatars in the wallets or the explorer instead of the generic (but cool) hashicons. With proposed structure it is possible to store both generic and application-specific public information, which can then be used as desired. Furthermore, it also allows to provide validation information for sending tokens to this account, such as sending memos to exchange accounts or similar.
 
 
 ## Specification
@@ -31,6 +35,8 @@ Mind, that this format is entirely optional. It is just a recommendation and use
 
 
 _Example_:
+
+An account description (stored using the `setAccountInfo` method) may look like this
 
 ```json
 {
@@ -51,17 +57,17 @@ _Example_:
 | Field Name | Required | Full Name         | Value Format | Example                                                               | Rules                                                                                                                     | Description                                                                                                                                                                                                                  |
 |------------|----------|-------------------|--------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | vs         | yes      | Version           | number       | 1                                                                     |                                                                                                                           | An integer number to determine the formats version number                                                                                                                                                                    |
-| nm         | yes      | Name              | string       | Clownsk8ter_42 🥳                                                     | /^.{,24}$/                                                                                                                | The accounts name, which can be arbitrary UTF-8 string with at max 24 chars                                                                                                                                                  |
-| tp         | no       | Type              | string       | biz                                                                   | /^biz| bot                                                                                                                                                                                                                          |cex|dex|dev|hum$/                                                                                       | A three character code classifying this accounts type                                                                                                                                                                        |
+| nm         | no       | Name              | string       | Clownsk8ter_42 🥳                                                     | /^.{,24}$/                                                                                                                | The accounts name, which can be arbitrary UTF-8 string with at max 24 chars                                                                                                                                                  |
+| tp         | no       | Type              | string       | biz                                                                   | /^biz                                                                                                                     | bot                                                                                                                                                                                                                          |cex|dex|dev|hum|tok|oth$/                                                                                       | A three character code classifying this accounts type                                                                                                                                                                        |
 | ds         | no       | Description       | string       | Funny skater girl with 🤡 mask and ...                                | /^.{,384}$/                                                                                                               | A more extensive description , which can be arbitrary UTF-8 string with at max 384 chars                                                                                                                                     |
 | av         | no       | Avatar            | object       | { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" }     | A dynamic JSON object, which one and only fields key is an IPFS hash (CID0 or CID1), and a valid image Mime Type as value | The profile image aka avatar, stored on IPFS. There is no technical limit applied, but it's a good practice to have small quadratic sized images, e.g. up to 128 KiB                                                         |
 | bg         | no       | Background Image  | object       | { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" }     | A dynamic JSON object, which one and only fields key is an IPFS hash (CID0 or CID1), and a valid image Mime Type as value | A background image stored on IPFS.   There is no technical limit applied, but it's a good practice to have optimized banner like images, e.g. up to 512 KiB                                                                  |
 | hp         | no       | Homepage          | string       | https://bittrex.com                                                   | URL/CID                                                                                                                   | An (sanitized) URL of at maximum 128 characters pointing to a web presence of that account.                                                                                                                                  |
 | sr         | no       | Send Rule         | string       | /^[0-9a-fA-F]{64}$/                                                   | A valid Regex                                                                                                             | A regex that needs to be matched when sending to this account, i.e. a memo for bots or exchanges                                                                                                                             |
 | sc         | no       | Social Network    | array        | ["https://twitter.com/sk8terclown_42","https://discord.gg/ZGHgCXy45"] | An array of URLs/CIDs                                                                                                     | A list of at max. three (sanitized) URLs or IPFS CIDs of at maximum 92 characters each                                                                                                                                       |
-| al         | no       | Signum Alias      | string       | myalias                                                               | /^\w{1,100}$/                                                                                                        | An related alias of the Signum chain                                                                                                                                                                                         |
-| ac         | no       | Signum Account Id | string       | /^\d{18,23}$/                                                         | 895212263565386113                                                                                                                     | Mostly useful in conjunction with Aliases: Used to resolve accounts by Aliases (Account Name System - ANS)                                                                                                                   |
-| id         | no       | Identifier        | string       | 97f17ecb-71c6-47e9-a87d-7a78a52f3197                                                                      |                                                                                                                                        | Any arbitrary identifier or reference with maximum length of 48 bytes. It can be a Signum Id, i.e. Transaction, Account, Token, or any other                                                                                 |
+| al         | no       | Signum Alias      | string       | myalias                                                               | /^\w{1,100}$/                                                                                                             | An related alias of the Signum chain                                                                                                                                                                                         |
+| ac         | no       | Signum Account Id | string       | /^\d{18,23}$/                                                         | 895212263565386113                                                                                                        | Mostly useful in conjunction with Aliases: Used to resolve accounts by Aliases (Account Name System - ANS)                                                                                                                   |
+| id         | no       | Identifier        | string       | 97f17ecb-71c6-47e9-a87d-7a78a52f3197                                  |                                                                                                                           | Any arbitrary identifier or reference with maximum length of 48 bytes. It can be a Signum Id, i.e. Transaction, Account, Token, or any other                                                                                 |
 | xt         | no       | Extension         | string       | QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc                        | A valid IPFS CID                                                                                                          | The CID for extended information. The resulting document does not follow any format restrictions, as it completely use case dependent. Good formats are JSON, but also private information in encrypted formats is possible. |
 
 ### Custom In-Object Extensions
@@ -84,7 +90,7 @@ _Examples_
   "hp": "https://foobar.com",
   "sr": "^[0-9a-fA-F]{24}$",
   "al": "somealias",
-  "x1": "https://github.com/foobar/contracts/blob/main/sources/contract.c",
+  "x1": "https://github.com/foobar/contracts/blob/main/sources/contract.c"
 }
 ```
 
@@ -110,11 +116,10 @@ _More than two characters_
 ```json
 {
   "vs": 1,
-  "tp": "hum",
-  "nm": "SignumArt Creator",
-  "ds": "Some nice artworks from wy side",
+  "tp": "tok",
+  "nm": "My Super Token",
+  "ds": "This is the most valuable token",
   "av": { "QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR": "image/gif" },
-  "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
   "x-tw": "mytwitter"
 }
 ```
@@ -128,13 +133,12 @@ Mind that Unicode characters can occupy more than a single byte.
 
 ### Field `tp`  - Type  
 
-> Please review this part and comment here - I (ohager) thought it might be interesting to add these types
-
-An account CAN be categorized using a three letter code. Following pre-defined codes are suggested:
+An account CAN be categorized using a three-letter code. Following pre-defined codes are suggested:
 
 - Human Account: `hum`
 - Smart Contract Account: `smc`  (as description field. The use of `al` is highly recommended)
 - Non Smart contract, but automated Account: `bot` 
+- Token/Asset: `tok` 
 - Business Account: `biz`
 - Centralized Exchange Account: `cex`
 - Decentralized Exchange Account: `dex` 
@@ -161,8 +165,7 @@ Using the `setAlias` method it is possible to use this minimum possible JSON for
 ```json
 {
   "vs": 1,
-  "nm": "SNA Signum Account",
-  "ac": "8952122635653861124",
+  "ac": "8952122635653861124"
 }
 ```
 
@@ -216,7 +219,7 @@ This proposal is backwards compatible. If a profile does not provide such inform
 
 It is implicit that all relevant profile metadata is unencrypted and publicly available. The use of profile information is optional (opt-in). Users have to be aware of this and MUST NOT store sensitive data in the metadata. Nevertheless, it is possible to store sensible information in the data referenced by `xt`.
 
-As pointed out, this specification can be used in _immutable_ descriptions of smart contracts, _mutable_ account info and _mutable_ alias data. When resolving the `al` field, it MUST NOT be resolved recursively, i.e. chaining `al` resolving is not allowed.
+As pointed out, this specification can be used in _immutable_ descriptions of smart contracts, assets/tokens,  _mutable_ account info and _mutable_ alias data. When resolving the `al` field, it MUST NOT be resolved recursively, i.e. chaining `al` resolving is not allowed.
 
 ## Reference Implementation
 
