@@ -367,7 +367,7 @@ The creator is always the account which uploads the transaction for the creation
 While the creator is uploading the contract to the chain, the individual data stack for the staking contract should be defined within the transaction. Within the data stack the values should be set in the following order:
 
 **stakingTokenTicker**
-<br>The ticker of the generated staking token by the contractr with up to 10 numbers/letters.<br/>
+<br>The ticker of the generated staking token by the contract with up to 10 numbers/letters.<br/>
 
 **stakingTokenDecimals**
 <br>Number of decimals places for the staking token - should be the same as the token to stake.<br/>
@@ -380,14 +380,14 @@ While the creator is uploading the contract to the chain, the individual data st
 0 digits 1 , 1 digt = 10 ... 8 digits = 100000000
 
 **yieldToken**
-<br>The Id of the token which should be distributed by default -if a postion exits on the contract.<br/>
+<br>The Id of the token which should be distributed by default -if a position exits on the contract.<br/>
 
 **digitsFactorYieldToken**
 <br>Multiplyer for the ratio caluclation by digits of the **yieldToken**<br/>
 0 digits 1 , 1 digt = 10 ... 8 digits = 100000000
 
 **airdroppedTokenMinimumQuantity**
-<br>Minimum Quantity of a token to get distributed, which got airdroped to the contract.<br/>
+<br>Minimum Quantity of a token to get distributed, which got airdropped to the contract.<br/>
 
 Distribution parameter:
 
@@ -396,7 +396,7 @@ Distribution parameter:
 If set 0 no interval is checked.
 
 **contractExpiryInMinutes**
-<br>A value in minutes to calculate the exipry of the contract by creation.<br/>
+<br>A value in minutes to calculate the expiry of the contract by creation.<br/>
 If set to 0 the contract is infinity.
 
 **qualifiedMinimumQuantity**
@@ -423,7 +423,7 @@ Example: 100 stakedToken should get 1 Signa  means 100:1. signaRatio = 100
 **tokenRatio**
 <br>Besides a static **maxQuantityPerPayment** a ratio can be defined how many StakingTokens are needed to get one **yieldToken**. Depending on the number of existing StakingTokens the **maxQuantityPerPayment** is calculated and set for each **paymentInterval**.<br/>
 This function is inactive when set to 0.
-Example: 1000 stakedToken getting 0.2 yieldToken means 200 : 1. tokenRatio = 200
+Example: 1000 stakedToken getting 0.2 yieldToken means 200:1. tokenRatio = 200
 
 **lockPeriodInMinutes**
 <br>A value in minutes to calculate the lockout period for each **pledgeToken** by user address.<br/>
@@ -436,7 +436,7 @@ The contract will parse all transaction by the following basic logic:
 The contract checks whether the transaction has transferred a **pledgeToken**.
 If so, the same amount of **pledgeToken** is minted and sent to the sender of the transaction. If a **lockPeriodInMinutes** is set, a lock period for the address is stored in a map entry. Each time a new transfer is made from the same sender address, the lock period is overwritten with the latest calculation.
 
-If the contact allready reached it expiry date - the **pledgeToken** will be just send back to the sender.
+If the contact already reached its expiry date - the **pledgeToken** will be just send back to the sender.
 
 ```java
             quantityCheck = tx.getAmount(pledgeToken);
