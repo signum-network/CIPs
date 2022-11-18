@@ -364,67 +364,67 @@ The creator is always the account which uploads the transaction for the creation
 ### Variable setting (data stack)
 While the creator is uploading the contract to the chain, the individual data stack for the staking contract should be defined within the transaction. Within the data stack the values should be set in the following order:
 
-* **stakingTokenTicker**<br/><br/>
-The ticker of the generated staking token by the contractr with up to 10 numbers/letters.
+**stakingTokenTicker**
+<br>The ticker of the generated staking token by the contractr with up to 10 numbers/letters.<br/>
 
-* **stakingTokenDecimals**
-<br/>Number of decimals places for the staking token - should be the same as the token to stake.<br/>
+**stakingTokenDecimals**
+<br>Number of decimals places for the staking token - should be the same as the token to stake.<br/>
 
 **pledgeToken**
 <br>Id of the token which can be staked on the contract.<br/>
 
-**digitsFactorPledgeToken**<br/><br/>
-Multiplyer for the ratio caluclation by digits of the **pledgetoken**
+**digitsFactorPledgeToken**<
+<br>Multiplyer for the ratio caluclation by digits of the **pledgetoken**<br/>
 0 digits 1 , 1 digt = 10 ... 8 digits = 100000000
 
-**yieldToken**<br/><br/>
-The Id of the token which should be distributed by default -if a postion exits on the contract.
+**yieldToken**
+<br>The Id of the token which should be distributed by default -if a postion exits on the contract.<br/>
 
-**digitsFactorYieldToken**<br/><br/>
-Multiplyer for the ratio caluclation by digits of the **yieldToken**
+**digitsFactorYieldToken**
+<br>Multiplyer for the ratio caluclation by digits of the **yieldToken**<br/>
 0 digits 1 , 1 digt = 10 ... 8 digits = 100000000
 
-**airdroppedTokenMinimumQuantity**<br/><br/>
-Minimum Quantity of a token to get distributed, which got airdroped to the contract.
+**airdroppedTokenMinimumQuantity**
+<br>Minimum Quantity of a token to get distributed, which got airdroped to the contract.<br/>
 
 Distribution parameter:
 
-**paymentInterval**<br/><br/>
-Minimum number of blocks the contract is waiting until the next distribution will be executed.
+**paymentInterval**
+<br>Minimum number of blocks the contract is waiting until the next distribution will be executed.<br/>
 If set 0 no interval is checked.
 
-**contractExpiryInMinutes**<br/><br/>
-A value in minutes to calculate the exipry of the contract by creation.
+**contractExpiryInMinutes**
+<br>A value in minutes to calculate the exipry of the contract by creation.<br/>
 If set to 0 the contract is infinity.
 
-**qualifiedMinimumQuantity**<br/><br/>
-The minimum quantity needed of the stakingToken to be eligible for a distribution.
+**qualifiedMinimumQuantity**
+<br>The minimum quantity needed of the stakingToken to be eligible for a distribution.<br/>
 
-**minAmountToDistributeSigna**<br/><br/>
-The minimum amount of Signa required on the contract balance to trigger a payout.
+**minAmountToDistributeSigna**
+<br>The minimum amount of Signa required on the contract balance to trigger a payout.<br/>
 
-**minQuantityToDistributeYieldToken**<br/><br/>
-The minimum quantity of the **yieldToken** required on the contract balance to trigger a payout.
+**minQuantityToDistributeYieldToken**
+<br>The minimum quantity of the **yieldToken** required on the contract balance to trigger a payout.<br/>
 
-**maxAmountPerPayment**<br/><br/>
-Maxium amount of Signa paid out at every **paymentInterval**.
+**maxAmountPerPayment**
+<br>Maxium amount of Signa paid out at every **paymentInterval**.<br/>
 If set to 0  the contract balance will be used to calculate the amount of Signa for a payout.
 
-**maxQuantityPerPayment**<br/><br/>
-Maxium quantity of **yieldToken** paid out at every **paymentInterval**.
+**maxQuantityPerPayment**
+<br>Maxium quantity of **yieldToken** paid out at every **paymentInterval**.<br/>
 
-**signaRatio**<br/><br/>
-Besides a static **maxAmountPerPayment** a ratio can be defined how many StakingTokens are needed to get one Signa. Depending on the number of existing StakingTokens the **maxAmountPerPayment** is calculated and set for each **paymentInterval**.
+**signaRatio**
+<br>Besides a static **maxAmountPerPayment** a ratio can be defined how many StakingTokens are needed to get one Signa. Depending on the number of existing StakingTokens the **maxAmountPerPayment** is calculated and set for each **paymentInterval**.<br/>
 This function is inactive when set to 0.
 Example: 100 stakedToken should get 1 Signa  means 100:1. signaRatio = 100
 
-**tokenRatio**<br/><br/>
-Besides a static **maxQuantityPerPayment** a ratio can be defined how many StakingTokens are needed to get one **yieldToken**. Depending on the number of existing StakingTokens the **maxQuantityPerPayment** is calculated and set for each **paymentInterval**.
+**tokenRatio**
+<br>Besides a static **maxQuantityPerPayment** a ratio can be defined how many StakingTokens are needed to get one **yieldToken**. Depending on the number of existing StakingTokens the **maxQuantityPerPayment** is calculated and set for each **paymentInterval**.<br/>
 This function is inactive when set to 0.
 Example: 1000 stakedToken getting 0.2 yieldToken means 200 : 1. tokenRatio = 200
 
-**lockPeriodInMinutes**<br/><br/>
-A value in minutes to calculate the lockout period for each **pledgeToken** by user address.
+**lockPeriodInMinutes**
+<br>A value in minutes to calculate the lockout period for each **pledgeToken** by user address.<br/>
 If this value is set to 0, no lockout period is calculated.
 
 ## Basic functions 
