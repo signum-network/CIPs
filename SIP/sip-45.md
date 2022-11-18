@@ -521,13 +521,15 @@ Only when the contract has expired and a final distribution has been made, the c
 
 
 ### Creation Costs
-A creation of a stakingcontract will cost 2.5 Signa. To be paid with the deploy contract transaction.
+The creation of a staking contract costs 2.50 Signa. 
+To be paid with the deploy-contract-transaction.
 
 ### Activation costs
-The contract has an activation cost of 0.9 Signa. Every transaction needs to have this minimum amount to interact with it, otherwise the transaction will not be handled within the smart contract. 
+The contract has an activation cost of 0.90 Signa. 
+Every transaction needs to have this minimum amount to interact with it, otherwise the transaction will not be handled within the smart contract. 
 
 ### Ensure payment interval
-To ensure that each payment interval is executed even if there is no activity on the staking contract , we recommend that the contract creator set up a subscription with a payment of 0.9 Signa at an interval equal to the **paymentInterval**.
+To ensure that each payment interval is executed even if there is no activity on the staking contract , we recommend that the contract creator to set up a subscription with a payment of 0.90 Signa at an interval equal to the **paymentInterval**.
 
 ## Compatibility
 This new staking standard is compatible with the current smart contract framework. 
