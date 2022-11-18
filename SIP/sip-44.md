@@ -3,7 +3,7 @@ sip: 44
 title: Description Field Structure
 description: Proposal for standardized structure for Signums description fields in Account, Token/Assets, Smart Contract, Alias 
 author: ohager
-status: Review
+status: Final
 Last Call: 2022-11-22
 type: Standard
 category: SRC
