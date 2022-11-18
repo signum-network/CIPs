@@ -21,19 +21,21 @@ Code-Hash-ID:  15155055045342098571
 
 
 # Motivation
-The following standard allows the implementation of a standard API for Staking Contratcs as smart contracts. This standard provides basic functionality to setup and run Staking Contracts.
+The following standard allows the implementation of a standard API for Staking Contracts as smart contracts. This standard provides basic functionality to setup and run Staking Contracts.
 
 **What is a Staking Contract?**
 
-A staking contract on the Signum chain is used to pay participants a reward through a fiduciary pool of specified smart token. Each deposit of the specified smart token into the staking contract will result in a 1:1 payout of a staking smart token (minted by the contract) in exchange.
-Distributions will be made in favor of this smart token created by the staking contract.
+A staking contract on the Signum chain is used to pay participants a reward through a fiduciary pool of specified smart token. 
+Each deposit of the specified smart token into the staking contract will result in a 1:1 pay-out of a staking smart token (minted by the contract) in exchange. Distributions will be made in favour of this smart token created by the staking contract. 
 A staking contract may have an expiration date or be active for infinity.
 
 Signum deserves a proper standard for staking contracts which can be used in a fiduciary way, SIP-45 came to solve that.
 
-We consider use cases for deployments that can be performed by individuals or corporations. Staking contract can be used to insentive holders or generate passive income by delagte revenues to this contract. Examples:
+We consider use cases for deployments that can be performed by individuals or corporations. 
+Staking contract can be used to incentive holders or generate passive income by delegate revenues to this contract. 
+Examples:
 
--   Delagte royalities from NFT sales to a staking contract
+-   Delegate royalties from NFT sales to a staking contract
 -   Paying extra yield for long-term holders
 -   Pooling smart tokens to bypass distribution to holder instructions with high position requirements
 
