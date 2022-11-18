@@ -3,7 +3,7 @@ sip: 43
 title: Introduce Smart Token Owner
 description: Introduce transferable ownership for smart tokens
 author:  frank_the_tank
-status: Review
+status: Final
 Last Call: 2022-11-19
 type: Standard
 category: Core
