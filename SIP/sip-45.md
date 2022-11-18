@@ -377,14 +377,14 @@ While the creator is uploading the contract to the chain, the individual data st
 
 **digitsFactorPledgeToken**<
 <br>Multiplyer for the ratio caluclation by digits of the **pledgetoken**<br/>
-0 digits 1 , 1 digt = 10 ... 8 digits = 100000000
+0 digits = 1 , 1 digt = 10 ... 8 digits = 100000000
 
 **yieldToken**
 <br>The Id of the token which should be distributed by default -if a position exits on the contract.<br/>
 
 **digitsFactorYieldToken**
 <br>Multiplyer for the ratio caluclation by digits of the **yieldToken**<br/>
-0 digits 1 , 1 digt = 10 ... 8 digits = 100000000
+0 digits = 1 , 1 digt = 10 ... 8 digits = 100000000
 
 **airdroppedTokenMinimumQuantity**
 <br>Minimum Quantity of a token to get distributed, which got airdropped to the contract.<br/>
