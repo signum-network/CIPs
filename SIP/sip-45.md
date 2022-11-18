@@ -35,7 +35,7 @@ We consider use cases for deployments that can be performed by individuals or co
 
 -   Delagte royalities from NFT sales to a staking contract
 -   Paying extra yield for long-term holders
--   Pooling smart tokens to by pass distributio to holder instrudactions with high position requirement
+-   Pooling smart tokens to bypass distribution to holder instructions with high position requirements
 
 ##  Java code for the SRC-45 contract
 The Java code for the NFT standard looks as follows:
