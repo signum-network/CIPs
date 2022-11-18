@@ -31,7 +31,7 @@ A staking contract may have an expiration date or be active for infinity.
 
 Signum deserves a proper standard for staking contracts which can be used in a fiduciary way, SIP-45 came to solve that.
 
-We consider use cases for deployments that can be performed by individuals or corporations. Staking contract can be used to insentive holders or generate passicve income by delagte revenues to this contract. Examples:
+We consider use cases for deployments that can be performed by individuals or corporations. Staking contract can be used to insentive holders or generate passive income by delagte revenues to this contract. Examples:
 
 -   Delagte royalities from NFT sales to a staking contract
 -   Paying extra yield for long-term holders
