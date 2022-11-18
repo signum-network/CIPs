@@ -365,11 +365,9 @@ The creator is always the account which uploads the transaction for the creation
 While the creator is uploading the contract to the chain, the individual data stack for the staking contract should be defined within the transaction. Within the data stack the values should be set in the following order:
 
 **stakingTokenTicker**
-
 The  ticker of the generated staking token by the contractr with up to 10 numbers/letters.
 
 **stakingTokenDecimals**
-
 Number of decimals places for the staking token - should be the same as the token to stake.
 
 **pledgeToken**
