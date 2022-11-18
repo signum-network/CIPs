@@ -3,7 +3,7 @@ sip: 42
 title: Subscription behaviour enhancement
 description: Keep a subscription alive until it is cancelled by the user
 author:  frank_the_tank
-status: Review
+status: Final
 Last Call: 2022-11-19
 type: Standard
 category: Core
