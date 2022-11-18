@@ -25,7 +25,7 @@ The following standard allows the implementation of a standard API for Staking C
 
 **What is a Staking Contract?**
 
-A staking contract on the Signum chain is used to pay participants a reward through a fiduciary pool of specified smart token. Each deposit of the specified smart token into the staking contract will result in a 1:1 payout of a staking smart token(minted by the contract) in exchange.
+A staking contract on the Signum chain is used to pay participants a reward through a fiduciary pool of specified smart token. Each deposit of the specified smart token into the staking contract will result in a 1:1 payout of a staking smart token (minted by the contract) in exchange.
 Distributions will be made in favor of this smart token created by the staking contract.
 A staking contract may have an expiration date or be active for infinity.
 
