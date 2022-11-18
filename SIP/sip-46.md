@@ -9,7 +9,7 @@ category: Core
 created: 2022-11-17
 ---
 ## Abstract
-This SIP will allo solo miner to define a different account to sign the blocks with it passphrase.
+This SIP will allow solo miner to define a different account to sign the blocks with it passphrase.
 
 # Motivation
 Signum offers a simple setup to start solo mining. Currently, only a full node and the miner software are needed. BTDEX also offers a solution for starting solo mining.
