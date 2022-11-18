@@ -486,7 +486,7 @@ If the contract has set a **lockPeriodInMinutes** and no map entry for the sende
                 }
             }
 ```
-### Distribute airdropped tokens
+#### Distribute airdropped tokens
 Any address can request to distribute  airdropped tokens at any time.
 The function checks if the amount needed for the distribution execution is included in the transaction and if the **airdroppedTokenMinimumQuantity** is met.
 If both checks are valid, the airdropped token will be distributed over the **stakingToken** holders.
@@ -510,7 +510,7 @@ If both checks are valid, the airdropped token will be distributed over the **st
                 }
             }
   ```
-### Cleanup
+#### Cleanup
 Only when the contract has expired and a final distribution has been made, the creator is entitled to remove the current balances of Signa and **yieldToken** from the staking contract.
 ```java
             if (arguments.getValue1() == CLEANUP_BY_CREATOR && stakingTimeoutLastPayment &&  tx.getSenderAddress().equals(getCreator())){
