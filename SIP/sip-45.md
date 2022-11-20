@@ -11,13 +11,13 @@ created: 2022-11-17
 # Introduction
 Staking contracts allow participants to pledge a smart token with a specified lock-up period to earn Signa and/or another smart token distributed by the contract. The distribution of a staking contract can be fed by topping up the contract with the required funds or by a continuous income from other source. With  [SIP-30](sip-30.md)  the new standard can be simply used by linking the smart contract code from the first contract deployment of this SIP-45 standard. An audit check can be done by comparing the hash of the created Staking Contract with the hash from this original contract deployment- if both are the same the original code is used.
 
-SRC-45 Contract deployment : https://chain.signum.network/at/7074088231427605580
+SRC-45 Contract deployment : https://chain.signum.network/at/1203867596647349825
 
-Transaction: 7074088231427605580
+Transaction: 1203867596647349825
 
-Reference Hash: 4C840330C4352C62871D34CFBD0242F68F551FDBB9C12E013A1489A26009E16D
+Reference Hash: 41bec46633ffb4100dd6a32b315d0efd3a96539d599b482b401c65fd39572c3b
 
-Code-Hash-ID:  15155055045342098571
+Code-Hash-ID:  5581159444912910555
 
 
 # Motivation
