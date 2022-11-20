@@ -90,6 +90,10 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [39](./SIP/sip-39.md )  | Standard| Core| Smart token support for smart contracts| Final|
 | [40](./SIP/sip-40.md )  | Standard| SRC | Signum NFT specifications| Final|
 | [41](./SIP/sip-41.md )  | Standard| Core | Smart Tokens Distribution Changes| Final|
-| [42](./SIP/sip-42.md )  | Standard| Core | Subscription behaviour enhancement| Review|
-| [43](./SIP/sip-43.md )  | Standard| Core | Introduce Smart Token Owner| Review|
-| [44](./SIP/sip-44.md )  | Standard| SRC | Account Profile| Review|
+| [42](./SIP/sip-42.md )  | Standard| Core | Subscription behaviour enhancement| Final|
+| [43](./SIP/sip-43.md )  | Standard| Core | Introduce Smart Token Owner| Final|
+| [44](./SIP/sip-44.md )  | Standard| SRC | Account Profile| Final|
+| [45](./SIP/sip-45.md )  | Standard| SRC | Staking Contracts| Review|
+| [46](./SIP/sip-46.md )  | Standard| SRC | Block signing public key| Review|
+
+
