@@ -376,15 +376,15 @@ While the creator is uploading the contract to the chain, the individual data st
 <br>Id of the token which can be staked on the contract.<br/>
 
 **digitsFactorPledgeToken**<
-<br>Multiplyer for the ratio caluclation by digits of the **pledgetoken**<br/>
-0 digits = 1 , 1 digt = 10 ... 8 digits = 100000000
+<br>Multiplyer for the ratio calculation by digits of the **pledgetoken**<br/>
+0 digits = 1 , 1 digit = 10 ... 8 digits = 100000000
 
 **yieldToken**
 <br>The Id of the token which should be distributed by default -if a position exits on the contract.<br/>
 
 **digitsFactorYieldToken**
-<br>Multiplyer for the ratio caluclation by digits of the **yieldToken**<br/>
-0 digits = 1 , 1 digt = 10 ... 8 digits = 100000000
+<br>Multiplyer for the ratio calculation by digits of the **yieldToken**<br/>
+0 digits = 1 , 1 digit = 10 ... 8 digits = 100000000
 
 **airdroppedTokenMinimumQuantity**
 <br>Minimum Quantity of a token to get distributed, which got airdropped to the contract.<br/>
@@ -409,11 +409,11 @@ If set to 0 the contract is infinity.
 <br>The minimum quantity of the **yieldToken** required on the contract balance to trigger a payout.<br/>
 
 **maxAmountPerPayment**
-<br>Maxium amount of Signa paid out at every **paymentInterval**.<br/>
+<br>Maximum amount of Signa paid out at every **paymentInterval**.<br/>
 If set to 0  the contract balance will be used to calculate the amount of Signa for a payout.
 
 **maxQuantityPerPayment**
-<br>Maxium quantity of **yieldToken** paid out at every **paymentInterval**.<br/>
+<br>Maximum quantity of **yieldToken** paid out at every **paymentInterval**.<br/>
 
 **signaRatio**
 <br>Besides a static **maxAmountPerPayment** a ratio can be defined how many StakingTokens are needed to get one Signa. Depending on the number of existing StakingTokens the **maxAmountPerPayment** is calculated and set for each **paymentInterval**.<br/>
