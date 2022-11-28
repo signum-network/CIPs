@@ -49,10 +49,10 @@ ALPHA = [a-zA-Z]
 DIGIT = [0-9]
 ```
 
-The `TLD` is only needed if the `SCHEME` is not `signum`
-When using `ALIAS.ALIAS`, the first `ALIAS` is considered as [subdomain](#subdomains)
+The `TLD` is only needed, if the `SCHEME` is not `signum`.
+When using `ALIAS.ALIAS`, the first `ALIAS` is considered as [subdomain](#subdomains).
 
-Examples:
+_Examples:_
 
 Without subdomain:
 
@@ -61,7 +61,6 @@ Without subdomain:
 With subdomain:
 
 `signum://projects.johndoe` or semantically identical `https://projects.johndoe.signa` or `http://projects.johndoe.sns`
-
 
 
 ### URL Resolution
@@ -86,7 +85,7 @@ to the URL provided in `hp`, which is here `https://github.com/johndoe`
 
 The URI schema allows support of subdomains. As mentioned before, the URL resolver must resolve the domain alias first, and then
 the subdomain alias. Therefore, aliases can reference forward to other aliases using the `al` field. The URL resolver MUST detect circular dependencies and stop
-further resolution, if detected.
+further resolution.
 
 _Example:_
 
@@ -118,7 +117,7 @@ The SRC44 compliant alias descriptor for `myprojects` subdomain may look like th
 
 #### Multiple Subdomains
 
-As an account can have multiple subdomains (no fixed limit set), the resolver MUST resolve each referenced alias until he finds an alias with the matching `nm`  field.
+As an account can have multiple subdomains (no fixed limit set), the resolver MUST resolve each referenced alias until it finds an alias with a matching `nm` field.
 
 The search MUST stop if 
 
@@ -133,7 +132,7 @@ The search MUST stop if
 
 ### Different Schemas
 
-For simplicity while typing the URI inside the browsers URL bar, the http and https schemas are acceptable, but this requires the user
+For simplicity - while typing the URI inside the browsers URL bar - the `http` and `https` schemas are acceptable, but this requires the user
 to type one of the following (at this time of writing) non-existing top level domains (TLD): `signum`, `signa`, `sig`, or `sns`
 The following URIs resolve always to the same URL:
 
