@@ -11,12 +11,12 @@ created: 2022-11-28
 ---
 ## Abstract
 
-The Signum Alias feature can be used to resolve URIs into URLs. In browsers it is possible to use an extension, e.g. XT Wallet,
-to resolve URIs in the browsers navigation bar to URLs. This SIP proposes a simple standard for such URI resolvers, and even supports subdomains. 
+The Signum Alias feature can be used to resolve URIs into URLs. In browsers, it is possible to use an extension, e.g. XT Wallet,
+to resolve URIs in the browsers navigation bar to any arbitrary URLs. This SIP proposes a simple standard for such URI resolvers, and even supports subdomains. 
 
 ## Motivation
 
-If a user enters a customized URI, e.g. `signum://johndoe`, or `https://johndoe.signum` in the browsers URL bar, it is possible to resolve this customized URI into an internet URL.
+If a user enters a customized URI, e.g. `signum://johndoe`, `https://$johndoe` or `https://johndoe.signum` in the browsers URL bar, it is possible to resolve this customized URI into an internet URL.
 
 Aliases in Signum are mutable on-chain data owned by users. Using the [standard descriptor](sip-44.md), it is possible to reference to any internet resource.
 To make browsers understand the custom URI, an installable extension is required, such that a URI can be read, resolved and updated according to the resolved URL. The XT Wallet will support this feature, 
