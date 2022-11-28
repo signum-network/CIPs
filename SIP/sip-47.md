@@ -127,6 +127,8 @@ The search MUST stop if
 
 > Keep in mind that resolving to subdomains takes more time the more subdomains are linked to the alias reference list. Resolving subdomains can cause _O(n)_ requests.
 
+![image](./assets/sip-47/linked-alias-list.png "Linked List")
+
 ### Different Schemas
 
 For simplicity while typing the URI inside the browsers URL bar, the http and https schemas are acceptable, but this requires the user
