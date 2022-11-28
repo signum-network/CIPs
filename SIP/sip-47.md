@@ -42,7 +42,7 @@ URI = SCHEME://PATH
 ```
 SCHEME = [signum|http|https]
 PATH = [$]?[ALIAS.]?ALIAS[.TLD]?
-TLD = [signum|signa|sig|sns]
+TLD = [signum|signa|sig|sns|free|web3|crypto]
 ALIAS = ALPHA[ALPHA|DIGIT]{1,100}
 ALPHA = [a-zA-Z]
 DIGIT = [0-9]
@@ -132,7 +132,7 @@ The search MUST stop if
 ### Different Schemas
 
 For simplicity - while typing the URI inside the browsers URL bar - the `http` and `https` schemas are acceptable, but this requires the user
-to type one of the following (at this time of writing) non-existing top level domains (TLD): `signum`, `signa`, `sig`, or `sns` or using the shortform prefix `$`
+to type one of the following (at this time of writing) non-existing top level domains (TLD): `signum`, `signa`, `sig`, `sns`, `free`, `web3`, `crypto` or using the shortform prefix `$`
 The following URIs resolve always to the same URL:
 
 - `signum://arts.johndoe`
@@ -141,11 +141,17 @@ The following URIs resolve always to the same URL:
 - `https://arts.johndoe.signa`
 - `https://arts.johndoe.sig`
 - `https://arts.johndoe.sns`
+- `https://arts.johndoe.web3`
+- `https://arts.johndoe.crypto`
+- `https://arts.johndoe.free`
 - `http://$arts.johndoe`
 - `http://arts.johndoe.signum`
 - `http://arts.johndoe.signa`
 - `http://arts.johndoe.sig`
 - `http://arts.johndoe.sns`
+- `http://arts.johndoe.web3`
+- `http://arts.johndoe.crypto`
+- `http://arts.johndoe.free`
 
 ## Compatibility
 
