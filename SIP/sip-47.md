@@ -27,7 +27,6 @@ once this proposal is accepted.
 In the following, a structured URI Scheme is proposed, that works in conjunction with the [SIP44](sip-44.md) description standard and the Alias System, and can be resolved to 
 any other URL, in special to other internet resources.
 
-
 The proposed structure for the URI follows the official specification as described in [RFC3986](https://www.ietf.org/rfc/rfc3986.txt). The generic version of an URI looks like this
 
 ```
@@ -42,25 +41,25 @@ URI = SCHEME://PATH
 
 ```
 SCHEME = [signum|http|https]
-PATH = [ALIAS.]?ALIAS[.TLD]?
+PATH = [$]?[ALIAS.]?ALIAS[.TLD]?
 TLD = [signum|signa|sig|sns]
 ALIAS = ALPHA[ALPHA|DIGIT]{1,100}
 ALPHA = [a-zA-Z]
 DIGIT = [0-9]
 ```
 
-The `TLD` is only needed, if the `SCHEME` is not `signum`.
+The `TLD` is only needed, if the `SCHEME` is not `signum`, or no shortform prefix `$` is being applied.
 When using `ALIAS.ALIAS`, the first `ALIAS` is considered as [subdomain](#subdomains).
 
 _Examples:_
 
 Without subdomain:
 
-`signum://johndoe` or semantically identical `https://johndoe.signum` or `http://johndoe.sig`
+`signum://johndoe` or semantically identical `https://johndoe.signum`, `http://johndoe.sig`, `https://$johndoe`
 
 With subdomain:
 
-`signum://projects.johndoe` or semantically identical `https://projects.johndoe.signa` or `http://projects.johndoe.sns`
+`signum://projects.johndoe` or semantically identical `https://projects.johndoe.signa`, `http://projects.johndoe.sns`, `http://$projects.johndoe`
 
 
 ### URL Resolution
@@ -133,18 +132,20 @@ The search MUST stop if
 ### Different Schemas
 
 For simplicity - while typing the URI inside the browsers URL bar - the `http` and `https` schemas are acceptable, but this requires the user
-to type one of the following (at this time of writing) non-existing top level domains (TLD): `signum`, `signa`, `sig`, or `sns`
+to type one of the following (at this time of writing) non-existing top level domains (TLD): `signum`, `signa`, `sig`, or `sns` or using the shortform prefix `$`
 The following URIs resolve always to the same URL:
 
-- `signum://johndoe`
-- `https://johndoe.signum`
-- `https://johndoe.signa`
-- `https://johndoe.sig`
-- `https://johndoe.sns`
-- `http://johndoe.signum`
-- `http://johndoe.signa`
-- `http://johndoe.sig`
-- `http://johndoe.sns`
+- `signum://arts.johndoe`
+- `https://$arts.johndoe`
+- `https://arts.johndoe.signum`
+- `https://arts.johndoe.signa`
+- `https://arts.johndoe.sig`
+- `https://arts.johndoe.sns`
+- `http://$arts.johndoe`
+- `http://arts.johndoe.signum`
+- `http://arts.johndoe.signa`
+- `http://arts.johndoe.sig`
+- `http://arts.johndoe.sns`
 
 ## Compatibility
 
