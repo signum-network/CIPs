@@ -4,7 +4,7 @@ title: Signum Name System (SNS)
 description: Proposal for standardized way of resolving aliases and custom URIs into URLs 
 status: Review
 type: Standard
-author: johndoe
+author: ohager
 type: Standard
 category: SRC
 created: 2022-11-28
