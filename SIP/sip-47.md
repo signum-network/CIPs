@@ -42,7 +42,7 @@ URI = SCHEME://PATH
 ```
 SCHEME = [signum|http|https]
 PATH = [$]?[ALIAS.]?ALIAS[.TLD]?
-TLD = [signum|signa|sig|sns|free|web3|crypto]
+TLD = [signum|signa|sig|sns|free|web3|crypto|p2p|wallet|blockhain|dex|decentral|x|y|z]
 ALIAS = ALPHA[ALPHA|DIGIT]{1,100}
 ALPHA = [a-zA-Z]
 DIGIT = [0-9]
@@ -50,6 +50,8 @@ DIGIT = [0-9]
 
 The `TLD` is only needed, if the `SCHEME` is not `signum`, or no shortform prefix `$` is being applied.
 When using `ALIAS.ALIAS`, the first `ALIAS` is considered as [subdomain](#subdomains).
+
+> The TLDs may change over time, depending on ICANNS registration of new/colliding TLDs 
 
 _Examples:_
 
@@ -132,26 +134,23 @@ The search MUST stop if
 ### Different Schemas
 
 For simplicity - while typing the URI inside the browsers URL bar - the `http` and `https` schemas are acceptable, but this requires the user
-to type one of the following (at this time of writing) non-existing top level domains (TLD): `signum`, `signa`, `sig`, `sns`, `free`, `web3`, `crypto` or using the shortform prefix `$`
+to type one of the supported (at this time of writing) non-existing top level domains (TLD) or using the shortform prefix `$`
 The following URIs resolve always to the same URL:
 
 - `signum://arts.johndoe`
 - `https://$arts.johndoe`
-- `https://arts.johndoe.signum`
-- `https://arts.johndoe.signa`
-- `https://arts.johndoe.sig`
-- `https://arts.johndoe.sns`
-- `https://arts.johndoe.web3`
-- `https://arts.johndoe.crypto`
-- `https://arts.johndoe.free`
 - `http://$arts.johndoe`
-- `http://arts.johndoe.signum`
+- `http://arts.johndoe.dex`
 - `http://arts.johndoe.signa`
-- `http://arts.johndoe.sig`
-- `http://arts.johndoe.sns`
-- `http://arts.johndoe.web3`
-- `http://arts.johndoe.crypto`
-- `http://arts.johndoe.free`
+- `http://arts.johndoe.x`
+- `http://arts.johndoe.y`
+- `http://arts.johndoe.z`
+- `https://arts.johndoe.crypto`
+- `https://arts.johndoe.decentral`
+- `https://arts.johndoe.free`
+- `https://arts.johndoe.sig`
+- `https://arts.johndoe.signum`
+- `https://arts.johndoe.web3`
 
 ## Compatibility
 
