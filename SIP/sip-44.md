@@ -219,7 +219,7 @@ This proposal is backwards compatible. If a profile does not provide such inform
 
 It is implicit that all relevant profile metadata is unencrypted and publicly available. The use of profile information is optional (opt-in). Users have to be aware of this and MUST NOT store sensitive data in the metadata. Nevertheless, it is possible to store sensible information in the data referenced by `xt`.
 
-As pointed out, this specification can be used in _immutable_ descriptions of smart contracts, assets/tokens,  _mutable_ account info and _mutable_ alias data. When resolving the `al` field, it MUST NOT be resolved recursively, i.e. chaining `al` resolving is not allowed.
+As pointed out, this specification can be used in _immutable_ descriptions of smart contracts, assets/tokens,  _mutable_ account info and _mutable_ alias data. When resolving the `al` field, it MUST NOT resolve circular dependencies.
 
 ## Reference Implementation
 

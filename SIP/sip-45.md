@@ -1,7 +1,7 @@
 ---
 sip:  45
 title: Staking Contracts
-description: A standard for Staking Contrats
+description: A standard for Staking Contracts
 author:   frank_the_tank
 status: Review
 type: standard
