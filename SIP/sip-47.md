@@ -2,7 +2,7 @@
 sip: 47
 title: Signum Name System (SNS)
 description: Proposal for standardized way of resolving aliases and custom URIs into URLs 
-status: Draft
+status: Review
 type: Standard
 author: johndoe
 type: Standard
