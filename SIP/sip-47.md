@@ -109,7 +109,7 @@ The SRC44 compliant alias descriptor for `johndoe` may look like this:
 
 As the domain alias is forwarding to `johndoe0myprojects`, the resolver MUST look up the referenced alias and check if the `nm` (name) field matches the queried subdomain
 
-The SRC44 compliant alias descriptor for `johndoe0myprojects` subdomain may look like this:
+The SRC44 compliant alias descriptor for `myprojects` subdomain (using the Alias `johndoe0myprojects`) may look like this:
 
 ```json
 {
