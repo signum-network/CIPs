@@ -42,7 +42,7 @@ URI = SCHEME://PATH
 ```
 SCHEME = [signum|http|https]
 PATH = [$]?[ALIAS.]?ALIAS[.TLD]?
-TLD = [signum|signa|sig|sns|free|web3|crypto|p2p|wallet|blockhain|dex|decentral|w3|x|y|z]
+TLD = [signum|signa|sig|sns|free|web3|crypto|p2p|wallet|blockhain|dex|decentral|dao|nft|w3|x|y|z]
 ALIAS = ALPHA[ALPHA|DIGIT]{1,100}
 ALPHA = [a-zA-Z]
 DIGIT = [0-9]
