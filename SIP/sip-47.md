@@ -184,7 +184,7 @@ At this moment following TLDs are supported
 Per default a URI resolves to the alias' `hp` field, but it is possible to select a specific field inside the SRC44 compliant 
 structure as long as it is available. This way it is possible, to use the URI and resolve to an Account Id (using the `ac` field), or even custom fields.
 
-Example:
+_Example:_
 
 The URI `http://johndoe.x/ac` would return the account Id for `johndoe`, if it exists, while `http://johndoe.x/tp` returns the type and so forth. 
 
