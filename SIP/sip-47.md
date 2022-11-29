@@ -41,8 +41,9 @@ URI = SCHEME://PATH
 
 ```
 SCHEME = [signum|http|https]
-PATH = [$]?[ALIAS.]?ALIAS[.TLD]?
-TLD = [signum|signa|sig|sns|free|web3|crypto|p2p|wallet|blockhain|dex|decentral|dao|nft|w3|x|y|z]
+PATH = [$]?[ALIAS.]?ALIAS[.TLD]?[/PATH]?
+TLD = [signum|signa|sig|sns|free|web3|crypto|p2p|wallet|blockhain|dex|decentral|dao|nft|coin|sustainble|w3|x|y|z]
+PATH = ALPHA[ALPHA|DIGIT]
 ALIAS = ALPHA[ALPHA|DIGIT]{1,100}
 ALPHA = [a-zA-Z]
 DIGIT = [0-9]
@@ -53,6 +54,8 @@ When using `ALIAS.ALIAS`, the first `ALIAS` is considered as [subdomain](#subdom
 
 > The TLDs may change over time, depending on ICANNS registration of new/colliding TLDs 
 
+The `PATH` segment can be used for [deep resolution](#deep-resolution).
+ 
 _Examples:_
 
 Without subdomain:
@@ -131,7 +134,7 @@ The search MUST stop if
 
 ![image](./assets/sip-47/linked-alias-list.png "Linked List")
 
-### Different Schemas
+### Different Schemas and TLDs
 
 For simplicity - while typing the URI inside the browsers URL bar - the `http` and `https` schemas are acceptable, but this requires the user
 to type one of the supported (at this time of writing) non-existing top level domains (TLD) or using the shortform prefix `$`
@@ -151,6 +154,41 @@ The following URIs resolve always to the same URL:
 - `https://arts.johndoe.sig`
 - `https://arts.johndoe.signum`
 - `https://arts.johndoe.web3`
+
+At this moment following TLDs are supported 
+
+> More TLDs can be added, as long as they are not registered by ICANN
+
+- blockhain
+- coin
+- crypto
+- dao
+- decentral
+- dex
+- free
+- nft
+- p2p
+- sig
+- signa
+- signum
+- sns
+- w3
+- wallet
+- web3
+- x
+- y
+- z
+
+### Deep Resolution
+
+Per default a URI resolves to the alias' `hp` field, but it is possible to select a specific field inside the SRC44 compliant 
+structure as long as it is available. This way it is possible, to use the URI and resolve to an Account Id (using the `ac` field), or even custom fields.
+
+Example:
+
+The URI `http://johndoe.x/ac` would return the account Id for `johndoe`, if it exists, while `http://johndoe.x/tp` returns the type and so forth. 
+
+This counts also for custom fields, so it is possible to do `http://johndoe.x/x-myfield`.  
 
 ## Compatibility
 
