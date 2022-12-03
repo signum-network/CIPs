@@ -70,16 +70,16 @@ import bt.ui.EmulatorWindow;
  * maxAmountPerPayment = Maximum Amount of Signa which will be distributed when distribution is triggered
  * qualifiedMinimumQuantity = Minimum number of stakingToken needed to be eligible for the distribution
  * contractExpiryInMinutes = Staking end-time in minutes ( 0 = infinite)
- * yieldToken = Token to distribute if set
- * minQuantityToDistributeYieldToken = Minimum quantity of yieldToken nedded before distributed per paymentInterval
+ * yieldToken = Token to distribute - if set
+ * minQuantityToDistributeYieldToken = Minimum quantity of yieldToken needed before distributed per paymentInterval
  * maxQuantityPerPayment = Maximum quantity of yieldToken which will be distributed per paymentInterval
  * signaRatio = Ratio for the distribution = stakingToken:1  for Signa
- * tokenRatio = Ratio for the distribution = stakingRoken:1  for yieldToken 
+ * tokenRatio = Ratio for the distribution = stakingToken:1  for yieldToken 
  * If signaRatio = 0 maxAmountPerPayment is used as static value otherwise pledgeToken on contract balance will define the maximum
  * If tokenRatio = 0 maxQuantityPerPayment is used as static value otherwise pledgeToken on contract balance  will define the maximum
  * 
  * lockPeriodInMinutes = Time of lock period in minutes for every token transfer send to the contract ( 0 = no lockup period set)
- * If contractExpiryInMinutes is set, the lockPeriodTimeEnd will be at most equal to the time of contractExpiryInMinutes calcualted as datetime. 
+ * If contractExpiryInMinutes is set, the lockPeriodTimeEnd will be at most equal to the time of contractExpiryInMinutes calculated as datetime. 
  * 
  * @author frank_the_tank
  */
