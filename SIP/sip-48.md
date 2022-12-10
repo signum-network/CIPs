@@ -15,7 +15,7 @@ This SIP will introduce a temporary onmweship of aliases which can be prolonged 
 Signum offers a simple setup to create aliases for an account. Once set/created those aliases are owned by the creator account forever. With the introducing of [SIP-44](sip-44.md)  the alias will be more powerful to use like domain, account  or application pointer which makes a reserved alias name more valuable. In addition with [SIP-47](sip-44.md)  a new service SNS ( Signum Naming Service) will be introduced which is a distributed, open, and extensible naming system based on the Signum blockchain. Given this cases those aliases should be actively maintained by the creator/owner to flag those aliases in use by them, otherwise the alias should be able to be claimed by another user.
 
 ## Specification
-The following changes should be done with an upcoming hardfork to introdcue the renewal process for aliases 
+The following changes should be done with an upcoming hard-fork to introdcue the renewal process for aliases 
 
 ### Database changes
 On the database the table alias will get a new field `renewal_time` which is an INT field an contains the datetime until the alias is reserved for the current owner. With introduction of the needed hard-fork all aliases will get a reserved datetime of 3 months after the planned hard fork. In this case all active user has enough time to check their current alias ownerships and can create a renewal subscription if desired.
