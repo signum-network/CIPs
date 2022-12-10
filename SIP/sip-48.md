@@ -58,6 +58,8 @@ The transaction created with this call is still the same as the standard subscri
 ###  Renewal costs
 The renewal costs are set with 70 Signa. The reason for this amount is given by the alternative that a user needs to execute setAlias every day to update the `reneval_time` by 24 hours. This would generate costs of 365 x 0.2 Signa = 73 Signa. 
 
+### Mulitverse Support
+To be able to have later mulitverse support for this feature we should have a config entry for receiver address to be a valid auto-renewal subscription.
 
 ## Backwards Compatibility  
 This is a hard forking change, thus breaking compatibility with old fully-validating nodes. It should not be deployed without widespread consensus. 
