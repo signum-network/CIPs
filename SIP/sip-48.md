@@ -45,7 +45,7 @@ By creation or an interval payment of the subscription the node will check the a
 
 **API support**
 
-The auto-renewal can be created with he current create subscription transaction, but to make it more seamless for the user and developer a new API call should be introduced with the following fix parameters:
+The auto-renewal can be created with the current create subscription transaction, but to make it more seamless for the user and developer a new API call should be introduced with the following fix parameters:
 
 - **receiver** is equal the staking contract
 - **frequency** is equal 1 year in seconds
