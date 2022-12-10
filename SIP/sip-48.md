@@ -18,7 +18,7 @@ Signum offers a simple setup to create aliases for an account. Once set/created 
 The following changes should be done with an upcoming hard-fork to introduce the renewal process for aliases 
 
 ### Database changes
-On the database the table alias will get a new field `renewal_time` which is an INT field an contains the datetime until the alias is reserved for the current owner. With introduction of the needed hard-fork all aliases will get a reserved datetime of 3 months after the planned hard fork. In this case all active user has enough time to check their current alias ownerships and can create a renewal subscription if desired.
+On the database the table alias will get a new field `renewal_time` which is an INT field and contains the datetime until the alias is reserved for the current owner. With introduction of the needed hard-fork all aliases will get a reserved datetime of 3 months after the planned hard fork. In this case all active user has enough time to check their current alias ownerships and can create a renewal subscription if desired.
 
 ### Node changes
 **Transaction Set Alias**
