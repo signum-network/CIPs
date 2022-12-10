@@ -96,5 +96,6 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [45](./SIP/sip-45.md )       | Standard| SRC       | Staking Contracts                                              | Review|
 | [46](./SIP/sip-46.md )       | Standard| Core      | Block signing public key                                       | Review|
 | [47](./SIP/sip-47.md )       | Standard| SRC       | URI Resolution (SNS)                                           | Review|
+| [48](./SIP/sip-48.md )       | Standard| Core       | Alias renewal process                                       | Review|
 
-
+Alias renewal process
