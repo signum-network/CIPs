@@ -50,6 +50,7 @@ The auto-renewal can be created with he current create subscription transaction,
 - **receiver** is equal the staking contract
 - **frequency** is equal 1 year in seconds
 - **amount** is equal 70 Signa
+- **alias** should be set with the aliasId to renewal - with this attribute the SIP-44 message will be created
 
 The transaction created with this call is still the same as the standard subscription creation.
 
