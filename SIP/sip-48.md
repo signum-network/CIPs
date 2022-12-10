@@ -50,7 +50,7 @@ The auto-renewal can be created with he current create subscription transaction,
 - **receiver** is equal the staking contract
 - **frequency** is equal 1 year in seconds
 - **amount** is equal 70 Signa
-- 
+
 The transaction created with this call is still the same as the standard subscription creation.
 
 
