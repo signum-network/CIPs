@@ -41,7 +41,7 @@ Signum has already all the basic functionality to empower the user for an auto-r
 
 **New node logic by execution of a subscription:**
 
-By creation or an interval payment of the subscription the node will check the above parameters. If the creator of the subscription is still the owner of the alias and the balance of the account sufficient to execute the subscription, the alias will get an update on the  `renwal_time` table field by one year and 24 hours. If the creator is no longer the owner of the alias the subscription will be cancelled before any further execution.
+By creation or an interval payment of the subscription the node will check the above parameters. If the creator of the subscription is still the owner of the alias and the balance of the account sufficient to execute the subscription, the alias will get an update on the  `renwal_time` table field by one year and 24 hours (based on the execution time of the subscription). If the creator is no longer the owner of the alias the subscription will be cancelled before any further execution.
 
 **API support**
 
