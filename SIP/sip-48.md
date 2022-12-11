@@ -27,6 +27,7 @@ If a user sends a setAlias transaction the following datetime handling for the a
  - If the creation is before the block of the hard fork no datetime is set on `renewal_time`.
  - If the creation is after the hard fork and no datetime is set for the alias or a datetime which is in the past or shorter than 24 hours in the future, a new datetime will be set with datetime plus 24 hours on `renewal_time`.
  - If the creation is after the hard fork but  the datetime is longer than 24 hours in the future no datetime adjustment will happen on `renewal_time`
+ - If the setAlias leads to a new alias the `renewal_time` is set with a value of 24hours in the future.
 
 In addition, if the setAlias transaction is executed for an existing alias and the creator of the setAlias transaction is not the current owner, the transaction - which leads to an automated owner transfer -  will only be executed if the renewal timestamp of the alias has already expired.
 
