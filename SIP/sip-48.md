@@ -1,7 +1,7 @@
 ---
 sip:  48
 title: Alias renewal process
-description: Introducing a new ownership handling for aliases on yearly basis
+description: Introducing a new ownership handling for aliases on a yearly basis
 author:   frank_the_tank
 status: Review
 type: standard
