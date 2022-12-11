@@ -12,13 +12,13 @@ created: 2022-12-10
 This SIP will introduce a temporary ownership of aliases which can be prolonged on a yearly basis.
 
 ## Motivation
-Signum offers a simple setup to create aliases for an account. Once set/created those aliases are owned by the creator account forever. With the introducing of [SIP-44](sip-44.md)  the alias will be more powerful to use for like domain, account  or application pointer which makes a reserved alias name more valuable. In addition with [SIP-47](sip-44.md)  a new service SNS ( Signum Naming Service) will be introduced which is a distributed, open, and extensible naming system based on the Signum blockchain. Given this cases those aliases should be actively maintained by the creator/owner to flag those aliases in use by them, otherwise the alias should be able to be claimed by another user.
+Signum offers a simple setup to create aliases for an account. Once set/created those aliases are owned by the creator account forever. With the introducing of [SIP-44](sip-44.md)  the alias will be more powerful to use for like domain, account  or application pointer which makes a reserved alias name more valuable. In addition with [SIP-47](sip-44.md)  a new service SNS (Signum Naming Service) will be introduced which is a distributed, open, and extensible naming system based on the Signum blockchain. Given these cases, those aliases should be actively maintained by the creator/owner to flag those aliases are in use by them, otherwise another user should be able to claim the alias.
 
 ## Specification
-The following changes should be done with an upcoming hard-fork to introduce the renewal process for aliases 
+The following changes should be done with an upcoming hard-fork to introduce the renewal process for aliases.
 
 ### Database changes
-On the database the table alias will get a new field `renewal_time` which is an INT field and contains the datetime until the alias is reserved for the current owner. With introduction of the needed hard-fork all aliases will get a reserved datetime of 3 months after the planned hard fork. In this case all active users have enough time to check their current alias ownerships and can create a renewal subscription if desired.
+On the database level, the alias table will get a new field `renewal_time` which is an INT field and contains the timestamp until the alias is reserved for the current owner. With introduction of the needed hard-fork all aliases will get a reserved datetime of 3 months after the planned hard fork. In this case all active users have enough time to check their current alias ownerships and can create a renewal subscription if desired.
 
 ### Node changes
 **Transaction Set Alias**
@@ -28,7 +28,7 @@ If a user sends a setAlias transaction the following datetime handling for the a
  - If the creation is after the hard fork and no datetime is set for the alias or a datetime which is in the past or shorter than 24 hours in the future, a new datetime will be set with datetime plus 24 hours on `renewal_time`.
  - If the creation is after the hard fork but  the datetime is longer than 24 hours in the future no datetime adjustment will happen on `renewal_time`
 
-In addition, if the setAlias transaction is executed for an existing alias and the creator of the setAlias transaction is not the current owner, the transaction - which leads to an automated owner transfer -  will only be executed if the datetime of the alias is in the past.
+In addition, if the setAlias transaction is executed for an existing alias and the creator of the setAlias transaction is not the current owner, the transaction - which leads to an automated owner transfer -  will only be executed if the renewal timestamp of the alias has already expired.
 
 **Auto renewal for aliases**
 
