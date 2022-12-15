@@ -12,7 +12,7 @@ created: 2022-12-10
 This SIP will introduce a temporary ownership of aliases which can be prolonged on a yearly basis.
 
 ## Motivation
-Signum offers a simple setup to create aliases for an account. Once set/created those aliases are owned by the creator account forever. With the introducing of [SIP-44](sip-44.md)  the alias will be more powerful to use for like domain, account  or application pointer which makes a reserved alias name more valuable. In addition with [SIP-47](sip-44.md)  a new service SNS (Signum Naming Service) will be introduced which is a distributed, open, and extensible naming system based on the Signum blockchain. Given these cases, those aliases should be actively maintained by the creator/owner to flag those aliases are in use by them, otherwise another user should be able to claim the alias.
+Signum offers a simple setup to create aliases for an account. Once set/created those aliases are owned by the creator account forever. With the introducting of [SIP-44](sip-44.md)  the alias will be more powerful to use for like domain, account or application pointer which makes a reserved alias name more valuable. In addition with [SIP-47](sip-44.md) a new service SNS (Signum Naming Service) will be introduced which is a distributed, open, and extensible naming system based on the Signum blockchain. Given these cases, those aliases should be actively maintained by the creator/owner to flag those aliases are in use by them, otherwise another user should be able to claim the alias.
 
 ## Specification
 The following changes should be done with an upcoming hard-fork to introduce the renewal process for aliases.
@@ -42,7 +42,7 @@ Signum has already all the basic functionality to empower the user for an auto-r
 
 **New node logic by execution of a subscription:**
 
-By creation or an interval payment of the subscription the node will check the above parameters. If the creator of the subscription is still the owner of the alias and the balance of the account sufficient to execute the subscription, the alias will get an update on the  `renwal_time` table field by one year and 24 hours (based on the execution time of the subscription). If the creator is no longer the owner of the alias the subscription will be cancelled before any further execution.
+By creation or an interval payment of the subscription the node will check the above parameters. If the creator of the subscription is still the owner of the alias and the balance of the account sufficient to execute the subscription, the alias will get an update on the `renwal_time` table field by one year and 24 hours (based on the execution time of the subscription). If the creator is no longer the owner of the alias the subscription will be cancelled before any further execution.
 
 **API support**
 
