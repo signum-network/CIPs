@@ -182,12 +182,14 @@ The profile information can be extended by any data by means of the `xt` field. 
 
 For the `av` and `bg` field additional information of the [images MIME-Type](https://mimetype.io/all-types/#image) is required. At least supported image types SHOULD be:
 
+- `image/apng`
+- `image/avif`
 - `image/jpeg`
+- `image/jpg`
 - `image/png`
 - `image/webp`
 - `image/gif`
 - `image/svg+xml`
-
 
 ### URIs
 
