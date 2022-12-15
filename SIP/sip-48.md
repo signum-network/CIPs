@@ -27,7 +27,7 @@ If a user sends a setAlias transaction the following datetime handling for the a
  - If the creation is before the block of the hard fork no datetime is set on `renewal_time`.
  - If the creation is after the hard fork and no datetime is set for the alias or a datetime which is in the past or shorter than 24 hours in the future, a new datetime will be set with datetime plus 24 hours on `renewal_time`.
  - If the creation is after the hard fork but  the datetime is longer than 24 hours in the future no datetime adjustment will happen on `renewal_time`
- - If the setAlias leads to a new alias the `renewal_time` is set with a value of 24hours in the future.
+ - If the setAlias leads to a new alias the `renewal_time` is set with a value of 24 hours in the future.
 
 In addition, if the setAlias transaction is executed for an existing alias and the creator of the setAlias transaction is not the current owner, the transaction - which leads to an automated owner transfer -  will only be executed if the renewal timestamp of the alias has already expired.
 
@@ -35,10 +35,10 @@ In addition, if the setAlias transaction is executed for an existing alias and t
 
 Signum has already all the basic functionality to empower the user for an auto-renewal via the existing subscription transaction. A subscription is valid for the auto-renewal when the following parameters are given:
 
-- The subscription is created with a SIP-44 message. The field `vs` and `al` need to be set.
-- The subscription is paid to a staking contract which is in favour of TRT holders. This contract will be introduced with [SIP-45](sip-45.md) and is a prerequisite  for introducing the renewal process.
+- The subscription is created with an attachment. A new field `alias` need to be set to bind the subscription to a given alias.
+- The subscription amount is paid to a defined receiver account.
 - The subscription should have minimum amount of 70 SIGNA as payment.
-- The subscription should be set to  a 1 year interval (in seconds).
+- The subscription should be set to a 1 year interval (in seconds).
 
 **New node logic by execution of a subscription:**
 
@@ -48,10 +48,10 @@ By creation or an interval payment of the subscription the node will check the a
 
 The auto-renewal can be created with the current create subscription transaction, but to make it more seamless for the user and developer a new API call should be introduced with the following fix parameters:
 
-- **receiver** is equal the staking contract
+- **receiver** is equal the fixed receiver account
 - **frequency** is equal 1 year in seconds
 - **amount** is equal 70 Signa
-- **alias** should be set with the aliasId to renewal - with this attribute the SIP-44 message will be created
+- **alias** should be set with the aliasId to renewal - with this attribute the attachment will be created.
 
 The transaction created with this call is still the same as the standard subscription creation.
 
