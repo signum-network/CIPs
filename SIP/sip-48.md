@@ -12,7 +12,7 @@ created: 2022-12-10
 This SIP will introduce temporary ownership of Aliases with an option to prolong it yearly.
 
 ## Motivation
-Signum offers a simple setup to create aliases for an account. Once set/created, those aliases are owned by the creator account forever. With the introduction of SIP-44](sip-44.md), the Alias will be more beneficial for domain, account or application pointers, making a reserved alias name more valuable. In addition, with [SIP-47](sip-44.md), a new service SNS (Signum Naming Service) will be introduced, a distributed, open, and extensible naming system based on the Signum blockchain. Given these cases, the creator/owner should actively maintain those Aliases to flag those aliases that are in use by them. Otherwise, another user should be able to claim the Alias.
+Signum offers a simple setup to create aliases for an account. Once set/created, those aliases are owned by the creator account forever. With the introduction of [SIP-44](sip-44.md), the Alias will be more beneficial for domain, account or application pointers, making a reserved alias name more valuable. In addition, with [SIP-47](sip-44.md), a new service SNS (Signum Naming Service) will be introduced, a distributed, open, and extensible naming system based on the Signum blockchain. Given these cases, the creator/owner should actively maintain those Aliases to flag those aliases that are in use by them. Otherwise, another user should be able to claim the Alias.
 
 
 ## Specification
