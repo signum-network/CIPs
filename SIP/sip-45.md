@@ -9,9 +9,9 @@ category: SRC
 created: 2022-11-17
 ---
 # Introduction
-Staking contracts allow participants to pledge a smart token with a specified lock-up period to earn Signa and/or another smart token distributed by the contract. The distribution of a staking contract can be fed by topping up the contract with the required funds or by a continuous income from other source. With  [SIP-30](sip-30.md)  the new standard can be simply used by linking the smart contract code from the first contract deployment of this SIP-45 standard. An audit check can be done by comparing the hash of the created Staking Contract with the hash from this original contract deployment- if both are the same the original code is used.
+Staking contracts allow participants to pledge a smart token with a specified lock-up period to earn Signa and/or another smart token distributed by the contract. The distribution of a staking contract can be fed by topping up the contract with the required funds or by a continuous income from another source. With [SIP-30](sip-30.md)  the new standard can be simply used by linking the smart contract code from the first contract deployment of this SIP-45 standard. An audit check can be done by comparing the hash of the created Staking Contract with the hash from this original contract deployment- if both are the same, the original code is used.
 
-SRC-45 Contract deployment : https://chain.signum.network/at/1203867596647349825
+SRC-45 Contract deployment: https://chain.signum.network/at/1203867596647349825
 
 Transaction: 1203867596647349825
 
@@ -21,18 +21,15 @@ Code-Hash-ID:  5581159444912910555
 
 
 # Motivation
-The following standard allows the implementation of a standard API for Staking Contracts as smart contracts. This standard provides basic functionality to setup and run Staking Contracts.
+The following standard allows the implementation of a standard API for Staking Contracts as smart contracts. This standard provides basic functionality to set up and run Staking Contracts.
 
 **What is a Staking Contract?**
 
-A staking contract on the Signum chain is used to pay participants a reward through a fiduciary pool of specified smart token. 
-Each deposit of the specified smart token into the staking contract will result in a 1:1 pay-out of a staking smart token (minted by the contract) in exchange. Distributions will be made in favour of this smart token created by the staking contract. 
-A staking contract may have an expiration date or be active for infinity.
+A staking contract on the Signum chain is used to pay participants a reward through a fiduciary pool of specified smart token. Each deposit of the specified smart token into the staking contract will result in a 1:1 pay-out of a staking smart token (minted by the contract) in exchange. Distributions will be made in favour of this smart token created by the staking contract. A staking contract may have an expiration date or be active for infinity.
 
-Signum deserves a proper standard for staking contracts which can be used in a fiduciary way, SIP-45 came to solve that.
+Signum deserves a proper standard for staking contracts which can be used in a fiduciary way. SIP-45 came to solve that.
 
-We consider use cases for deployments that can be performed by individuals or corporations. 
-Staking contract can be used to incentive holders or generate passive income by delegate revenues to this contract. 
+We consider use cases for deployments that can be performed by individuals or corporations. A staking contract can be used to incentive holders or generate passive income by delegating revenues to this contract.
 Examples:
 
 -   Delegate royalties from NFT sales to a staking contract
