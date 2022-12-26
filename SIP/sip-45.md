@@ -9,7 +9,7 @@ category: SRC
 created: 2022-11-17
 ---
 # Introduction
-Staking contracts allow participants to pledge a smart token with a specified lock-up period to earn Signa and/or another smart token distributed by the contract. The distribution of a staking contract can be fed by topping up the contract with the required funds or by a continuous income from another source. With [SIP-30](sip-30.md)  the new standard can be simply used by linking the smart contract code from the first contract deployment of this SIP-45 standard. An audit check can be done by comparing the hash of the created Staking Contract with the hash from this original contract deployment- if both are the same, the original code is used.
+Staking contracts allow participants to pledge a smart token with a specified lock-up period to earn Signa and/or another smart token distributed by the contract. The distribution of a staking contract can be fed by topping up the contract with the required funds or by a continuous income from another source. With [SIP-30](sip-30.md), the new standard can be simply used by linking the smart contract code from the first contract deployment of this SIP-45 standard. An audit check can be done by comparing the hash of the created Staking Contract with the hash from this original contract deployment- if both are the same, the original code is used.
 
 SRC-45 Contract deployment: https://chain.signum.network/at/1203867596647349825
 
@@ -358,43 +358,43 @@ public class StakingDynamicContract extends Contract {
 ```
 
 ### Creator of the Staking Contract
-The creator is always the account which uploads the transaction for the creation of th staking contract to the chain.
+The creator is always the account which uploads the transaction for the creation of the staking contract to the chain.
 
 ### Variable setting (data stack)
-While the creator is uploading the contract to the chain, the individual data stack for the staking contract should be defined within the transaction. Within the data stack the values should be set in the following order:
+While the creator is uploading the contract to the chain, the individual data stack for the staking contract should be defined within the transaction. Within the data stack, the values should be set in the following order:
 
 **stakingTokenTicker**
 <br>The ticker of the generated staking token by the contract with up to 10 numbers/letters.<br/>
 
 **stakingTokenDecimals**
-<br>Number of decimals places for the staking token - should be the same as the token to stake.<br/>
+<br>The number of decimals for the staking token - should be the same as the token to stake.<br/>
 
 **pledgeToken**
-<br>Id of the token which can be staked on the contract.<br/>
+<br>Id of the token, which can be staked on the contract.<br/>
 
 **digitsFactorPledgeToken**<
-<br>Multiplyer for the ratio calculation by digits of the **pledgetoken**<br/>
+<br>The multiplier for the ratio calculation by digits of the **pledgetoken**<br/>
 0 digits = 1 , 1 digit = 10 ... 8 digits = 100000000
 
 **yieldToken**
-<br>The Id of the token which should be distributed by default -if a position exits on the contract.<br/>
+<br>The Id of the token, which should be distributed by default -if a position exits on the contract.<br/>
 
 **digitsFactorYieldToken**
-<br>Multiplyer for the ratio calculation by digits of the **yieldToken**<br/>
+<br>The multiplier for the ratio calculation by digits of the **yieldToken**<br/>
 0 digits = 1 , 1 digit = 10 ... 8 digits = 100000000
 
 **airdroppedTokenMinimumQuantity**
-<br>Minimum Quantity of a token to get distributed, which got airdropped to the contract.<br/>
+<br>Minimum quantity of a token to get distributed, which got airdropped to the contract.<br/>
 
 Distribution parameter:
 
 **paymentInterval**
-<br>Minimum number of blocks the contract is waiting until the next distribution will be executed.<br/>
-If set 0 no interval is checked.
+<br>A minimum number of blocks the contract is waiting until the next distribution is executed.<br/>
+If set to 0, no interval is checked.
 
 **contractExpiryInMinutes**
 <br>A value in minutes to calculate the expiry of the contract by creation.<br/>
-If set to 0 the contract is infinity.
+If set to 0, the contract is infinity.
 
 **qualifiedMinimumQuantity**
 <br>The minimum quantity needed of the stakingToken to be eligible for a distribution.<br/>
@@ -406,19 +406,19 @@ If set to 0 the contract is infinity.
 <br>The minimum quantity of the **yieldToken** required on the contract balance to trigger a payout.<br/>
 
 **maxAmountPerPayment**
-<br>Maximum amount of Signa paid out at every **paymentInterval**.<br/>
+<br>The maximum amount of Signa paid out at every **paymentInterval**.<br/>
 If set to 0  the contract balance will be used to calculate the amount of Signa for a payout.
 
 **maxQuantityPerPayment**
-<br>Maximum quantity of **yieldToken** paid out at every **paymentInterval**.<br/>
+<br>The maximum quantity of **yieldToken** paid out at every **paymentInterval**.<br/>
 
 **signaRatio**
-<br>Besides a static **maxAmountPerPayment** a ratio can be defined how many StakingTokens are needed to get one Signa. Depending on the number of existing StakingTokens the **maxAmountPerPayment** is calculated and set for each **paymentInterval**.<br/>
+<br>Besides a static **maxAmountPerPayment** a ratio can be defined as how many StakingTokens are needed to get one Signa. Depending on the number of existing StakingTokens the **maxAmountPerPayment** is calculated and set for each **paymentInterval**.<br/>
 This function is inactive when set to 0.
 Example: 100 stakedToken should get 1 Signa  means 100:1. signaRatio = 100
 
 **tokenRatio**
-<br>Besides a static **maxQuantityPerPayment** a ratio can be defined how many StakingTokens are needed to get one **yieldToken**. Depending on the number of existing StakingTokens the **maxQuantityPerPayment** is calculated and set for each **paymentInterval**.<br/>
+<br>Besides a static **maxQuantityPerPayment** a ratio can be defined as how many StakingTokens are needed to get one **yieldToken**. Depending on the number of existing StakingTokens the **maxQuantityPerPayment** is calculated and set for each **paymentInterval**.<br/>
 This function is inactive when set to 0.
 Example: 1000 stakedToken getting 0.2 yieldToken means 200:1. tokenRatio = 200
 
@@ -433,7 +433,7 @@ The contract will parse all transaction by the following basic logic:
 The contract checks whether the transaction has transferred a **pledgeToken**.
 If so, the same amount of **pledgeToken** is minted and sent to the sender of the transaction. If a **lockPeriodInMinutes** is set, a lock period for the address is stored in a map entry. Each time a new transfer is made from the same sender address, the lock period is overwritten with the latest calculation.
 
-If the contact already reached its expiry date - the **pledgeToken** will be just send back to the sender.
+If the contract has already reached its expiry date - the **pledgeToken** will be just sent back to the sender.
 
 ```java
             quantityCheck = tx.getAmount(pledgeToken);
@@ -454,9 +454,9 @@ If the contact already reached its expiry date - the **pledgeToken** will be jus
 ```
 #### Withdrawal staking Token check
 The contract checks whether the transaction has transferred a **stakingToken**.
-If this is the case, the contract checks whether the lockup period has expired, send back the same amount of **pledgeToken** and burns the received **stakingToken**.
+If this is the case, the contract checks whether the lockup period has expired, sends back the same amount of **pledgeToken** and burns the received **stakingToken**.
 
-If the contract has set a **lockPeriodInMinutes** and no map entry for the sender  address was found a new map entry will be set and the **stakingToken** will be send back to the sender.
+If the contract has set a **lockPeriodInMinutes** and no map entry for the sender address was found, a new map entry will be set, and the **stakingToken** will be sent back to the sender.
 
 ```java
             quantityCheck = tx.getAmount(stakingToken);
@@ -484,7 +484,7 @@ If the contract has set a **lockPeriodInMinutes** and no map entry for the sende
             }
 ```
 #### Distribute airdropped tokens
-Any address can request to distribute  airdropped tokens at any time.
+Any address can request to distribute airdropped tokens at any time.
 The function checks if the amount needed for the distribution execution is included in the transaction and if the **airdroppedTokenMinimumQuantity** is met.
 If both checks are valid, the airdropped token will be distributed over the **stakingToken** holders.
 
@@ -508,7 +508,7 @@ If both checks are valid, the airdropped token will be distributed over the **st
             }
   ```
 #### Cleanup
-Only when the contract has expired and a final distribution has been made, the creator is entitled to remove the current balances of Signa and **yieldToken** from the staking contract.
+Only when the contract has expired, and a final distribution has been made is the creator entitled to remove the current balances of Signa and **yieldToken** from the staking contract.
 ```java
             if (arguments.getValue1() == CLEANUP_BY_CREATOR && stakingTimeoutLastPayment &&  tx.getSenderAddress().equals(getCreator())){
                 sendAmount(yieldToken,getCurrentBalance(yieldToken),getCreator());
@@ -519,14 +519,14 @@ Only when the contract has expired and a final distribution has been made, the c
 
 ### Creation Costs
 The creation of a staking contract costs 2.50 Signa. 
-To be paid with the deploy-contract-transaction.
+To be paid with the deploy-contract transaction.
 
 ### Activation costs
 The contract has an activation cost of 0.90 Signa. 
-Every transaction needs to have this minimum amount to interact with it, otherwise the transaction will not be handled within the smart contract. 
+Every transaction needs to have this minimum amount to interact with it. Otherwise, the transaction will not be handled within the smart contract. 
 
 ### Ensure payment interval
-To ensure that each payment interval is executed even if there is no activity on the staking contract , we recommend that the contract creator to set up a subscription with a payment of 0.90 Signa at an interval equal to the **paymentInterval**.
+To ensure that each payment interval is executed even if there is no activity on the staking contract, we recommend that the contract creator set up a subscription with a payment of 0.90 Signa at an interval equal to the **paymentInterval**.
 
 ## Compatibility
 This new staking standard is compatible with the current smart contract framework. 
