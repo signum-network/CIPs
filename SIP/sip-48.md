@@ -33,6 +33,9 @@ If a user sends a setAlias transaction, it will execute the following DateTime h
 
 In addition, if it executes the setAlias transaction for an existing Alias and the creator of the setAlias transaction is not the current owner, the transaction - which leads to an automated owner transfer - will only be executed if the renewal timestamp of the Alias has already expired.
 
+## Handling of Alias offers(Sale)
+If a `setAlias` transaction leads to an owner change, the node needs to check for ongoing Sales (public/private). If a sale exists, the node code removes the Sale, setting the `latest` field for this offer from 1 to 0.
+
 **Auto renewal for aliases**
 
 Signum already has all the basic functionality to empower the user for auto-renewal via the existing subscription transaction. A subscription is valid for the auto-renewal when it has the following parameters:
