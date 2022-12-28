@@ -21,6 +21,8 @@ The following changes should be done with an upcoming hard fork to introduce the
 ### Database changes
 On the database level, the alias table will get a new field renewal_time which is an INT field and contains the timestamp until it stocks the Alias for the current owner. With the introduction of the needed hard fork, all aliases will get a DateTime of one year after the planned hard fork. In this case, all active users have enough time to check their current alias ownerships and can create a renewal subscription if desired.
 
+### Grace Period
+For all existing Aliases before the hard fork, the node sets a renewal time from plus one year (based on the hard fork block).
 
 ### Node changes
 **Transaction Set Alias**
