@@ -28,11 +28,13 @@ The assignment will be active after 4 blocks.
 
 In the node configuration, the proxy pool's passphrase needs to be set for signing the blocks. 
 This new passphrase will be placed under the config entry *RewardRecipientPassphrases* in the structure of accountId:passphrase.
+
 The *accountId* is taken from the solo miner account.
+
 The *passphrase* is taken from the proxy pool account.
 
 Example:
-RewardRecipientPassphrases = 1234596885:soul wing belt zoom board helm zero two four
+RewardRecipientPassphrases = *1234596885:soul wing belt zoom board helm zero two four*
 
 The config entry *SoloMininingPassphrases* will be commented out.
 The reward will be paid to the proxy pool account if a block gets forged.
