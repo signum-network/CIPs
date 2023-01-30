@@ -94,7 +94,7 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [43](./SIP/sip-43.md )       | Standard| Core      | Introduce Smart Token Owner                                    | Final|
 | [44](./SIP/sip-44.md )       | Standard| SRC       | Descriptor                                                     | Final|
 | [45](./SIP/sip-45.md )       | Standard| SRC       | Staking Contracts                                              | Review|
-| [46](./SIP/sip-46.md )       | Standard| Core      | Block signing public key                                       | Review|
+| [46](./SIP/sip-46.md )       | Standard| SRC      | Secure solo mining setup                                      | Final|
 | [47](./SIP/sip-47.md )       | Standard| SRC       | URI Resolution (SNS)                                           | Review|
 | [48](./SIP/sip-48.md )       | Standard| Core       | Alias renewal process                                       | Review|
 
