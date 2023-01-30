@@ -23,7 +23,7 @@ With the present SIP, we would like to solve this problem using the existing *Re
 
 ## Specification
 A *proxy pool* account must be created (fresh new account or repurposed) to function as a proxy pool on the Signum chain.
-The solo miner account (the one used to create plot files and possibly with *committed* coins) should set the reward assignment to the proxy pool account.
+The solo miner account (used to create plot files and possibly with *committed* coins) should set the reward assignment to the proxy pool account.
 The assignment will be active after 4 blocks, as usual.
 
 In the node configuration, the proxy pool's passphrase needs to be set for signing the blocks. 
@@ -40,7 +40,7 @@ The config entry `SoloMininingPassphrases` will be commented out by default.
 The reward will be paid to the proxy pool account if a block gets forged.
 
 ## Backwards Compatibility  
-This proposal is backwards compatible, there are no protocol changes.
+This proposal is backwards compatible. There are no protocol changes.
 The setup can be implemented by minor changes in node code, including the changes to handle the `RewardRecipientPassphrases` and to properly sign blocks.
 
 ## Copyright
