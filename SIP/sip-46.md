@@ -3,7 +3,7 @@ sip:  46
 title: Secure solo mining setup
 description: Introduce a proxy pool setup for solo miner 
 author:   jjos, frank_the_tank
-status: Final
+status: Review
 type: standard
 category: SRC
 created: 2022-11-17
