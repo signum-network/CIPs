@@ -5,7 +5,7 @@ description: A new transaction type to delegate the signing of blocks
 author:   jjos, frank_the_tank
 status: Review
 type: standard
-category: SRC
+category: Core
 created: 2022-11-17
 ---
 ## Abstract
