@@ -1,7 +1,7 @@
 ---
 sip:  46
-title: Block signing public key
-description: A new transaction type to delegate the signing of blocks
+title: Secure solo mining setup
+description: Introduce a proxy pool setup for solo miner 
 author:   jjos, frank_the_tank
 status: Review
 type: standard
@@ -9,26 +9,34 @@ category: Core
 created: 2022-11-17
 ---
 ## Abstract
-This SIP will allow solo miners to define a different public key, specifically to sign blocks.
-In case the passphrase that generates this *block signing* public key leaks, the miner can just register a new one.
-This way, a miner is able to forge solo blocks without using the original account passphrase.
+This SIP will allow solo miners to use a proxy pool for signing the blocks.
+If the passphrase that generates this *block signing* public key leaks, the miner can register a new one.
+This way, a miner can forge solo blocks without using the original account passphrase.
 
 # Motivation
-Signum offers a simple setup to start solo mining. Currently, only a full node and the miner software are needed. [BTDEX](https://github.com/btdex/btdex/) also offers a solution for solo mining.
-From a security perspective, the only downside to running a solo miner is that you have to leave the passphrase in clear text either into the node's configuration or in the mining software.
+Signum offers a simple setup to start solo mining. 
+Currently, only a full node and the miner software are needed. [BTDEX](https://github.com/btdex/btdex/) also provides a solution for solo mining.
+From a security perspective, the only downside to running a solo miner is that you have to leave the passphrase in the clear text either in the node's configuration or in the mining software.
 
-With the present SIP, we would like to solve this problem with a new transaction type where the miner can delegate the signing of blocks to another public key. This *block signing* public key would be attached to this new transaction type.
+With the present SIP, we would like to solve this problem with the existing Reward assignment transaction and enable the node to handle proxy pools for solo miners.
+
 
 ## Specification
-A new transaction type is to be created where the publickey of another account can be registered to sign blocks as a solo miner. If multiple transactions of this type are created for the same account, only the last one is valid. This opens the possibility for a miner to switch to another signing key if needed.
-The passphrase that generates the *signing public key* would be set in the node configuration instead of the original account passsphrase.
+A new account must be created to function as a proxy pool on the Signum chain.
+The solo miner account to which the plots for mining belong should set the Reward assignment to the newly created proxy pool account.
+The assignment will be active after 4 blocks.
 
-The original account would receive the block rewards and not the account that would be accessed by the *block signing* key.
-The account related to the *block signing* key, must also be unique and cannot be bind to any other account.
-The use of the account related to the *block signing* key is not blocked, but not recomended.
+In the node configuration, the proxy pool's passphrase needs to be set for signing the blocks. 
+This new passphrase will be placed under the config entry *RewardRecipientPassphrases* in the structure of accountId:passphrase.
+
+Example:
+RewardRecipientPassphrases = 1234596885:soul wing belt zoom board helm zero two four
+
+The config entry *SoloMininingPassphrases* will be commented out.
 
 ## Backwards Compatibility  
-This is a hard forking change, thus breaking compatibility with old fully-validating nodes. It should not be deployed without widespread consensus.
+This proposal is backwards compatible. 
+The setup will only run with a node, including the changes to handle the RewardRecipientPassphrases.
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
