@@ -5,7 +5,7 @@ description: Introduce a proxy pool setup for solo miner
 author:   jjos, frank_the_tank
 status: Review
 type: standard
-category: Core
+category: SRC
 created: 2022-11-17
 ---
 ## Abstract
