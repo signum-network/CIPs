@@ -96,6 +96,6 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [45](./SIP/sip-45.md )       | Standard| SRC       | Staking Contracts                                              | Review|
 | [46](./SIP/sip-46.md )       | Standard| SRC      | Secure solo mining setup                                      | Review|
 | [47](./SIP/sip-47.md )       | Standard| SRC       | URI Resolution (SNS)                                           | Review|
-| [48](./SIP/sip-48.md )       | Standard| Core       | Alias renewal process                                       | Review|
+| [48](./SIP/sip-48.md )       | Standard| Core       | Modernize the Alias frameworks                              | Review|
 
 Alias renewal process
