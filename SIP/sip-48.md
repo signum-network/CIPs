@@ -1,74 +1,116 @@
 ---
 sip:  48
-title: Alias renewal process
-description: Introducing a new ownership handling for aliases on a yearly basis
+title: Modernize the Alias framework
+description: Feature enhancement for Aliases
 author:   frank_the_tank
 status: Review
 type: standard
 category: Core
 created: 2022-12-10
+updated: 2023-02-12
 ---
+
 ## Abstract
-This SIP will introduce temporary ownership of Aliases with an option to prolong it yearly.
+This SIP will modernize the current Alias setup. It will introduce a new valid character for the creation of Aliases and the possibility of using TLDs (Top Layer Domains) as new namespaces for an Alias and a renewal system for Aliases comparable to current worldwide web domain handling. All aliases registered before activating this SIP will stay with the current owner. Only renew them once the owner sells them.
+
 
 ## Motivation
-Signum offers a simple setup to create aliases for an account. Once set/created, those aliases are owned by the creator account forever. With the introduction of [SIP-44](sip-44.md), the Alias will be more beneficial for domain, account or application pointers, making a reserved alias name more valuable. In addition, with [SIP-47](sip-44.md), a new service SNS (Signum Naming Service) will be introduced, a distributed, open, and extensible naming system based on the Signum blockchain. Given these cases, the creator/owner should actively maintain those Aliases to flag those aliases that are in use by them. Otherwise, another user should be able to claim the Alias.
+Aliases have been available on the Signum chain since the genesis block.Any user could create those Aliases with one transaction.<br>
+Unfortunately, the use cases were limited to those Aliases, mainly used as account-address pointers.
+
+Besides that, the creation of an Alias is a combination of letters and numbers only.<br>
+It has one namespace only and nothing like TLDs (Top Level Domain).
+
+With the introduction of [SIP-44](https://github.com/signum-network/SIPs/blob/master/SIP/sip-44.md), the Alias will be more beneficial for domain, account or application pointers, making a reserved alias name more valuable. In addition, with [SIP-47](https://github.com/signum-network/SIPs/blob/master/SIP/sip-44.md), a new service SNS (Signum Naming Service) is in the making, a distributed, open, and extensible naming system based on the Signum blockchain. 
+
+Given the current development and possible use cases, we need to adjust the Alias framework and modernize it to fit future requirements.
+
+The following parts will be adjusted or introduced:
+
+### Alias creation
+
+Currently, it is only possible to create an Alias with a combination of letters a-z and numbers 0-9.<br>
+With this SIP, we will add one extra character: _<br>
+The maximum length is not changed, being 100 characters.<br>
+It empowers the user to create aliases in a way they use them on other social networks or emails.
 
 
-## Specification
-The following changes should be done with an upcoming hard fork to introduce the renewal process for aliases.
+### STLD (Signum Top Level Domains)
 
-### Database changes
-On the database level, the alias table will get a new field renewal_time which is an INT field and contains the timestamp until it stocks the Alias for the current owner. With the introduction of the needed hard fork, all aliases will get a DateTime of one year after the planned hard fork. In this case, all active users have enough time to check their current alias ownerships and can create a renewal subscription if desired.
+With the current framework, the Alias system has only one dimension.<br>
+Compared to an URL, we should also have a framework which allows the user to register the Alias as a second-level domain and decide in which top-level domain (TLD) the Alias should exist. 
 
-### Grace Period
-For all existing Aliases before the hard fork, the node sets a renewal time from plus one year (based on the hard fork block).
+Signum will provide the following STLD by default:
 
-### Node changes
-**Transaction Set Alias**
+- blockhain
+- coin
+- crypto
+- dao
+- decentral
+- dex
+- free
+- nft
+- p2p
+- sig
+- signa
+- sns
+- w3
+- wallet
+- web3
+- x
+- y
+- z
 
-If a user sends a setAlias transaction, it will execute the following DateTime handling for the Alias:
- - If the creation is before the block of the hard fork, it sets no DateTime on `renewal_time`.
- - If the creation is after the hard fork and no DateTime exits for the Alias, it sets a new DateTime with DateTime plus 24 hours on `renewal_time`. The same applies to a DateTime which is in the past or shorter than 24 hours in the future.
- - If the creation is after the hard fork, but the DateTime is longer than 24 hours in the future, no DateTime adjustment will happen on `renewal_time`.
- - If the setAlias leads to a new Alias, it sets the renewal_time with a value of 24 hours in the future.
-
-In addition, if it executes the setAlias transaction for an existing Alias and the creator of the setAlias transaction is not the current owner, the transaction - which leads to an automated owner transfer - will only be executed if the renewal timestamp of the Alias has already expired.
-
-**Handling of Alias offers(Sale)**
-
-If a `setAlias` transaction leads to an owner change, the node needs to check for ongoing Sales (public/private). If a sale exists, the node code removes the Sale, setting the `latest` field for this offer from 1 to 0.
-
-**Auto renewal for aliases**
-
-Signum already has all the basic functionality to empower the user for auto-renewal via the existing subscription transaction. A subscription is valid for the auto-renewal when it has the following parameters:
-
-- Creating the subscription with an attachment. Setting a new field `alias` to bind the subscription to a given Alias.
-- Paying the subscription amount to a defined receiver account.(Account Zero aka burning the fee)
-- The subscription should have a minimum amount of 50 SIGNA as payment.
-- Setting the subscription to a 1-year interval (in seconds).
-
-**New node logic by execution of a subscription:**
-
-The node will check the above parameters by creating an interval subscription payment. Suppose the creator of the subscription is still the owner of the Alias, and the account balance is sufficient to execute the subscription. In that case, the Alias will get an update on the renwal_time table field by one year and 24 hours (based on the execution time of the subscription). If the creator is no longer the alias owner, the subscription will cancel before any further execution.
-
-**API support**
-
-The current subscription transaction can create auto-renewal. Still, to make it more seamless for the user and developer, the following static parameters should introduce a new API call:
-
-- **The receiver** is equal to the fixed receiver account
-- **The frequency** is similar to one year in seconds
-- **The amount** is equal to 50 Signa
-- **The Alias** should be set with the aliasId to renew. Setting this attribute will create an attachment.
-
-The transaction created with this call is still the same as the standard subscription creation.
+Aliases created without an STLD (e.g. all Aliases created before this SIP activates) have the .signum STLD for free. 
 
 
-###  Renewal costs
-The proposal sets the renewal costs to 50 Signa. This amount is because a user needs to execute setAlias daily to update the reneval_time by every 24 hours. It would generate costs of 365 x 0.2 Signa = 73 Signa. By using the renewal with a subscription transaction, the set fee of 50 Signa leads to and discount of around 31% compared to a daily update.
+Example:
 
-### Multiverse support
-To have later multiverse support for this feature, we should have a config entry for the receiver address to be a valid auto-renewal subscription.
+Suppose a user creates an Alias without an STLD selection like “*Spaceship*”. In that case, this Alias gets registered for “*Spaceship*” and “*Spaceship.signum*”
+
+
+Suppose a user created an Alias “*Spaceship*” with the STLD, for example, “*crypto*”. In that case, this Alias is now only registered for "*Spaceship.crypto*”.
+
+
+
+### Custom STLD
+Besides the default STLDs, any Signum account can create a new STLD on the Signum chain. This way, specific use- or business cases can build their namespaces and benefit from those. As Aliases have a quarterly renewal cost, the chain will send those payments to the owner of the STLD.
+The following new transaction types are needed:
+
+- **Register a new STLD**
+  - An STLD must have a unique name
+  - An STLD consists of a combination of ^[a-zA-Z0-9]{1,40}$ with a maximum of 40 chars
+  - The minimum transaction fee is 0.1 Signa
+  - The minimum amount to pay is 100.000 Signa 
+  - The receiver account is the Zero (burn) account 
+- **Sell an STLD public**
+  - Similar to a public sale of an Alias
+- **Sell an STLD private**
+  - Similar to a private sale of an Alias
+
+### Alias renewal process
+With this SIP, every Alias becomes bound to a renewal subscription. Every time a new alias is registered (or if the owner sells a legacy alias after the upgrade), a subscription is created with a deadline of 3 months (adding 7776000 seconds to the current timestamp) and a value of 12.5 Signa. This subscription works similarly to a regular Signum subscription. When it expires, the payment gets executed, and a new deadline gets set.
+
+Suppose the current alias owner does not have enough balance when payment for the renewal subscription gets executed. In that case, the related Alias is deleted along with its renewal subscription, making expired aliases available again for any user.
+Suppose the user cancels the alias renewal subscription. In that case, the Alias is also deleted and becomes available for other users to create as fresh and new. 
+
+Suppose an alias that already has a subscription assigned to it gets sold. In that case, the chain transfers the subscription to the new alias owner with the current deadline.
+
+If the Alias gets deleted, the chain will automatically cancel any active private or public sale for this Alias. 
+
+If the Alias has no TLD set (but using the default .signum) or is one of the default STLDs, the amount paid by the renewal transaction gets burned along with the subscription fee. If an Alias uses a custom STLD, the renewal amount gets distributed to the current owner of the STLD, and the subscription fee gets burned.
+
+#### Transaction Set Alias
+If a user sends a setAlias transaction, it will execute the following:
+- If the creation is before the block of the hard fork, no subscription gets assigned to an Alias.
+- Suppose the creation is after the hard fork. Then a subscription is created and assigned to the Alias and the creator account.
+- If a subscription already exists, only the alias content gets updated.
+
+
+
+### API support
+The OpenAPI should support the new transactions on the node.
+
 
 ## Backwards Compatibility  
 This proposal is a hard-forking change, thus breaking compatibility with old fully-validating nodes. It should only deploy the code change with widespread consensus.
