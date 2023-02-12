@@ -91,10 +91,14 @@ The following new transaction types are needed:
 ### Alias renewal process
 With this SIP, every Alias becomes bound to a renewal subscription. Every time a new alias is registered (or if the owner sells a legacy alias after the upgrade), a subscription is created with a deadline of 3 months (adding 7776000 seconds to the current timestamp) and a value of 12.5 Signa. This subscription works similarly to a regular Signum subscription. When it expires, the payment gets executed, and a new deadline gets set.
 
-Suppose the current alias owner does not have enough balance when payment for the renewal subscription gets executed. In that case, the related Alias is deleted along with its renewal subscription, making expired aliases available again for any user.
-Suppose the user cancels the alias renewal subscription. In that case, the Alias is also deleted and becomes available for other users to create as fresh and new. 
+Suppose the current alias owner does not have enough balance when payment for the renewal subscription gets executed.<br>
+In that case, the related Alias is deleted along with its renewal subscription, making expired aliases available again for any user.
 
-Suppose an alias that already has a subscription assigned to it gets sold. In that case, the chain transfers the subscription to the new alias owner with the current deadline.
+Suppose the user cancels the alias renewal subscription.<br>
+In that case, the Alias is also deleted and becomes available for other users to create as fresh and new. 
+
+Suppose an alias that already has a subscription assigned to it gets sold.<br>
+In that case, the chain transfers the subscription to the new alias owner with the current deadline.
 
 If the Alias gets deleted, the chain will automatically cancel any active private or public sale for this Alias. 
 
