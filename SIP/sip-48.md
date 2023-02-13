@@ -80,7 +80,7 @@ The following new transaction types are needed:
 - **Register a new STLD**
   - An STLD must have a unique name
   - An STLD consists of a combination of ^[a-zA-Z0-9]{1,40}$ with a maximum of 40 chars
-  - The minimum transaction fee is 0.1 Signa
+  - The minimum transaction fee is 0.01 Signa
   - The minimum amount to pay is 100.000 Signa 
   - The receiver account is the Zero (burn) account 
 - **Sell an STLD public**
