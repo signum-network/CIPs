@@ -74,14 +74,14 @@ Suppose a user created an Alias “*Spaceship*” with the STLD, for example, �
 
 
 ### Custom STLD
-Besides the default STLDs, any Signum account can create a new STLD on the Signum chain. This way, specific use- or business cases can build their namespaces and benefit from those. As Aliases have a quarterly renewal cost, the chain will send those payments to the owner of the STLD.
+Besides the default STLDs, any Signum account can create a new STLD on the Signum chain. This way, specific use or business cases can build their namespaces and benefit from those. As Aliases have a quarterly renewal cost, the chain will send those payments to the owner of the STLD.
 The following new transaction types are needed:
 
 - **Register a new STLD**
   - An STLD must have a unique name
   - An STLD consists of a combination of ^[a-zA-Z0-9]{1,40}$ with a maximum of 40 chars
   - The minimum transaction fee is 0.01 Signa
-  - The minimum amount to pay is 100.000 Signa 
+  - The minimum amount to pay is 100k Signa (one hundred thousand)
   - The receiver account is the Zero (burn) account 
 - **Sell an STLD public**
   - Similar to a public sale of an Alias
