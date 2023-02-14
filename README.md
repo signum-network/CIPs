@@ -98,4 +98,4 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [47](./SIP/sip-47.md )       | Standard| SRC       | URI Resolution (SNS)                                           | Review|
 | [48](./SIP/sip-48.md )       | Standard| Core       | Modernize the Alias frameworks                              | Review|
 
-Alias renewal process
+
