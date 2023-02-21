@@ -42,7 +42,7 @@ Compared to an URL, we should also have a framework which allows the user to reg
 
 Signum will provide the following STLD by default:
 
-- blockhain
+- blockchain
 - coin
 - crypto
 - dao
