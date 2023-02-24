@@ -113,7 +113,7 @@ If a user sends a setAlias transaction, it will execute the following:
 ### Transfer of Alias
 If a user creates a private sale with price 0 (zero), the Alias gets immediately transferred to the receiver. A corresponding renewal subscription will stay on the former owner until the new owner of the Alias executes a setAlias transaction for this received Alias.
 
-While no setAlias gets executed by the new owner, the former owner pays the subscriptions. Suppose the former owner needs more balance to pay or actively cancel the subscription. The Alias gets deleted in this case, and any account can get the Alias again.
+While no setAlias gets executed by the new owner, the former owner pays the subscriptions. Suppose the former owner runs out of balance to pay or actively cancel the current subscription. The Alias gets deleted in this case, and any account can get the Alias again.
 
 ### API support
 The OpenAPI should support the new transactions on the node.
