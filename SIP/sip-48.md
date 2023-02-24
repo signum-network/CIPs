@@ -11,11 +11,13 @@ updated: 2023-02-24
 ---
 
 ## Abstract
-This SIP will modernize the current Alias setup. It will introduce a new valid character for the creation of Aliases and the possibility of using TLDs (Top Layer Domains) as new namespaces for an Alias and a renewal system for Aliases comparable to current worldwide web domain handling. All aliases registered before activating this SIP will stay with the current owner. Only renew them once the owner sells them.
+This SIP will modernize the current Alias setup. It will introduce a new valid character for the creation of Aliases and the possibility of using TLDs (Top Level Domains) as new namespaces for an Alias and a renewal system for Aliases comparable to current worldwide web domain handling.
+All aliases registered before activating this SIP will stay with the current owner without any renewal fee.
+For these existing aliases, the renewal subscription will only be created if the alias is updated or sold.
 
 
 ## Motivation
-Aliases have been available on the Signum chain since the genesis block.Any user could create those Aliases with one transaction.<br>
+Aliases have been available on the Signum chain since the genesis block. Any user could create those Aliases with one transaction.<br>
 Unfortunately, the use cases were limited to those Aliases, mainly used as account-address pointers.
 
 Besides that, the creation of an Alias is a combination of letters and numbers only.<br>
