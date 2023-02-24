@@ -7,7 +7,7 @@ status: Review
 type: standard
 category: Core
 created: 2022-12-10
-updated: 2023-02-12
+updated: 2023-02-24
 ---
 
 ## Abstract
@@ -110,7 +110,10 @@ If a user sends a setAlias transaction, it will execute the following:
 - Suppose the creation is after the hard fork. Then a subscription is created and assigned to the Alias and the creator account.
 - If a subscription already exists, only the alias content gets updated.
 
+### Transfer of Alias
+If a user creates a private sale with price 0 (zero), the Alias gets immediately transferred to the receiver. A corresponding renewal subscription will stay on the former owner until the new owner of the Alias executes a setAlias transaction for this received Alias.
 
+While no setAlias gets executed by the new owner, the former owner pays the subscriptions. Suppose the former owner needs more balance to pay or actively cancel the subscription. The Alias gets deleted in this case, and any account can get the Alias again.
 
 ### API support
 The OpenAPI should support the new transactions on the node.
