@@ -48,7 +48,7 @@ An account description (stored using the `setAccountInfo` method) may look like 
   "bg": { "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc": "image/jpeg" },
   "hp": "https://bittrex.com",
   "sr": "^[0-9a-fA-F]{24}$",
-  "al": "somealias",
+  "al": "somealias:crypto",
   "xt": "QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc",
   "sc": ["https://twitter.com/bittrex"]
 }
@@ -65,8 +65,8 @@ An account description (stored using the `setAccountInfo` method) may look like 
 | hp         | no       | Homepage          | string       | https://bittrex.com                                                   | URL/CID                                                                                                                   | An (sanitized) URL of at maximum 128 characters pointing to a web presence of that account.                                                                                                                                  |
 | sr         | no       | Send Rule         | string       | /^[0-9a-fA-F]{64}$/                                                   | A valid Regex                                                                                                             | A regex that needs to be matched when sending to this account, i.e. a memo for bots or exchanges                                                                                                                             |
 | sc         | no       | Social Network    | array        | ["https://twitter.com/sk8terclown_42","https://discord.gg/ZGHgCXy45"] | An array of URLs/CIDs                                                                                                     | A list of at max. three (sanitized) URLs or IPFS CIDs of at maximum 92 characters each                                                                                                                                       |
-| al         | no       | Signum Alias      | string       | myalias                                                               | /^\w{1,100}$/                                                                                                             | An related alias of the Signum chain                                                                                                                                                                                         |
-| ac         | no       | Signum Account Id | string       | /^\d{18,23}$/                                                         | 895212263565386113                                                                                                        | Mostly useful in conjunction with Aliases: Used to resolve accounts by Aliases (Account Name System - ANS)                                                                                                                   |
+| al         | no       | Signum Alias      | string       | myalias, my_alias and/or my_alias:stld   | /^\w{1,100}(\.[a-zA-Z0-9]{1,40})?$/                                                                                                             | An related alias of the Signum chain                                                                                                                                                                                         |
+| ac         | no       | Signum Account Id | string       | /^\d{18,23}$/                                                         | 895212263565386113                                                                                                        | Mostly useful in conjunction with Aliases: Used to resolve accounts by Aliases (Signum Name System - SNS)                                                                                                                   |
 | id         | no       | Identifier        | string       | 97f17ecb-71c6-47e9-a87d-7a78a52f3197                                  |                                                                                                                           | Any arbitrary identifier or reference with maximum length of 48 bytes. It can be a Signum Id, i.e. Transaction, Account, Token, or any other                                                                                 |
 | xt         | no       | Extension         | string       | QmUFc4dyX7TJn5dPxp8CrcDeedoV18owTBUWApYMuF6Koc                        | A valid IPFS CID                                                                                                          | The CID for extended information. The resulting document does not follow any format restrictions, as it completely use case dependent. Good formats are JSON, but also private information in encrypted formats is possible. |
 
@@ -151,7 +151,7 @@ The optional `sr` field is a regular expression that MUST be considered by appli
 
 ### Field - `al`  - Alias
 
-This optional field relates the account with an alias. The Signum Alias system allows to be mutable, while still on-chain. This way it is possible to even make mutable descriptions for smart contracts, if using this SRC for Smart Contract description fields.
+This optional field relates the account with an alias. The Signum Alias system allows to be mutable, while still on-chain. This way it is possible to even make mutable descriptions for smart contracts, if using this SRC for Smart Contract description fields. As of support with Top Level Domains ("STLDs"), an alias can refer to its STLD using the `:` delimiter, i.e. `johndoe:crypto`
 
 ### Field - `ac`  - Account (ANS)
 
