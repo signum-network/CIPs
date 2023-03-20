@@ -153,7 +153,8 @@
       "pattern": "^\\w{1,100}(:[a-zA-Z0-9]{1,40})?$",
       "default": "",
       "examples": [
-        "@myAlias123"
+        "myAlias123",
+        "myAlias123:crypto"
       ]
     },
     "xt": {
