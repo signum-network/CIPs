@@ -458,7 +458,7 @@ If the contract has already reached its expiry date - the **pledgeToken** will b
 The contract checks whether the transaction has transferred a **stakingToken**.
 If this is the case, the contract checks whether the lockup period has expired, sends back the same amount of **pledgeToken** and burns the received **stakingToken**.
 
-If the contract has set a **lockPeriodInMinutes** and no map entry for the sender address was found, a new map entry will be set, and the **stakingToken** will be sent back to the sender, otherwise the 
+If the contract has set a **lockPeriodInMinutes** and no map entry for the sender address was found, a new map entry will be set, and the **stakingToken** will be sent back to the sender.
 
 ```java
             quantityCheck = tx.getAmount(stakingToken);
