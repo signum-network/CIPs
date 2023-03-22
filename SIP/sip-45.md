@@ -81,7 +81,79 @@ import bt.ui.EmulatorWindow;
  * 
  * @author frank_the_tank
  */
+public class StakingDynamicContract extends Contract {
+    // stakingToken parameter
+    long stakingTokenTicker;
+    long stakingTokenDecimals;
+    // Decimals should be the same as from the token
 
+    // Token to pledge
+    long pledgeToken;
+    long digitsFactorPledgeToken;
+
+    // yieldToken to distribute by default
+    long yieldToken;
+    long digitsFactorYieldToken;
+    // digit 0 = 1 ; digit 1 = 10 ... digit 8 = 100000000
+
+    // Minimum Quantity for any other token (without digit adjustment)
+    long airdroppedTokenMinimumQuantity;
+
+    // Distribution parameter
+    long paymentInterval;
+    int contractExpiryInMinutes;
+    long qualifiedMinimumQuantity;
+    long minAmountToDistributeSigna;
+    long minQuantityToDistributeYieldToken;
+
+    // Distribution parameter for fixed payouts
+    long maxAmountPerPayment; 
+    long maxQuantityPerPayment;
+
+    // Distribution parameter for dynamic payouts
+    long signaRatio; 
+    // Example: 100 stakedToken getting 1 SIGNA = 100:1 = 100
+    long tokenRatio; 
+    // Example: 1000 stakedToken getting 0.2 distribute Token = 200 : 1 = 200
+
+     // lockPeriod - If set user can´t convert stakingToken into token
+    int lockPeriodInMinutes;
+    Timestamp lockPeriodTimeEnd;
+
+   // stakingToken created by contract
+    long stakingToken;
+
+    // temporary variables
+    Timestamp stakingTimeout; 
+    boolean stakingTimeoutLastPayment;
+    Timestamp lastProcessedTx;
+    Register arguments;
+    long totalstaked ;
+    long stakingholders;
+    long distributedAmount;
+    long distributedQuantity;
+    Transaction tx;
+    long lastBlockDistributed;
+    long checkPlanckForDistribution;
+    long distributionFee;
+    long blockheight;
+    long quantityCheck;
+    long balanceCheck;
+    long lockUpCheck;
+    boolean contractActiveCheck;
+    boolean distributionDone;
+    public static final long ZERO = 0;
+    public static final long ONE = 1;
+    public static final long TWO = 2;
+    public static final long THREE = 3;
+    public static final long FOUR = 4;
+    public static final long DISTRIBUTE_TOKEN_BALANCE = 99;
+    public static final long CLEANUP_BY_CREATOR =100 ;    
+    public static final long DISTRIBUTION_FEE_PER_HOLDER = 100000;
+    public static final long DISTRIBUTION_FEE_MINIMUM_HOLDER = 1000000;
+    public static final long DISTRIBUTION_FEE_MINIMUM = 2000000;
+    public static final long PLANCK_TO_SIGNA = 100000000;
+    public static final long CONTRACT_FEES = 90000000;
     public StakingDynamicContract() {
 	    // constructor, runs when the first TX arrives
         stakingToken = issueAsset(stakingTokenTicker, 0L, stakingTokenDecimals);
