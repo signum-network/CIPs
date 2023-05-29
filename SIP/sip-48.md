@@ -3,7 +3,7 @@ sip:  48
 title: Modernize the Alias framework
 description: Feature enhancement for Aliases
 author:   frank_the_tank
-status: Review
+status: Final
 type: standard
 category: Core
 created: 2022-12-10
