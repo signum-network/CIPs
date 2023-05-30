@@ -38,7 +38,7 @@ Examples:
 -   Pooling smart tokens to bypass distribution to holder instructions with high position requirements
 
 ##  Java code for the SRC-45 contract
-The Java code for the NFT standard looks as follows:
+The Java code for the staking standard looks as follows:
 
 ```java
 package bt.dapps;
