@@ -3,7 +3,7 @@ sip:  45
 title: Staking Contracts
 description: A standard for Staking Contracts
 author:   frank_the_tank
-status: Review
+status: final
 type: standard
 category: SRC
 created: 2022-11-17
