@@ -46,56 +46,56 @@ Describes a Signum design issue, or provides general guidelines or information t
 
 ## Signum Improvement Proposals
 
-| SIP                          | Type  | Category  | Title                                                          |  Status |
-|------------------------------| ----------- |-----------|----------------------------------------------------------------| ------- |
-| [Basic](./SIP/sip-basic.md ) | Informational| -         | SIP Purpose and Guidelines                                     | Living| 
-| [1](./SIP/sip-1.md )         | Standard  | Interface | Dynamic BRS Node Capabilities                                  | Final   | 
-| [2](./SIP/sip-2.md )         | Standard  | Core      | Quadruple Block Size                                           | Final   | 
-| [3](./SIP/sip-3.md )         | Standard  | Core      | Variable Slot-based Fees                                       | Final   | 
-| [4](./SIP/sip-4.md )         | Standard  | Core      | Multi-Out Transactions                                         | Final   | 
-| [5](./SIP/sip-5.md )         | Standard  | Core      | PoC2                                                           | Final   | 
-| [6](./SIP/sip-6.md )         | Standard  | Interface | Unconfirmed Tx Queue Optimizations                             | Final   | 
-| [7](./SIP/sip-7.md )         | Standard  | Interface | Differential Unconfirmed Tx Propagation                        | Final   |
-| [8](./SIP/sip-8.md )         | Informational| -         | Define Tx and Balance "Dust"                                   | Stagnant   |
-| [9](./SIP/sip-9.md )         | Informational| -         | To-All Transactions                                            | Stagnant   |
-| [10](./SIP/sip-10.md )       | Standard| Core      | Anchor Real-World Data in Blockchain                           | Stagnant   |
-| [11](./SIP/sip-11.md )       | Standard| Core      | Tethered Assets                                                | Stagnant   |
-| [12](./SIP/sip-12.md )       | Informational| -         | SFS                                                            | Stagnant   |
-| [13](./SIP/sip-13.md )       | Standard| Interface | Suggested Transaction Fees                                     | Final|
-| [14](./SIP/sip-14.md )       | Standard| Interface | Signum Actions through Deeplink QR-codes                       | Final|
-| [15](./SIP/sip-15.md )       | Standard| Core      | RWFDS-enabled FEE_QUANT introspection and adjustment           | Draft|
-| [16](./SIP/sip-16.md )       | Informational| -         | PoC2.X16 - A New Optimized Plot File Format                    | Final|
-| [17](./SIP/sip-17.md )       | Standard| Interface | Differential UT Propagation in push & pull                     | Final|
-| [18](./SIP/sip-18.md )       | Informational| -         | Cross-Platform Wallet UI                                       | Final|
-| [19](./SIP/sip-19.md )       | Standard| Interface | Incoming Multi-Out Tracking                                    | Final|
-| [20](./SIP/sip-20.md )       | Standard| Core      | Updated AT fees                                                | Final|
-| [21](./SIP/sip-21.md )       | Standard| Core      | Adjustment for Asset-Issuance fee                              | Final|
-| [22](./SIP/sip-22.md )       | Standard| SRC       | Deep Link Specification                                        | Final|
-| [23](./SIP/sip-23.md )       | Standard| Core      | Enforce slot fees                                              | Final|
-| [24](./SIP/sip-24.md )       | Standard| Core      | New deadline algorithm based on a logarithm transformation     | Final|
-| [25](./SIP/sip-25.md )       | Standard| Core      | Minor Network Changes                                          | Final|
-| [26](./SIP/sip-26.md )       | Standard| Interface | Extended Reed Solomon Address Format                           | Final|
-| [27](./SIP/sip-27.md )       | Standard| Core      | Proof of Commitment (PoC+) consensus                           | Final|
-| [28](./SIP/sip-28.md )       | Standard| Core      | Updated AT max steps and AT API                                | Final|
-| [29](./SIP/sip-29.md )       | Standard| Core      | Mininum mining incentives                                      | Final|
-| [30](./SIP/sip-30.md )       | Standard| Core      | Green Contracts                                                | Final|
-| [31](./SIP/sip-31.md )       | Standard| Core      | New fee framwork                                               | Final|
-| [32](./SIP/sip-32.md )       | Standard| Core      | PoC+ polishing                                                 | Final|
-| [33](./SIP/sip-33.md )       | Standard| Core      | Smart Tokens                                                   | Final|
-| [34](./SIP/sip-34.md )       | Standard| Core      | Round minimum fee to 2 digits                                  | Final|
-| [35](./SIP/sip-35.md )       | Standard| Core      | Cashback                                                       | Final|
-| [36](./SIP/sip-36.md )       | Standard| Core      | Distribution of node-related fees (smart contract and similar) | Final|
-| [37](./SIP/sip-37.md )       | Standard| Core      | General smart contract upgrade                                 | Final|
-| [38](./SIP/sip-38.md )       | Standard| Core      | Map support for smart contracts                                | Final|
-| [39](./SIP/sip-39.md )       | Standard| Core      | Smart token support for smart contracts                        | Final|
-| [40](./SIP/sip-40.md )       | Standard| SRC       | Signum NFT specifications                                      | Final|
-| [41](./SIP/sip-41.md )       | Standard| Core      | Smart Tokens Distribution Changes                              | Final|
-| [42](./SIP/sip-42.md )       | Standard| Core      | Subscription behaviour enhancement                             | Final|
-| [43](./SIP/sip-43.md )       | Standard| Core      | Introduce Smart Token Owner                                    | Final|
-| [44](./SIP/sip-44.md )       | Standard| SRC       | Descriptor                                                     | Final|
-| [45](./SIP/sip-45.md )       | Standard| SRC       | Staking Contracts                                              | Final|
-| [46](./SIP/sip-46.md )       | Standard| SRC      | Secure solo mining setup                                      | Final|
-| [47](./SIP/sip-47.md )       | Standard| SRC       | URI Resolution (SNS)                                           | Review|
-| [48](./SIP/sip-48.md )       | Standard| Core       | Modernize the Alias frameworks                              | Final|
+| SIP                          | Type  | Category  | Title                                                          |  Status | Implemented|
+|------------------------------| ----------- |-----------|----------------------------------------------------------------| ------- |----|
+| [Basic](./SIP/sip-basic.md ) | Informational| -         | SIP Purpose and Guidelines                                     | Living| |
+| [1](./SIP/sip-1.md )         | Standard  | Interface | Dynamic BRS Node Capabilities                                  | Final   | yes|
+| [2](./SIP/sip-2.md )         | Standard  | Core      | Quadruple Block Size                                           | Final   | yes|
+| [3](./SIP/sip-3.md )         | Standard  | Core      | Variable Slot-based Fees                                       | Final   | yes|
+| [4](./SIP/sip-4.md )         | Standard  | Core      | Multi-Out Transactions                                         | Final   | yes|
+| [5](./SIP/sip-5.md )         | Standard  | Core      | PoC2                                                           | Final   | yes|
+| [6](./SIP/sip-6.md )         | Standard  | Interface | Unconfirmed Tx Queue Optimizations                             | Final   | yes|
+| [7](./SIP/sip-7.md )         | Standard  | Interface | Differential Unconfirmed Tx Propagation                        | Final   |yes|
+| [8](./SIP/sip-8.md )         | Informational| -         | Define Tx and Balance "Dust"                                   | Stagnant   |no |
+| [9](./SIP/sip-9.md )         | Informational| -         | To-All Transactions                                            | Stagnant   |no |
+| [10](./SIP/sip-10.md )       | Standard| Core      | Anchor Real-World Data in Blockchain                           | Stagnant   |no|
+| [11](./SIP/sip-11.md )       | Standard| Core      | Tethered Assets                                                | Stagnant   |no|
+| [12](./SIP/sip-12.md )       | Informational| -         | SFS                                                            | Stagnant   |no|
+| [13](./SIP/sip-13.md )       | Standard| Interface | Suggested Transaction Fees                                     | Final|yes|
+| [14](./SIP/sip-14.md )       | Standard| Interface | Signum Actions through Deeplink QR-codes                       | Final|yes|
+| [15](./SIP/sip-15.md )       | Standard| Core      | RWFDS-enabled FEE_QUANT introspection and adjustment           | Draft|no|
+| [16](./SIP/sip-16.md )       | Informational| -         | PoC2.X16 - A New Optimized Plot File Format                    | Final|yes|
+| [17](./SIP/sip-17.md )       | Standard| Interface | Differential UT Propagation in push & pull                     | Final|yes|
+| [18](./SIP/sip-18.md )       | Informational| -         | Cross-Platform Wallet UI                                       | Final|yes|
+| [19](./SIP/sip-19.md )       | Standard| Interface | Incoming Multi-Out Tracking                                    | Final|yes|
+| [20](./SIP/sip-20.md )       | Standard| Core      | Updated AT fees                                                | Final|yes|
+| [21](./SIP/sip-21.md )       | Standard| Core      | Adjustment for Asset-Issuance fee                              | Final|yes|
+| [22](./SIP/sip-22.md )       | Standard| SRC       | Deep Link Specification                                        | Final|yes|
+| [23](./SIP/sip-23.md )       | Standard| Core      | Enforce slot fees                                              | Final|yes|
+| [24](./SIP/sip-24.md )       | Standard| Core      | New deadline algorithm based on a logarithm transformation     | Final|yes|
+| [25](./SIP/sip-25.md )       | Standard| Core      | Minor Network Changes                                          | Final|yes|
+| [26](./SIP/sip-26.md )       | Standard| Interface | Extended Reed Solomon Address Format                           | Final|yes|
+| [27](./SIP/sip-27.md )       | Standard| Core      | Proof of Commitment (PoC+) consensus                           | Final|yes|
+| [28](./SIP/sip-28.md )       | Standard| Core      | Updated AT max steps and AT API                                | Final|yes|
+| [29](./SIP/sip-29.md )       | Standard| Core      | Mininum mining incentives                                      | Final|yes|
+| [30](./SIP/sip-30.md )       | Standard| Core      | Green Contracts                                                | Final|yes|
+| [31](./SIP/sip-31.md )       | Standard| Core      | New fee framwork                                               | Final|yes|
+| [32](./SIP/sip-32.md )       | Standard| Core      | PoC+ polishing                                                 | Final|yes|
+| [33](./SIP/sip-33.md )       | Standard| Core      | Smart Tokens                                                   | Final|yes|
+| [34](./SIP/sip-34.md )       | Standard| Core      | Round minimum fee to 2 digits                                  | Final|yes|
+| [35](./SIP/sip-35.md )       | Standard| Core      | Cashback                                                       | Final|yes|
+| [36](./SIP/sip-36.md )       | Standard| Core      | Distribution of node-related fees (smart contract and similar) | Final|yes|
+| [37](./SIP/sip-37.md )       | Standard| Core      | General smart contract upgrade                                 | Final|yes|
+| [38](./SIP/sip-38.md )       | Standard| Core      | Map support for smart contracts                                | Final|yes|
+| [39](./SIP/sip-39.md )       | Standard| Core      | Smart token support for smart contracts                        | Final|yes|
+| [40](./SIP/sip-40.md )       | Standard| SRC       | Signum NFT specifications                                      | Final|yes|
+| [41](./SIP/sip-41.md )       | Standard| Core      | Smart Tokens Distribution Changes                              | Final|yes|
+| [42](./SIP/sip-42.md )       | Standard| Core      | Subscription behaviour enhancement                             | Final|no|
+| [43](./SIP/sip-43.md )       | Standard| Core      | Introduce Smart Token Owner                                    | Final|yes|
+| [44](./SIP/sip-44.md )       | Standard| SRC       | Descriptor                                                     | Final|yes|
+| [45](./SIP/sip-45.md )       | Standard| SRC       | Staking Contracts                                              | Final|yes|
+| [46](./SIP/sip-46.md )       | Standard| SRC      | Secure solo mining setup                                      | Final|yes|
+| [47](./SIP/sip-47.md )       | Standard| SRC       | URI Resolution (SNS)                                           | Review|no|
+| [48](./SIP/sip-48.md )       | Standard| Core       | Modernize the Alias frameworks                              | Final|yes|
 
 
