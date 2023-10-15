@@ -476,7 +476,7 @@ public class ShieldSwap extends Contract {
 	public void txReceived() {
 		// do nothing
 	}
-
+}
 ```
 
 ### Creator of the Liquidity Pool Contract
