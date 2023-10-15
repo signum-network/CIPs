@@ -15,13 +15,13 @@ Liquidity pool contracts provide a platform for users to contribute their assets
 With the introduction of the [SIP-30 standard](https://chat.openai.com/c/sip-30.md), this new liquidity pool standard can be easily integrated into the Signum ecosystem. The deployment of the initial contract following SIP-49 can be audited by comparing its hash with the hash of the created Liquidity Pool Contract. If both hashes match, it confirms the use of the original code, ensuring the contract's authenticity and security.
 
 
-SRC-49 Contract deployment: https://chain.signum.network/tx/12825029980485714879
+SRC-49 Contract deployment: https://chain.signum.network/tx/17221947955907533335
 
-Transaction: 12825029980485714879
+Transaction: 17221947955907533335
 
-Reference Hash: bf03963cd1a8fbb11b90bb0fcba1dbd6384611df3d07bc0e4eca2fa5b9e50462
+Reference Hash: 171a228c6ba600efcb4e11774e3c5208b05bfda812f861706a854da63d55cdb1
 
-Code-Hash-ID:  3735293229655148902
+Code-Hash-ID:  16506461612487237371
 
 ## Abstract
 
