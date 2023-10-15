@@ -12,7 +12,7 @@ updated: 2023-10-15
 # Introduction
 Liquidity pool contracts provide a platform for users to contribute their assets, such as token X and token Y, into a shared pool. Users can participate by adding liquidity to the pool, allowing them to earn rewards in the form of a special liquidity token, denoted as "XY." This liquidity pool contract facilitates the swapping of tokens X and Y while ensuring fairness and security in the transactions. Users can engage in swaps from token X to token Y and vice versa, and the contract manages fees and slippage to maintain the integrity of the pool.
 
-With the introduction of the [SIP-30 standard](https://chat.openai.com/c/sip-30.md), this new liquidity pool standard can be easily integrated into the Signum ecosystem. The deployment of the initial contract following SIP-49 can be audited by comparing its hash with the hash of the created Liquidity Pool Contract. If both hashes match, it confirms the use of the original code, ensuring the contract's authenticity and security.
+With the introduction of the [SIP-30](sip-30.md), this new liquidity pool standard can be easily integrated into the Signum ecosystem. The deployment of the initial contract following SIP-49 can be audited by comparing its hash with the hash of the created Liquidity Pool Contract. If both hashes match, it confirms the use of the original code, ensuring the contract's authenticity and security.
 
 
 SRC-49 Contract deployment: https://chain.signum.network/tx/17221947955907533335
