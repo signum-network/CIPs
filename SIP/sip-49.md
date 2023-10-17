@@ -15,13 +15,13 @@ Liquidity pool contracts provide a platform for users to contribute their assets
 With the introduction of the [SIP-30](sip-30.md), this new liquidity pool standard can be easily integrated into the Signum ecosystem. The deployment of the initial contract following SIP-49 can be audited by comparing its hash with the hash of the created Liquidity Pool Contract. If both hashes match, it confirms the use of the original code, ensuring the contract's authenticity and security.
 
 
-SRC-49 Contract deployment: https://chain.signum.network/tx/17221947955907533335
+SRC-49 Contract deployment:https://chain.signum.network/tx/2643236083511734871
 
-Transaction: 17221947955907533335
+Transaction: 2643236083511734871
 
-Reference Hash: 171a228c6ba600efcb4e11774e3c5208b05bfda812f861706a854da63d55cdb1
+Reference Hash: 573236a736a9ae24b1e66113a23f86d1a8f1f54e267ad0cd570c47eaaccf3b84
 
-Code-Hash-ID:  16506461612487237371
+Code-Hash-ID: 2588253152591293552
 
 ## Abstract
 
@@ -186,8 +186,8 @@ public class ShieldSwap extends Contract {
 	public static final long TWO = 1;
 	public static final long TENTHOUSAND = 10000;	
 	public static final long THOUSAND = 1000;
-	public static final long minSlippage= 1010;	
-	// 1010 means minSlippage needs to be 0.1%
+	public static final long minSlippage= 1001;	
+	// 1001 means minSlippage needs to be 0.1%
 	private static final long LP_CHECK_1 = 10000000;
 	private static final long LP_CHECK_2 = 1000000;
 	private static final long LP_CHECK_3 = 100000;
