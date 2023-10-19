@@ -71,8 +71,8 @@ One of the key innovations that this SIP brings to the Signum ecosystem is the s
 In conclusion, the motivation behind introducing Liquidity Pool Smart Contracts as a standard on the Signum platform is driven by a combination of factors that collectively aim to strengthen the ecosystem. By addressing liquidity, reducing friction, empowering developers, enhancing security, promoting global accessibility, incentivizing growth, and solving the "sandwich problem," this SIP strives to make Signum an attractive hub for DeFi activities, fostering innovation and enriching the user experience.
 
 
-##  Java code for the SRC-45 contract
-The Java code for the staking standard looks as follows:
+##  Java code for the SRC-49 contract
+The Java code for the liquidity pool standard looks as follows:
 
 ```java
 package bt.dapps;
@@ -538,7 +538,7 @@ The contract will parse all transactions by the following basic logic:
 This sequence ensures that liquidity-related transactions are processed first, followed by swap transactions with careful consideration of fees, slippage, and pricing. The code maintains a fair and secure environment for liquidity providers and users participating in swaps within the pool.
 
 ### Creation Costs
-The creation of a staking contract costs 3.50 Signa. To be paid with the deploy-contract transaction. After creating the smart contract, the creator needs to send a second transaction with 152 Signa - to initiate the LP token on the contract.
+The creation of a liquiditiy pool contract costs 3.50 Signa. To be paid with the deploy-contract transaction. After creating the smart contract, the creator needs to send a second transaction with 152 Signa - to initiate the LP token on the contract.
 
 ### Activation costs
 The contract has an activation cost of 1.80 Signa. 
