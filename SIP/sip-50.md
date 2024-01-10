@@ -11,10 +11,10 @@ created: 2024-01-10
 
 
 ## Abstract
-This document describes the communication interface for efficient, bidirectional real-time communication via WebSockets for the Node Software.
+This document describes the communication interface for lighweight realtime communication via WebSockets for the Node Software.
 
 ## Motivation
-The Node software currently offers an extensive HTTP interface to communicate remotely with the Node software. This interface is used extensively by software applications such as wallets. Because HTTP is a pure request-response procedure, a client application must regularly ask for updates (polling). WebSocket communication is used to establish a truly realtime connection between the client and the node software so that the server can notify connected clients directly about new blocks/transactions, for example. This allows communication to take place more efficiently according to the Hollywood principle, i.e. potentially less resource consumption (bandwidth, data volume).
+The Node software currently offers an extensive HTTP interface to communicate remotely with the Node software. This interface is used by software applications such as wallets. Because HTTP is a pure request-response procedure, a client application must regularly ask for updates (polling). WebSocket communication is used to establish a truly realtime connection between the client and the node software so that the server can notify connected clients directly about new blocks/transactions, for example. This allows communication to take place more efficiently according to the Hollywood principle, i.e. potentially less resource consumption (bandwidth, data volume).
 
 ## Specification
 
@@ -49,7 +49,7 @@ The responses from the Node Software follow a unified structure. All responses M
 
 This event MUST be emitted by the Node Software upon every established websocket connection.
 
-The payload response SHOULD have ate least the following fields:
+The payload response SHOULD have at least the following fields:
 
 | Field             | Type      | Description                                                 | Example                  |
 |-------------------|-----------|-------------------------------------------------------------|--------------------------|
@@ -99,7 +99,7 @@ _Example_
 
 This event SHALL be emitted by the Node Software upon pushed blocks,i.e. while the node is syncing. As the node can push several dozen to hundred blocks per second, the event emission MUST be debounced to a configurable duration, e.g. one second, where only the latest pushed block SHALL be submitted.
 
-The payload response SHOULD have ate least the following fields:
+The payload response SHOULD have at least the following fields:
 
 | Field                 | Type      | Description                                            | Example                  |
 |-----------------------|-----------|--------------------------------------------------------|--------------------------|
@@ -132,7 +132,7 @@ _Example_
 
 This event SHALL be emitted by the Node Software upon pushed blocks,i.e. while the node is syncing. As the node can push several dozen to hundred blocks per second, the event emission MUST be debounced to a configurable duration, e.g. one second, where only the latest pushed block SHALL be submitted.
 
-The payload response SHOULD have ate least the following fields:
+The payload response SHOULD have at least the following fields:
 
 | Field                    | Type      | Description                                                | Example                          |
 |--------------------------|-----------|------------------------------------------------------------|----------------------------------|
