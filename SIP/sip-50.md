@@ -122,7 +122,8 @@ _Example_
     "blockId": "7085823688029188009",
     "localHeight": 335876,
     "globalHeight": 632424,
-    "progress": 0.53109306
+    "progress": 0.53109306,
+    "transactionCount": 5
   }
 }
 ```
@@ -138,7 +139,7 @@ The payload response SHOULD have ate least the following fields:
 | `e`                      | String    | Represents the event type or action.                        | `"PENDING_TRANSACTIONS_ADDED"`   |
 | `p`                      | Object    | Payload containing relevant data for the event.             |                                  |
 | `p.transactionIds`       | Array     | Array of transaction IDs added in the pending transactions. | `["8987323561909124581"]`       |
-| `p.hasMore`              | Boolean   | Indicates whether there are more pending transactions.*      | `false`                          |
+| `p.hasMore`              | Boolean   | Optional indicator showing that there are more pending transactions.*      | `true`                          |
 
 > * It is theoretically possible to have hundreds or thousands transactions in the array. To save bandwidth the array has to be capped, e.g. up to 100 tx. If there are more than the capped limit, the flag `hasMore` MUST be `true`.
 
