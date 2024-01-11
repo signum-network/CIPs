@@ -136,12 +136,10 @@ The payload response SHOULD have at least the following fields:
 
 | Field                    | Type      | Description                                                | Example                          |
 |--------------------------|-----------|------------------------------------------------------------|----------------------------------|
-| `e`                      | String    | Represents the event type or action.                        | `"PENDING_TRANSACTIONS_ADDED"`   |
-| `p`                      | Object    | Payload containing relevant data for the event.             |                                  |
-| `p.transactionIds`       | Array     | Array of transaction IDs added in the pending transactions. | `["8987323561909124581"]`       |
-| `p.hasMore`              | Boolean   | Optional indicator showing that there are more pending transactions.*      | `true`                          |
+| `transactionIds`       | Array     | Array of transaction IDs added in the pending transactions. | `["8987323561909124581"]`       |
+| `hasMore`              | Boolean   | Optional indicator showing that there are more pending transactions.*      | `true`                          |
 
-> * It is theoretically possible to have hundreds or thousands transactions in the array. To save bandwidth the array has to be capped, e.g. up to 100 tx. If there are more than the capped limit, the flag `hasMore` MUST be `true`.
+> * It is theoretically possible to have hundreds or thousands transactions in the array. To save bandwidth the array has to be capped, e.g. up to 100 tx. If there are more than the capped limit, the flag `hasMore` MUST be `true`, or MAY be omitted.
 
 ## Configuration
 
@@ -159,16 +157,17 @@ API.WebSocketPort = 8126
 ```
 
 ## Backwards Compatibility
+
 This proposal is an extension of the existing features and has no impact on compatibility.
 
 ## Reference Implementation
 
-TO DO
+https://github.com/signum-network/signum-node/pull/771
 
 
 ## Security Considerations
 
-The WebSocket connection is intended exclusively for reading public blockchain information. No transactions should be generated via Websockets.. Nevertheless, it must be possible to establish a WSS connection for HTTPS connections, as otherwise all modern browsers do not allow _mixed content_ communication.
+The WebSocket connection is intended exclusively for reading public blockchain information. No transactions should be generated via Websockets. Nevertheless, it must be possible to establish a WSS connection for HTTPS connections, as otherwise all modern browsers do not allow _mixed content_ communication.
 
 
 ## Copyright
