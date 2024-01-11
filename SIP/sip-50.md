@@ -5,7 +5,7 @@ description: Definition of the Web Sockets API
 author: ohager
 status: Draft
 type: standard
-category (*only required for Standards Track): Interface, SRC
+category: Interface, SRC
 created: 2024-01-10
 ---
 
