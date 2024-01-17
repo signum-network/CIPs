@@ -11,7 +11,7 @@ created: 2024-01-10
 
 
 ## Abstract
-This document describes the communication interface for lighweight realtime communication via WebSockets for the Node Software.
+This document describes the lightweight real-time communication interface via WebSockets for the Node Software.
 
 ## Motivation
 The Node software currently offers an extensive HTTP interface to communicate remotely with the Node software. This interface is used by software applications such as wallets. Because HTTP is a pure request-response procedure, a client application must regularly ask for updates (polling). WebSocket communication is used to establish a truly realtime connection between the client and the node software so that the server can notify connected clients directly about new blocks/transactions, for example. This allows communication to take place more efficiently according to the Hollywood principle, i.e. potentially less resource consumption (bandwidth, data volume).
@@ -47,7 +47,7 @@ The responses from the Node Software follow a unified structure. All responses M
 
 #### Event `CONNECTED`
 
-This event MUST be emitted by the Node Software upon every established websocket connection.
+The Node Software MUST emit this event upon every established websocket connection.
 
 The payload response SHOULD have at least the following fields:
 
@@ -81,7 +81,7 @@ _Example_
 
 #### Event `HEARTBEAT`
 
-This event SHOULD be emitted by the Node Software periodically. It helps to identify if the connection to the Node Software is still established. 
+The Node Software SHOULD emit this event periodically. It helps to identify if the connection to the Node Software is still established. 
 
 This event has no payload.
 
@@ -97,7 +97,7 @@ _Example_
 
 #### Event `BLOCK_PUSHED`
 
-This event SHALL be emitted by the Node Software upon pushed blocks,i.e. while the node is syncing. As the node can push several dozen to hundred blocks per second, the event emission MUST be debounced to a configurable duration, e.g. one second, where only the latest pushed block SHALL be submitted.
+The Node Software SHALL emit this event upon new blocks, i.e. while syncing or while in sync. As the node can push several dozen to hundred blocks per second, the event emission MUST be debounced to a configurable duration, e.g. one second, where only the latest pushed block SHALL be submitted.
 
 The payload response SHOULD have at least the following fields:
 
@@ -130,7 +130,7 @@ _Example_
 
 #### Event `PENDING_TRANSACTIONS_ADDED`
 
-This event SHALL be emitted by the Node Software upon pushed blocks,i.e. while the node is syncing. As the node can push several dozen to hundred blocks per second, the event emission MUST be debounced to a configurable duration, e.g. one second, where only the latest pushed block SHALL be submitted.
+The Node Software SHALL emit this event when new transactions are added to the mem pool. 
 
 The payload response SHOULD have at least the following fields:
 
@@ -172,3 +172,4 @@ The WebSocket connection is intended exclusively for reading public blockchain i
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+
