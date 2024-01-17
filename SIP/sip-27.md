@@ -59,7 +59,7 @@ In the case where a miner actually forges a block, his entire committed amount i
 
 ### Miner Capacity Estimation
 
-To keep the consensus fair and as linear as possible, the miner `commitment` is always given in Siggna/TiB. The amount committed in Signa is easily accessible and the mining physical capacity is estimated as follows:
+To keep the consensus fair and as linear as possible, the miner `commitment` is always given in Signa/TiB. The amount committed in Signa is easily accessible and the mining physical capacity is estimated as follows:
 
 `estimatedCapacity = genesisTarget/1.83*nBlocksMined/(capacityBaseTarget * capacityEstimationBlocks)`
 

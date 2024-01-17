@@ -53,7 +53,7 @@
       "type": "string",
       "title": "Account Id",
       "description": "Account identifier to be used for account resolving (ANS)",
-      "pattern": "^\\d{18,22}$",
+      "pattern": "^\\d{10,22}$",
       "default": "",
       "examples": [
         "895212263565386113"
@@ -148,12 +148,13 @@
     "al": {
       "$id": "#/properties/al",
       "type": "string",
-      "title": "The referenced Alias",
+      "title": "The referenced Alias (including optional Top Level Domain)",
       "description": "An related alias of the Signum chain, that can mutable on-chain information",
-      "pattern": "^\\w{1,100}$",
+      "pattern": "^\\w{1,100}(:[a-zA-Z0-9]{1,40})?$",
       "default": "",
       "examples": [
-        "@myAlias123"
+        "myAlias123",
+        "myAlias123:crypto"
       ]
     },
     "xt": {

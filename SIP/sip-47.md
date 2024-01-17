@@ -16,7 +16,7 @@ to resolve URIs in the browsers navigation bar to any arbitrary URL. This SIP pr
 
 ## Motivation
 
-If a user enters a customized URI, e.g. `signum://johndoe`, `https://$johndoe` or `https://johndoe.signum` in the browsers URL bar, it is possible to resolve this customized URI into an internet URL.
+If a user enters a customized URI, e.g. `sig://johndoe`, `https://$johndoe` or `https://johndoe:signum` in the browsers URL bar, it is possible to resolve this customized URI into an internet URL.
 
 Aliases in Signum are mutable on-chain data owned by users. Using the [standard descriptor](sip-44.md), it is possible to reference to any internet resource.
 To make browsers understand the custom URI, an installable extension is required, such that a URI can be read, resolved and updated according to the resolved URL. The XT Wallet will support this feature, 
@@ -40,9 +40,9 @@ URI = SCHEME://PATH
 ```
 
 ```
-SCHEME = [signum|http|https]
-PATH = [$]?[ALIAS.]?ALIAS[.TLD]?[/PATH]?
-TLD = [signum|signa|sig|sns|free|web3|crypto|p2p|wallet|blockhain|dex|decentral|dao|nft|coin|sustainble|w3|x|y|z]
+SCHEME = [sig|http|https]
+PATH = [$]?[ALIAS.]?ALIAS[:TLD]?[/PATH]?
+TLD = [signum]
 PATH = ALPHA[ALPHA|DIGIT]
 ALIAS = ALPHA[ALPHA|DIGIT]{1,100}
 ALPHA = [a-zA-Z]
@@ -52,19 +52,17 @@ DIGIT = [0-9]
 The `TLD` is only needed, if the `SCHEME` is not `signum`, or no shortform prefix `$` is being applied.
 When using `ALIAS.ALIAS`, the first `ALIAS` is considered as [subdomain](#subdomains).
 
-> The TLDs may change over time, depending on ICANNS registration of new/colliding TLDs 
-
 The `PATH` segment can be used for [deep resolution](#deep-resolution).
  
 _Examples:_
 
 Without subdomain:
 
-`signum://johndoe` or semantically identical `https://johndoe.signum`, `http://johndoe.sig`, `https://$johndoe`
+`sig://johndoe` or semantically identical `https://johndoe:signum`, `https://$johndoe`
 
 With subdomain:
 
-`signum://projects.johndoe` or semantically identical `https://projects.johndoe.signa`, `http://projects.johndoe.sns`, `http://$projects.johndoe`
+`sig://projects.johndoe` or semantically identical `https://projects.johndoe:signum`, `http://$projects.johndoe`
 
 
 ### URL Resolution
@@ -75,7 +73,7 @@ The resolver MUST always start looking for the alias name according to the domai
 
 _Example:_
 
-The URI `signum://johndoe` only provides a single domain. The resolver reads the descriptor of the alias `johndoe` and resolves
+The URI `sig://johndoe` only provides a single domain. The resolver reads the descriptor of the alias `johndoe` and resolves
 to the URL provided in `hp`, which is here `https://github.com/johndoe` 
 
 ```json
@@ -93,7 +91,7 @@ further resolution.
 
 _Example:_
 
-The URI `signum://myprojects.johndoe` provides the domain `johndoe` and the subdomain `myprojects`. The resolver reads the descriptor of the alias `johndoe` and resolves
+The URI `sig://myprojects.johndoe` provides the domain `johndoe` and the subdomain `myprojects`. The resolver reads the descriptor of the alias `johndoe` and resolves
 to the URL provided in `hp`, which is here `https://github.com/johndoe`
 
 The SRC44 compliant alias descriptor for `johndoe` may look like this:
@@ -134,50 +132,25 @@ The search MUST stop if
 
 ![image](./assets/sip-47/linked-alias-list.png "Linked List")
 
-### Different Schemas and TLDs
+#### Signum Default Domain
 
 For simplicity - while typing the URI inside the browsers URL bar - the `http` and `https` schemas are acceptable, but this requires the user
-to type one of the supported (at this time of writing) non-existing top level domains (TLD) or using the shortform prefix `$`
+to type the defaults (non-ICANN) Top Level Domain (TLD) `:signum` or using the shortform prefix `$`.
 The following URIs resolve always to the same URL:
 
-- `signum://arts.johndoe`
-- `https://$arts.johndoe`
+- `sig://arts.johndoe`
 - `http://$arts.johndoe`
-- `http://arts.johndoe.dex`
-- `http://arts.johndoe.signa`
-- `http://arts.johndoe.x`
-- `http://arts.johndoe.y`
-- `http://arts.johndoe.z`
-- `https://arts.johndoe.crypto`
-- `https://arts.johndoe.decentral`
-- `https://arts.johndoe.free`
-- `https://arts.johndoe.sig`
-- `https://arts.johndoe.signum`
-- `https://arts.johndoe.web3`
+- `https://$arts.johndoe`
+- `http://arts.johndoe:signum`
+- `https://arts.johndoe:signum`
 
-At this moment following TLDs are supported 
+#### Custom TLDs
 
-> More TLDs can be added, as long as they are not registered by ICANN
+When using non-default TLDs, i.e. not `signum`, it has to be appended to the URI, using `:<tld>`. The shortcut `$` does not apply here.
 
-- blockhain
-- coin
-- crypto
-- dao
-- decentral
-- dex
-- free
-- nft
-- p2p
-- sig
-- signa
-- signum
-- sns
-- w3
-- wallet
-- web3
-- x
-- y
-- z
+- `sig://arts.johndoe:web3`
+- `http://arts.johndoe:web3`
+- `https://arts.johndoe:web3`
 
 ### Deep Resolution
 
@@ -186,9 +159,9 @@ structure as long as it is available. This way it is possible, to use the URI an
 
 _Example:_
 
-The URI `http://johndoe.x/ac` would return the account Id for `johndoe`, if it exists, while `http://johndoe.x/tp` returns the type and so forth. 
+The URI `http://johndoe:signum/ac` would return the account Id for `johndoe`, if it exists, while `http://johndoe:signum/tp` returns the type and so forth. 
 
-This counts also for custom fields, so it is possible to do `http://johndoe.x/x-myfield`.  
+This counts also for custom fields, so it is possible to do `http://johndoe:signum/x-myfield`.  
 
 ## Compatibility
 
