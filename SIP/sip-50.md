@@ -1,6 +1,6 @@
 ---
 sip: 50
-title: Web Sockets API 
+title: Websockets API 
 description: Definition of the Web Sockets API
 author: ohager
 status: Draft
@@ -11,14 +11,14 @@ created: 2024-01-10
 
 
 ## Abstract
-This document describes the lightweight real-time communication interface via WebSockets for the Node Software.
+This document describes the lightweight real-time communication interface via Websockets for the Node Software.
 
 ## Motivation
-The Node software currently offers an extensive HTTP interface to communicate remotely with the Node software. This interface is used by software applications such as wallets. Because HTTP is a pure request-response procedure, a client application must regularly ask for updates (polling). WebSocket communication is used to establish a truly realtime connection between the client and the node software so that the server can notify connected clients directly about new blocks/transactions, for example. This allows communication to take place more efficiently according to the Hollywood principle, i.e. potentially less resource consumption (bandwidth, data volume).
+The Node software currently offers an extensive HTTP interface to communicate remotely with the Node software. This interface is used by software applications such as wallets. Because HTTP is a pure request-response procedure, a client application must regularly ask for updates (polling). Websocket communication is used to establish a truly realtime connection between the client and the node software so that the server can notify connected clients directly about new blocks/transactions, for example. This allows communication to take place more efficiently according to the Hollywood principle, i.e. potentially less resource consumption (bandwidth, data volume).
 
 ## Specification
 
-The new endpoint for the WebSocket connection SHALL be available under `ws[s]://<host>:<port>/events`. Once a client connects to this endpoint, it should get different real-time events from the node software.
+The new endpoint for the Websocket connection SHALL be available under `ws[s]://<host>:<port>/events`. Once a client connects to this endpoint, it should get different real-time events from the node software.
 
 
 ### Events
@@ -47,7 +47,7 @@ The responses from the Node Software follow a unified structure. All responses M
 
 #### Event `CONNECTED`
 
-The Node Software MUST emit this event upon every established websocket connection.
+The Node Software MUST emit this event upon every established Websocket connection.
 
 The payload response SHOULD have at least the following fields:
 
@@ -147,13 +147,13 @@ The following new configuration parameters for the `node.properties` are RECOMME
 
 ```
 # Enable or disable the Web Socket API
-API.WebSocketEnable = true
+API.WebsocketEnable = true
 
-# Port for websocket/json API events (defaults to HTTP API Port + 1)
-API.WebSocketPort = 8126
+# Port for Websocket/json API events (defaults to HTTP API Port + 1)
+API.WebsocketPort = 8126
 
 ## The heartbeat interval in seconds that indicates a working connection (defaults to 30 seconds)
-# API.WebSocketHeartbeatInterval = 30 
+# API.WebsocketHeartbeatInterval = 30 
 ```
 
 ## Backwards Compatibility
@@ -167,7 +167,7 @@ https://github.com/signum-network/signum-node/pull/771
 
 ## Security Considerations
 
-The WebSocket connection is intended exclusively for reading public blockchain information. No transactions should be generated via Websockets. Nevertheless, it must be possible to establish a WSS connection for HTTPS connections, as otherwise all modern browsers do not allow _mixed content_ communication.
+The Websocket connection is intended exclusively for reading public blockchain information. No transactions should be generated via Websockets. Nevertheless, it must be possible to establish a WSS connection for HTTPS connections, as otherwise all modern browsers do not allow _mixed content_ communication.
 
 
 ## Copyright
