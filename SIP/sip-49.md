@@ -3,11 +3,11 @@ sip:  49
 title: Liquidty Pool Contracts
 description: A standard for Liquidity Pool Contracts
 author:   frank_the_tank
-status: Review
+status: Final
 type: standard
 category: SRC
 created: 2023-10-15
-updated: 2023-10-15
+updated: 2024-01-28
 ---
 # Introduction
 Liquidity pool contracts provide a platform for users to contribute their assets, such as token X and token Y, into a shared pool. Users can participate by adding liquidity to the pool, allowing them to earn rewards in the form of a special liquidity token, denoted as "XY." This liquidity pool contract facilitates the swapping of tokens X and Y while ensuring fairness and security in the transactions. Users can engage in swaps from token X to token Y and vice versa, and the contract manages fees and slippage to maintain the integrity of the pool.
@@ -17,11 +17,11 @@ With the introduction of the [SIP-30](sip-30.md), this new liquidity pool standa
 
 SRC-49 Contract deployment:https://chain.signum.network/tx/2643236083511734871
 
-Transaction: 2643236083511734871
+Transaction:  4126436098076367362
 
-Reference Hash: 573236a736a9ae24b1e66113a23f86d1a8f1f54e267ad0cd570c47eaaccf3b84
+Reference Hash: 02da30b6c40b4439c3a36c5b5a30076acbe60f516f0b193fc0ab8e039725f681 
 
-Code-Hash-ID: 2588253152591293552
+Code-Hash-ID: 5192999337183104486
 
 ## Abstract
 
@@ -398,9 +398,14 @@ public class ShieldSwap extends Contract {
 						fee = calcMultDiv(dx, swapFee,TENTHOUSAND)+ calcMultDiv(dx, platformFeeSet,TENTHOUSAND);
 						dx -= fee;
 						dy = calcMultDiv(-dx, reserveY, reserveXBlock);
-							
-						sendAmount(tokenY, -dy, SenderAccount);
-						setMapValue(KEY_SWAP_XY_Y, TransactionId, -dy);
+						if(minOut > -dy){
+							sendAmount(tokenY, minOut, SenderAccount);
+							setMapValue(KEY_SWAP_XY_Y, TransactionId, minOut);
+						}
+						else{
+							sendAmount(tokenY, -dy, SenderAccount);
+							setMapValue(KEY_SWAP_XY_Y, TransactionId, -dy);
+						}
 					}
 					else {
 						// swap YX
@@ -409,9 +414,14 @@ public class ShieldSwap extends Contract {
 						fee = calcMultDiv(dy, swapFee,TENTHOUSAND) + calcMultDiv(dy, platformFeeSet,TENTHOUSAND);
 						dy -= fee;
 						dx = calcMultDiv(-dy, reserveX, reserveYBlock);
-						
-						sendAmount(tokenX, -dx, SenderAccount);
-						setMapValue(KEY_SWAP_YX_X, TransactionId, -dx);
+						if(minOut > -dx){
+							sendAmount(tokenX, minOut, SenderAccount);
+							setMapValue(KEY_SWAP_YX_X, TransactionId, minOut);
+						}
+						else{
+							sendAmount(tokenX, -dx, SenderAccount);
+							setMapValue(KEY_SWAP_YX_X, TransactionId, -dx);
+						}
 					}
 				}
 			}

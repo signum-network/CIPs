@@ -97,7 +97,8 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [46](./SIP/sip-46.md )       | Standard| SRC      | Secure solo mining setup                                      | Final|yes|
 | [47](./SIP/sip-47.md )       | Standard| SRC       | URI Resolution (SNS)                                           | Review|no|
 | [48](./SIP/sip-48.md )       | Standard| Core       | Modernize the Alias frameworks                              | Final|yes|
-| [49](./SIP/sip-49.md )       | Standard| SRC     | Liquidity Pool Contracts                           | Review|yes|
+| [49](./SIP/sip-49.md )       | Standard| SRC     | Liquidity Pool Contracts                           | Final|yes|
 | [50](./SIP/sip-50.md )       | Standard| SRC     | WebSocket API                           | Review|yes|
+| [51](./SIP/sip-51.md )       | Standard| Core     | Lending Commitment                         | Draft|no|
 
 
