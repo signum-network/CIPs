@@ -7,7 +7,7 @@ status: Final
 type: standard
 category: SRC
 created: 2023-10-15
-updated: 2023-10-15
+updated: 2024-02-28
 ---
 # Introduction
 Liquidity pool contracts provide a platform for users to contribute their assets, such as token X and token Y, into a shared pool. Users can participate by adding liquidity to the pool, allowing them to earn rewards in the form of a special liquidity token, denoted as "XY." This liquidity pool contract facilitates the swapping of tokens X and Y while ensuring fairness and security in the transactions. Users can engage in swaps from token X to token Y and vice versa, and the contract manages fees and slippage to maintain the integrity of the pool.
