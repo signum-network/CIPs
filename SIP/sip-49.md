@@ -3,7 +3,7 @@ sip:  49
 title: Liquidty Pool Contracts
 description: A standard for Liquidity Pool Contracts
 author:   frank_the_tank
-status: Review
+status: Final
 type: standard
 category: SRC
 created: 2023-10-15
