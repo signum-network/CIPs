@@ -99,5 +99,6 @@ Describes a Signum design issue, or provides general guidelines or information t
 | [48](./SIP/sip-48.md )       | Standard| Core       | Modernize the Alias frameworks                              | Final|yes|
 | [49](./SIP/sip-49.md )       | Standard| SRC     | Liquidity Pool Contracts                           | Review|yes|
 | [50](./SIP/sip-50.md )       | Standard| SRC     | WebSocket API                           | Review|yes|
+| [50](./SIP/sip-51.md )       | Standard| Core     | Lending Commitment                         | Draft|no|
 
 
